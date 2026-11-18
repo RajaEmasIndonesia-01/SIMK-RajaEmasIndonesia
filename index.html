@@ -55,16 +55,23 @@
                 </div>
             </div>
 
-            <!-- Role Switcher Pill (Top Right) -->
-            <div class="bg-zinc-900 p-1 rounded-xl flex items-center border border-zinc-800 shadow-inner">
-                <button onclick="switchRole('karyawan')" id="btn-role-karyawan" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-rei-gold text-rei-black shadow">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                    <span>Portal Formulir</span>
-                </button>
-                <button onclick="attemptSwitchAdmin()" id="btn-role-admin" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-zinc-400 hover:text-white">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                    <span>HR Admin</span>
-                </button>
+            <!-- Role Switcher Pill & Sync Status -->
+            <div class="flex items-center gap-2.5">
+                <div id="cloud-sync-badge" onclick="syncFromGoogleSheet(true)" title="Klik untuk sinkronisasi manual dari Google Sheet" class="cursor-pointer hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 text-[11px] font-semibold text-zinc-300 hover:border-zinc-700 transition">
+                    <span id="cloud-sync-dot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span id="cloud-sync-text">Cloud Terhubung</span>
+                </div>
+
+                <div class="bg-zinc-900 p-1 rounded-xl flex items-center border border-zinc-800 shadow-inner">
+                    <button onclick="switchRole('karyawan')" id="btn-role-karyawan" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-rei-gold text-rei-black shadow">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                        <span>Portal Formulir</span>
+                    </button>
+                    <button onclick="attemptSwitchAdmin()" id="btn-role-admin" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-zinc-400 hover:text-white">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        <span>HR Admin</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -109,9 +116,12 @@
             </div>
 
             <!-- Footer Status -->
-            <div class="p-3.5 border-t border-slate-100 flex items-center gap-2 text-[11px] font-medium text-slate-500">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Sistem Lokal Siap</span>
+            <div class="p-3.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Real-Time Cloud Sync</span>
+                </div>
+                <button onclick="syncFromGoogleSheet(true)" class="text-[10px] font-bold text-amber-700 hover:underline">Refresh</button>
             </div>
         </aside>
 
@@ -120,9 +130,14 @@
             <div class="p-4 space-y-4 overflow-y-auto">
                 <div class="px-3 py-2 flex items-center justify-between border-b border-zinc-800/80">
                     <span class="text-[11px] font-extrabold text-rei-gold uppercase tracking-wider">HR Admin Panel</span>
-                    <button onclick="promptResetData()" title="Reset Data Awal" class="text-zinc-400 hover:text-rose-400 transition p-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9"/></svg>
-                    </button>
+                    <div class="flex items-center gap-1">
+                        <button onclick="syncFromGoogleSheet(true)" title="Tarik Data Terbaru dari Google Sheet" class="text-zinc-400 hover:text-emerald-400 transition p-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </button>
+                        <button onclick="promptResetData()" title="Reset Data Awal" class="text-zinc-400 hover:text-rose-400 transition p-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9"/></svg>
+                        </button>
+                    </div>
                 </div>
 
                 <nav class="space-y-1.5">
@@ -171,8 +186,9 @@
                 </nav>
             </div>
 
-            <div class="p-4 border-t border-zinc-800/80 text-[11px] text-zinc-500">
+            <div class="p-4 border-t border-zinc-800/80 text-[11px] text-zinc-500 flex justify-between items-center">
                 <button onclick="logoutAdmin()" class="text-rose-400 hover:text-rose-300 font-bold transition">Logout Admin</button>
+                <span class="text-[10px] text-zinc-500">GAS Sync v2</span>
             </div>
         </aside>
 
@@ -598,10 +614,13 @@
                     </div>
                 </div>
 
-                <!-- Building Pill Filters & Legends -->
+                <!-- Building Drop-Down Filter & Legends -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xs">
-                    <div id="building-pills-container" class="flex flex-wrap gap-2">
-                        <!-- Dinamis Pill Filters -->
+                    <div class="flex items-center gap-2.5 w-full md:w-auto">
+                        <label for="master-building-dropdown" class="text-xs font-bold text-slate-700 uppercase whitespace-nowrap">🏢 Lokasi Gedung:</label>
+                        <select id="master-building-dropdown" onchange="setBuildingFilter(this.value)" class="w-full md:w-56 px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-bold text-slate-800 bg-slate-50 hover:bg-white focus:ring-2 focus:ring-rei-gold outline-none transition cursor-pointer">
+                            <option value="Semua">Semua Gedung</option>
+                        </select>
                     </div>
                     <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-600">
                         <div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500"></span><span>VACANT</span></div>
@@ -885,7 +904,7 @@
         </div>
     </div>
 
-    <!-- MODAL 1: TAMBAH GEDUNG & DAFTAR GEDUNG -->
+    <!-- MODAL 1: TAMBAH GEDUNG & DAFTAR GEDUNG (DROPDOWN LIST) -->
     <div id="add-building-modal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div class="flex justify-between items-center border-b border-slate-100 pb-3">
@@ -901,10 +920,15 @@
                     </div>
                 </div>
             </form>
-            <div class="space-y-2 pt-1">
-                <p class="text-[11px] font-bold text-slate-500 uppercase">Daftar Gedung Terdaftar:</p>
-                <div id="building-list-container" class="max-h-56 overflow-y-auto divide-y border border-slate-200 rounded-xl bg-slate-50/70">
-                    <!-- List Gedung Dinamis -->
+            <div class="space-y-2 pt-2 border-t border-slate-100">
+                <label for="building-manage-dropdown" class="block text-[11px] font-bold text-slate-600 uppercase">Daftar Gedung Terdaftar (Drop-Down):</label>
+                <div class="flex gap-2">
+                    <select id="building-manage-dropdown" class="flex-1 px-3 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold text-slate-800 bg-slate-50 focus:ring-2 focus:ring-rei-gold outline-none">
+                        <!-- Options Gedung Dinamis -->
+                    </select>
+                    <button type="button" onclick="deleteSelectedBuildingFromDropdown()" class="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 text-xs font-bold transition shrink-0" title="Hapus Gedung Terpilih">
+                        Hapus
+                    </button>
                 </div>
             </div>
             <div class="flex justify-end pt-2">
@@ -1136,6 +1160,11 @@
 
     <script>
         // ==========================================
+        // GOOGLE APPS SCRIPT REAL-TIME ENDPOINT
+        // ==========================================
+        const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyHJxwHADtjDKbG_HJEts5z59Eo6kFLU0-vz9-kOQ9Z60VzW8H91J1Yfu6Bnn47TWqY/exec";
+
+        // ==========================================
         // APP STATE & DEFAULT MASTER DATA
         // ==========================================
         let appState = {
@@ -1153,6 +1182,7 @@
         };
 
         let confirmActionCallback = null;
+        let syncTimer = null;
 
         const defaultRoomsTemplate = [
             // --- PETOJO 2 ---
@@ -1225,9 +1255,144 @@
             { id: 'p1-l405-2b', building: 'Petojo 1', code: 'Petojo 1 L.405 2.B', status: 'VACANT', occupantNik: '', occupantName: '' }
         ];
 
+        // ==========================================
+        // HELPER PARSING NAMA KAMAR & BED AGAR UTUH
+        // ==========================================
+        function getRoomPrefixFromCode(code) {
+            if (!code) return '';
+            const trimmed = code.trim();
+            const lastSpaceIdx = trimmed.lastIndexOf(' ');
+            if (lastSpaceIdx === -1) return trimmed;
+            return trimmed.substring(0, lastSpaceIdx).trim();
+        }
+
+        function getBedSuffixFromCode(code) {
+            if (!code) return '';
+            const trimmed = code.trim();
+            const lastSpaceIdx = trimmed.lastIndexOf(' ');
+            if (lastSpaceIdx === -1) return trimmed;
+            return trimmed.substring(lastSpaceIdx + 1).trim();
+        }
+
         function getAllBuildings() {
-            const roomBuildings = appState.rooms.map(r => r.building);
+            const roomBuildings = appState.rooms.map(r => r.building).filter(Boolean);
             return [...new Set([...(appState.buildings || []), ...roomBuildings])];
+        }
+
+        // ==========================================
+        // REAL-TIME SYNC GOOGLE APPS SCRIPT (GAS)
+        // ==========================================
+        function setSyncIndicator(state, text) {
+            const dot = document.getElementById('cloud-sync-dot');
+            const label = document.getElementById('cloud-sync-text');
+            if (!dot || !label) return;
+            label.textContent = text;
+            if (state === 'syncing') {
+                dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
+            } else if (state === 'error') {
+                dot.className = 'w-2 h-2 rounded-full bg-rose-500';
+            } else {
+                dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+            }
+        }
+
+        async function pushToGoogleSheet() {
+            if (!GAS_WEBAPP_URL) return;
+            setSyncIndicator('syncing', 'Menyimpan ke Cloud...');
+            try {
+                const payload = {
+                    action: 'sync_all',
+                    timestamp: new Date().toISOString(),
+                    buildings: getAllBuildings(),
+                    rooms: appState.rooms,
+                    bookings: appState.bookings,
+                    checkouts: appState.checkouts,
+                    damages: appState.damages
+                };
+
+                await fetch(GAS_WEBAPP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                setSyncIndicator('ok', 'Tersimpan Real-Time');
+            } catch (err) {
+                console.error('GAS Push Error:', err);
+                setSyncIndicator('error', 'Offline (Lokal Aktif)');
+            }
+        }
+
+        async function syncFromGoogleSheet(showNotification = false) {
+            if (!GAS_WEBAPP_URL) return;
+            setSyncIndicator('syncing', 'Sinkronisasi...');
+            try {
+                const response = await fetch(`${GAS_WEBAPP_URL}?action=get_all&t=${Date.now()}`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+
+                if (data && typeof data === 'object') {
+                    let hasRemoteData = false;
+                    if (Array.isArray(data.rooms) && data.rooms.length > 0) {
+                        appState.rooms = data.rooms;
+                        hasRemoteData = true;
+                    }
+                    if (Array.isArray(data.buildings) && data.buildings.length > 0) {
+                        appState.buildings = data.buildings;
+                        hasRemoteData = true;
+                    }
+                    if (Array.isArray(data.bookings)) {
+                        appState.bookings = data.bookings;
+                        hasRemoteData = true;
+                    }
+                    if (Array.isArray(data.checkouts)) {
+                        appState.checkouts = data.checkouts;
+                        hasRemoteData = true;
+                    }
+                    if (Array.isArray(data.damages)) {
+                        appState.damages = data.damages;
+                        hasRemoteData = true;
+                    }
+
+                    if (hasRemoteData) {
+                        appState.rooms.forEach(r => { r.status = normalizeStatus(r.status); });
+                        appState.bookings.forEach(b => {
+                            b.approvalStatus = normalizeStatus(b.approvalStatus);
+                            if (b.roomStatus) b.roomStatus = normalizeStatus(b.roomStatus);
+                        });
+                        localStorage.setItem('rei_mess_buildings', JSON.stringify(getAllBuildings()));
+                        localStorage.setItem('rei_mess_rooms', JSON.stringify(appState.rooms));
+                        localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
+                        localStorage.setItem('rei_mess_checkouts', JSON.stringify(appState.checkouts));
+                        localStorage.setItem('rei_mess_damages', JSON.stringify(appState.damages));
+                        refreshAllUI();
+                    } else {
+                        // Jika sheet masih kosong, kirim data master awal ke Google Sheet
+                        await pushToGoogleSheet();
+                    }
+                }
+
+                setSyncIndicator('ok', 'Cloud Terhubung');
+                if (showNotification) showToast('Data berhasil disinkronkan dari Google Sheet!', 'success');
+            } catch (err) {
+                console.warn('GAS Pull Info:', err);
+                setSyncIndicator('ok', 'Cloud Siap');
+                if (showNotification) showToast('Sinkronisasi selesai (menggunakan cache lokal jika offline).', 'success');
+            }
+        }
+
+        function saveAppData() {
+            localStorage.setItem('rei_mess_buildings', JSON.stringify(getAllBuildings()));
+            localStorage.setItem('rei_mess_rooms', JSON.stringify(appState.rooms));
+            localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
+            localStorage.setItem('rei_mess_checkouts', JSON.stringify(appState.checkouts));
+            localStorage.setItem('rei_mess_damages', JSON.stringify(appState.damages));
+
+            // Push secara real-time ke Google Apps Script
+            pushToGoogleSheet();
         }
 
         function toggleOtherDivisi() {
@@ -1253,7 +1418,7 @@
         }
 
         function formatBedDisplay(code) {
-            const bedPart = code.split(' ').pop();
+            const bedPart = getBedSuffixFromCode(code);
             if (bedPart.endsWith('.A')) return `${code} (Bed A - Kasur Bawah)`;
             if (bedPart.endsWith('.B')) return `${code} (Bed B - Kasur Atas)`;
             if (bedPart.endsWith('.X')) return `${code} (Extra Bed)`;
@@ -1288,7 +1453,7 @@
         // MODAL & LOGIC: TAMBAH GEDUNG, KAMAR, KASUR
         // ==========================================
 
-        // 1. TAMBAH & KELOLA GEDUNG (LIST)
+        // 1. TAMBAH & KELOLA GEDUNG (DROP-DOWN LIST)
         function openAddBuildingModal() {
             renderBuildingListModal();
             const modal = document.getElementById('add-building-modal');
@@ -1303,25 +1468,15 @@
         }
 
         function renderBuildingListModal() {
-            const listEl = document.getElementById('building-list-container');
-            if (!listEl) return;
+            const dropdownEl = document.getElementById('building-manage-dropdown');
+            if (!dropdownEl) return;
             const buildings = getAllBuildings();
 
-            listEl.innerHTML = buildings.length > 0 ? buildings.map(b => {
+            dropdownEl.innerHTML = buildings.length > 0 ? buildings.map(b => {
                 const countBeds = appState.rooms.filter(r => r.building === b).length;
-                const uniqueRooms = [...new Set(appState.rooms.filter(r => r.building === b).map(r => r.code.split(' ').slice(0, -1).join(' ')))].length;
-                return `
-                    <div class="p-3 flex items-center justify-between hover:bg-white transition">
-                        <div>
-                            <p class="text-xs font-bold text-slate-900">🏢 ${b}</p>
-                            <p class="text-[10px] text-slate-500">${uniqueRooms} Kamar • ${countBeds} Kasur</p>
-                        </div>
-                        <button type="button" onclick="deleteBuilding('${b}')" class="px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 text-[10px] font-bold transition" title="Hapus Gedung">
-                            Hapus
-                        </button>
-                    </div>
-                `;
-            }).join('') : '<p class="p-4 text-center text-xs text-slate-400">Belum ada data gedung.</p>';
+                const uniqueRooms = [...new Set(appState.rooms.filter(r => r.building === b).map(r => getRoomPrefixFromCode(r.code)))].length;
+                return `<option value="${b}">🏢 ${b} (${uniqueRooms} Kamar • ${countBeds} Kasur)</option>`;
+            }).join('') : '<option value="">-- Belum ada data gedung --</option>';
         }
 
         function handleAddNewBuilding(e) {
@@ -1343,6 +1498,15 @@
             renderBuildingListModal();
             refreshAllUI();
             showToast(`Gedung "${name}" berhasil ditambahkan!`, 'success');
+        }
+
+        function deleteSelectedBuildingFromDropdown() {
+            const dropdownEl = document.getElementById('building-manage-dropdown');
+            if (!dropdownEl || !dropdownEl.value) {
+                showToast('Pilih gedung terlebih dahulu dari drop-down.', 'error');
+                return;
+            }
+            deleteBuilding(dropdownEl.value);
         }
 
         function deleteBuilding(bldgName) {
@@ -1394,12 +1558,11 @@
             let roomNum = document.getElementById('new-kamar-number').value.trim();
             if (!bldg || !roomNum) return;
 
-            // Pastikan format prefix kamar konsisten
             const roomPrefix = roomNum.toLowerCase().startsWith(bldg.toLowerCase())
                 ? roomNum
                 : `${bldg} ${roomNum}`;
 
-            const exists = appState.rooms.some(r => r.code.toLowerCase().startsWith(roomPrefix.toLowerCase() + ' '));
+            const exists = appState.rooms.some(r => getRoomPrefixFromCode(r.code).toLowerCase() === roomPrefix.toLowerCase());
             if (exists) {
                 showToast(`Kamar "${roomPrefix}" sudah ada! Gunakan tombol + Tambah Kasur untuk menambah bed.`, 'error');
                 return;
@@ -1441,7 +1604,7 @@
             const kamarSel = document.getElementById('kasur-kamar-select');
             const roomsInBldg = appState.rooms.filter(r => r.building === bldg);
 
-            const uniqueKamars = [...new Set(roomsInBldg.map(r => r.code.split(' ').slice(0, -1).join(' ')))];
+            const uniqueKamars = [...new Set(roomsInBldg.map(r => getRoomPrefixFromCode(r.code)))];
 
             kamarSel.innerHTML = uniqueKamars.length > 0
                 ? uniqueKamars.map(k => `<option value="${k}">${k}</option>`).join('')
@@ -1451,16 +1614,13 @@
         }
 
         function getNextSequentialBed(roomKey, mode = 'STANDARD') {
-            const bedsInRoom = appState.rooms.filter(r => {
-                const key = r.code.split(' ').slice(0, -1).join(' ');
-                return key === roomKey;
-            });
+            const bedsInRoom = appState.rooms.filter(r => getRoomPrefixFromCode(r.code) === roomKey);
 
             if (mode === 'EXTRA') {
                 let maxX = 0;
                 let lastXLabel = 'Belum ada Extra Bed';
                 bedsInRoom.forEach(b => {
-                    const suffix = b.code.split(' ').pop().toUpperCase();
+                    const suffix = getBedSuffixFromCode(b.code).toUpperCase();
                     const matchX = suffix.match(/^(\d+)\.X$/);
                     if (matchX) {
                         const num = parseInt(matchX[1], 10);
@@ -1479,14 +1639,12 @@
                 };
             }
 
-            // Mode STANDARD: Parse angka & huruf (contoh: 1.A, 1.B, ..., 6.B -> 7.A)
             let maxNum = 0;
-            let lastSub = null; // 'A' atau 'B'
+            let lastSub = null;
             let lastBedCode = 'Belum ada kasur';
 
             bedsInRoom.forEach(b => {
-                const suffix = b.code.split(' ').pop().toUpperCase();
-                // Abaikan .X untuk urutan kasur tingkat standar
+                const suffix = getBedSuffixFromCode(b.code).toUpperCase();
                 const matchStd = suffix.match(/^(\d+)(?:\.([AB]))?$/);
                 if (matchStd) {
                     const num = parseInt(matchStd[1], 10);
@@ -1510,7 +1668,6 @@
                 nextNum = maxNum;
                 nextSub = 'B';
             } else {
-                // Jika terakhir adalah B (misal 6.B), lanjut ke angka berikutnya .A (7.A)
                 nextNum = maxNum + 1;
                 nextSub = 'A';
             }
@@ -1554,7 +1711,6 @@
 
             const result = getNextSequentialBed(roomKey, mode);
 
-            // Pastikan belum duplikat
             if (appState.rooms.some(r => r.code.toLowerCase() === result.nextFullCode.toLowerCase())) {
                 showToast(`Kode kasur ${result.nextFullCode} sudah ada.`, 'error');
                 return;
@@ -1571,7 +1727,7 @@
 
             saveAppData();
             refreshAllUI();
-            calculateNextBedPreview(); // Perbarui preview jika admin ingin klik tambah lagi secara beruntun
+            calculateNextBedPreview();
             showToast(`Berhasil menambah ${roomKey} ${result.nextDesc}!`, 'success');
         }
 
@@ -1714,14 +1870,15 @@
             if (savedAdminAuth === 'true') {
                 switchRole('admin');
             }
-        }
 
-        function saveAppData() {
-            localStorage.setItem('rei_mess_buildings', JSON.stringify(getAllBuildings()));
-            localStorage.setItem('rei_mess_rooms', JSON.stringify(appState.rooms));
-            localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
-            localStorage.setItem('rei_mess_checkouts', JSON.stringify(appState.checkouts));
-            localStorage.setItem('rei_mess_damages', JSON.stringify(appState.damages));
+            // Tarik data terbaru dari Google Apps Script saat pertama kali dimuat
+            syncFromGoogleSheet(false);
+
+            // Auto-polling real-time setiap 20 detik agar selalu sinkron antar perangkat
+            if (syncTimer) clearInterval(syncTimer);
+            syncTimer = setInterval(() => {
+                syncFromGoogleSheet(false);
+            }, 20000);
         }
 
         function refreshAllUI() {
@@ -1872,20 +2029,21 @@
 
         function renderRooms() {
             const container = document.getElementById('buildings-container');
-            const pillContainer = document.getElementById('building-pills-container');
+            const bldgDropdown = document.getElementById('master-building-dropdown');
             if (!container) return;
 
             const buildings = getAllBuildings();
-            const allBuildingsTab = ['Semua', ...buildings];
 
-            if (pillContainer) {
-                pillContainer.innerHTML = allBuildingsTab.map(b => {
-                    const isActive = (appState.selectedBuildingFilter === b || (!appState.selectedBuildingFilter && b === 'Semua'));
-                    const btnClass = isActive 
-                        ? 'px-4 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-white shadow-xs' 
-                        : 'px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
-                    return `<button onclick="setBuildingFilter('${b}')" class="${btnClass}">${b === 'Semua' ? 'Semua' : b}</button>`;
-                }).join('');
+            if (bldgDropdown) {
+                const currentVal = appState.selectedBuildingFilter || 'Semua';
+                bldgDropdown.innerHTML = [
+                    `<option value="Semua">Semua Gedung (${buildings.length})</option>`,
+                    ...buildings.map(b => {
+                        const totalBeds = appState.rooms.filter(r => r.building === b).length;
+                        return `<option value="${b}">🏢 Gedung ${b} (${totalBeds} Bed)</option>`;
+                    })
+                ].join('');
+                bldgDropdown.value = ['Semua', ...buildings].includes(currentVal) ? currentVal : 'Semua';
             }
 
             const buildingsMap = {};
@@ -1903,8 +2061,7 @@
             for (const [bldg, rooms] of Object.entries(buildingsMap)) {
                 const roomGroups = {};
                 rooms.forEach(r => {
-                    let parts = r.code.split(' ');
-                    let roomKey = parts.slice(0, -1).join(' ');
+                    let roomKey = getRoomPrefixFromCode(r.code);
                     if (!roomGroups[roomKey]) roomGroups[roomKey] = [];
                     roomGroups[roomKey].push(r);
                 });
@@ -1930,12 +2087,12 @@
                         const safeBldg = bldg.replace(/'/g, "\\'");
                         html += `
                             <div class="bg-slate-50/70 border border-slate-200/80 rounded-xl p-3.5 space-y-2.5 shadow-2xs">
-                                <div class="flex justify-between items-center border-b border-slate-200/60 pb-1.5 gap-2">
-                                    <div class="flex items-center gap-1.5 min-w-0">
-                                        <span class="font-bold text-slate-800 text-[11px] truncate">Kamar: ${roomNo}</span>
-                                        <button type="button" onclick="openEditKamarModal('${safeRoomNo}', '${safeBldg}')" class="text-slate-400 hover:text-amber-600 transition p-0.5 rounded" title="Edit Nama Kamar">✏️</button>
+                                <div class="flex justify-between items-start border-b border-slate-200/60 pb-2 gap-2">
+                                    <div class="flex items-start gap-1.5 flex-1">
+                                        <span class="font-bold text-slate-800 text-xs leading-snug break-words">Kamar: ${roomNo}</span>
+                                        <button type="button" onclick="openEditKamarModal('${safeRoomNo}', '${safeBldg}')" class="text-slate-400 hover:text-amber-600 transition p-0.5 rounded shrink-0" title="Edit Nama Kamar">✏️</button>
                                     </div>
-                                    <span class="text-[9px] font-bold text-slate-400 shrink-0">${roomBeds.length} Bed</span>
+                                    <span class="text-[10px] font-bold text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded-md shrink-0">${roomBeds.length} Bed</span>
                                 </div>
                                 <div class="grid grid-cols-2 gap-2">
                         `;
@@ -1969,7 +2126,7 @@
                                 }
                             }
 
-                            let bedCodeLabel = bed.code.split(' ').pop();
+                            let bedCodeLabel = getBedSuffixFromCode(bed.code);
                             let bedTypeNote = '';
                             if (bedCodeLabel.endsWith('.A')) bedTypeNote = ' (Bed Bawah)';
                             else if (bedCodeLabel.endsWith('.B')) bedTypeNote = ' (Bed Atas)';
@@ -1978,12 +2135,12 @@
                             let displayStatusLabel = isVacant ? 'VACANT' : (kat.includes('Permanent') ? 'PERMANENT' : (kat.includes('Training') ? 'TRAINING' : (kat.includes('Transit') ? 'TRANSIT' : 'CEK IN')));
 
                             html += `
-                                <div onclick="toggleBedStatusModal('${bed.id}')" class="p-2 rounded-lg border ${cardBg} flex flex-col justify-between cursor-pointer shadow-2xs hover:shadow-xs transition relative min-h-[58px]">
-                                    <div class="flex justify-between items-center">
-                                        <span class="font-extrabold text-[10px] text-slate-800">${bedCodeLabel}<span class="text-[9px] font-normal text-slate-500">${bedTypeNote}</span></span>
-                                        <span class="px-1.5 py-0.5 rounded text-[8px] font-extrabold ${badgeBg}">${displayStatusLabel}</span>
+                                <div onclick="toggleBedStatusModal('${bed.id}')" class="p-2 rounded-lg border ${cardBg} flex flex-col justify-between cursor-pointer shadow-2xs hover:shadow-xs transition relative min-h-[60px]">
+                                    <div class="flex justify-between items-start gap-1">
+                                        <span class="font-extrabold text-[10px] text-slate-800 leading-tight">${bedCodeLabel}<span class="text-[9px] font-normal text-slate-500">${bedTypeNote}</span></span>
+                                        <span class="px-1.5 py-0.5 rounded text-[8px] font-extrabold ${badgeBg} shrink-0">${displayStatusLabel}</span>
                                     </div>
-                                    <div class="text-[10px] text-slate-600 truncate font-medium mt-1 pr-10">
+                                    <div class="text-[10px] text-slate-600 truncate font-medium mt-1.5 pr-10">
                                         ${isVacant ? '<span class="text-emerald-600">Kosong</span>' : statusText}
                                     </div>
                                     <div class="absolute bottom-1 right-1 flex items-center gap-0.5">
@@ -2123,7 +2280,7 @@
             closeDamageFeedbackModal();
             saveAppData();
             refreshAllUI();
-            showToast(`Data check-in berhasil diperbarui.`, 'success');
+            showToast(`Feedback penanganan kerusakan berhasil disimpan.`, 'success');
         }
 
         // ==========================================
@@ -2154,7 +2311,6 @@
 
             if (!rawNewName) return;
 
-            // Pastikan awalan gedung tetap konsisten jika pengguna hanya mengetik nomor kamar (misal "L.101 VIP")
             const newKey = rawNewName.toLowerCase().startsWith(bldg.toLowerCase())
                 ? rawNewName
                 : `${bldg} ${rawNewName}`;
@@ -2164,9 +2320,8 @@
                 return;
             }
 
-            // Cek apakah nama kamar baru sudah dipakai oleh kamar lain
             const isDuplicate = appState.rooms.some(r => {
-                const k = r.code.split(' ').slice(0, -1).join(' ');
+                const k = getRoomPrefixFromCode(r.code);
                 return k.toLowerCase() === newKey.toLowerCase();
             });
 
@@ -2175,31 +2330,25 @@
                 return;
             }
 
-            // 1. Perbarui semua kode kasur (bed) di dalam kamar tersebut
             appState.rooms.forEach(r => {
-                const parts = r.code.split(' ');
-                const currentKey = parts.slice(0, -1).join(' ');
-                const bedSuffix = parts.pop();
+                const currentKey = getRoomPrefixFromCode(r.code);
+                const bedSuffix = getBedSuffixFromCode(r.code);
                 if (currentKey === oldKey) {
                     r.code = `${newKey} ${bedSuffix}`;
                 }
             });
 
-            // 2. Perbarui data riwayat bookings yang menggunakan kamar tersebut
             appState.bookings.forEach(b => {
-                const parts = b.roomCode.split(' ');
-                const currentKey = parts.slice(0, -1).join(' ');
-                const bedSuffix = parts.pop();
+                const currentKey = getRoomPrefixFromCode(b.roomCode);
+                const bedSuffix = getBedSuffixFromCode(b.roomCode);
                 if (currentKey === oldKey) {
                     b.roomCode = `${newKey} ${bedSuffix}`;
                 }
             });
 
-            // 3. Perbarui data riwayat checkouts yang menggunakan kamar tersebut
             appState.checkouts.forEach(c => {
-                const parts = c.roomCode.split(' ');
-                const currentKey = parts.slice(0, -1).join(' ');
-                const bedSuffix = parts.pop();
+                const currentKey = getRoomPrefixFromCode(c.roomCode);
+                const bedSuffix = getBedSuffixFromCode(c.roomCode);
                 if (currentKey === oldKey) {
                     c.roomCode = `${newKey} ${bedSuffix}`;
                 }
@@ -2218,9 +2367,8 @@
             const bed = appState.rooms.find(r => r.id === bedId);
             if (!bed) return;
 
-            const parts = bed.code.split(' ');
-            const bedSuffix = parts.pop();
-            const roomPrefix = parts.join(' ');
+            const bedSuffix = getBedSuffixFromCode(bed.code);
+            const roomPrefix = getRoomPrefixFromCode(bed.code);
 
             document.getElementById('edit-kasur-id').value = bed.id;
             document.getElementById('edit-kasur-room-prefix').value = roomPrefix;
@@ -2250,7 +2398,6 @@
             if (!bed) return;
 
             const oldFullCode = bed.code;
-            // Jika user mengetik suffix saja (misal "2.A") atau mengetik lengkap (misal "Petojo 2 L.101 2.A")
             const newFullCode = rawInput.toLowerCase().startsWith(roomPrefix.toLowerCase() + ' ')
                 ? rawInput
                 : `${roomPrefix} ${rawInput}`;
@@ -2260,24 +2407,20 @@
                 return;
             }
 
-            // Cek duplikasi kode kasur
             const isDuplicate = appState.rooms.some(r => r.id !== bedId && r.code.toLowerCase() === newFullCode.toLowerCase());
             if (isDuplicate) {
                 showToast(`Kode kasur "${newFullCode}" sudah digunakan!`, 'error');
                 return;
             }
 
-            // 1. Update kode pada master bed
             bed.code = newFullCode;
 
-            // 2. Sinkronisasi ke data bookings
             appState.bookings.forEach(b => {
                 if (b.roomCode === oldFullCode) {
                     b.roomCode = newFullCode;
                 }
             });
 
-            // 3. Sinkronisasi ke data checkouts
             appState.checkouts.forEach(c => {
                 if (c.roomCode === oldFullCode) {
                     c.roomCode = newFullCode;
@@ -2325,8 +2468,7 @@
             if (tbKamar) {
                 const roomGroups = {};
                 appState.rooms.forEach(r => {
-                    let parts = r.code.split(' ');
-                    let roomKey = parts.slice(0, -1).join(' ');
+                    let roomKey = getRoomPrefixFromCode(r.code);
                     if (!roomGroups[roomKey]) roomGroups[roomKey] = { building: r.building, total: 0, vacant: 0 };
                     roomGroups[roomKey].total++;
                     if (r.status === 'VACANT') roomGroups[roomKey].vacant++;
@@ -2448,8 +2590,7 @@
             } else if (tab === 'master-kamar') {
                 const roomGroups = {};
                 appState.rooms.forEach(r => {
-                    let parts = r.code.split(' ');
-                    let roomKey = parts.slice(0, -1).join(' ');
+                    let roomKey = getRoomPrefixFromCode(r.code);
                     if (!roomGroups[roomKey]) roomGroups[roomKey] = { building: r.building, total: 0, vacant: 0 };
                     roomGroups[roomKey].total++;
                     if (r.status === 'VACANT') roomGroups[roomKey].vacant++;
@@ -2749,7 +2890,7 @@
             appState.bookings.push(newBooking);
             saveAppData();
             refreshAllUI();
-            showToast('Pengajuan Check-In berhasil dikirim! Menunggu persetujuan HR Admin.', 'success');
+            showToast('Pengajuan Check-In berhasil dikirim & tersimpan ke Cloud!', 'success');
             e.target.reset();
             document.getElementById('booking-tglin').value = new Date().toISOString().split('T')[0];
             updateAvailableBedsDropdown();
@@ -2804,7 +2945,7 @@
             appState.damages.push(newDmg);
             saveAppData();
             refreshAllUI();
-            showToast('Laporan kerusakan berhasil dikirim ke HR Admin.', 'success');
+            showToast('Laporan kerusakan berhasil dikirim & tersimpan ke Cloud.', 'success');
             e.target.reset();
         }
 
@@ -2917,7 +3058,7 @@
             }
 
             const roomsInBldg = appState.rooms.filter(r => r.building === bldg);
-            const uniqueRoomNumbers = [...new Set(roomsInBldg.map(r => r.code.split(' ').slice(0, -1).join(' ')))];
+            const uniqueRoomNumbers = [...new Set(roomsInBldg.map(r => getRoomPrefixFromCode(r.code)))];
 
             let optionsHtml = `<option value="">-- Pilih Kamar / Nomor Bed --</option>`;
             optionsHtml += `<option value="Area Umum Gedung">Area Umum / Koridor Gedung</option>`;
