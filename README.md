@@ -1,1 +1,0 @@
-# SIMK-RajaEmasIndonesia
