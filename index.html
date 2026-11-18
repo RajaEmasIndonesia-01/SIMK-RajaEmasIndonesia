@@ -82,7 +82,7 @@
         <!-- Mobile Sidebar Backdrop -->
         <div id="mobile-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
 
-        <!-- SIDEBAR 1: PORTAL FORMULIR (KARYAWAN) -->
+        <!-- SIDEBAR 1: PORTAL FORMULIR (KARYAWAN - LIGHT SIDEBAR) -->
         <aside id="sidebar-karyawan" class="fixed lg:static inset-y-0 left-0 top-[57px] lg:top-0 w-64 bg-white border-r border-slate-200 flex flex-col justify-between z-30 transform -translate-x-full lg:translate-x-0 transition-transform duration-200 shrink-0">
             <div class="p-4 space-y-6 overflow-y-auto">
                 <div>
@@ -115,6 +115,7 @@
                 </div>
             </div>
 
+            <!-- Footer Status -->
             <div class="p-3.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -438,6 +439,7 @@
                     <p class="text-xs text-slate-500">Ringkasan ketersediaan bed, penghuni berstatus CEK IN, dan antrean approval.</p>
                 </div>
 
+                <!-- KPI Cards -->
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
                         <p class="text-[11px] font-bold text-slate-400 uppercase">Total Kapasitas Bed</p>
@@ -457,6 +459,7 @@
                     </div>
                 </div>
 
+                <!-- Ringkasan Per Gedung -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
                     <h3 class="text-sm font-bold text-slate-900">Okupansi Per Lokasi Gedung</h3>
                     <div id="dashboard-building-stats" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
@@ -473,7 +476,9 @@
                     <span id="activity-date-badge" class="self-start sm:self-center px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold"></span>
                 </div>
 
+                <!-- Grid 2 Kolom: Aktivitas Check-In & Aktivitas Check-Out -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Kolom 1: Aktivitas Check-In -->
                     <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                             <div class="flex items-center gap-2">
@@ -485,6 +490,7 @@
                         <div id="activity-checkin-list" class="space-y-2.5 text-xs max-h-80 overflow-y-auto"></div>
                     </div>
 
+                    <!-- Kolom 2: Aktivitas Check-Out -->
                     <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                             <div class="flex items-center gap-2">
@@ -497,6 +503,7 @@
                     </div>
                 </div>
 
+                <!-- Bagian Bawah: Aktivitas Laporan Kerusakan -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
                     <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                         <div class="flex items-center gap-2">
@@ -509,13 +516,14 @@
                 </div>
             </section>
 
-            <!-- ADMIN VIEW 3: MANAJEMEN PEMESANAN -->
+            <!-- ADMIN VIEW 3: MANAJEMEN PEMESANAN (PENGHUNI AKTIF & CHECK-OUT) -->
             <section id="a-pane-pemesanan" class="hidden space-y-6">
                 <div>
                     <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Manajemen Pemesanan & Penghuni Aktif</h2>
                     <p class="text-xs text-slate-500">Kelola penghuni yang berstatus <strong>CEK IN</strong> dan proses check-out (tanggal & jam).</p>
                 </div>
 
+                <!-- Penghuni Aktif (CEK IN) -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-3">
                     <h3 class="text-sm font-bold text-slate-900">Daftar Penghuni Aktif (Status: CEK IN)</h3>
                     <div class="overflow-x-auto">
@@ -595,6 +603,7 @@
                         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Master Data & Denah Kasur Per Kamar & Bed</h2>
                         <p class="text-xs text-slate-500 mt-0.5">1.A = Bed Bawah, 1.B = Bed Atas, 1.X = Extra Bed. Klik kotak untuk ubah status cepat.</p>
                     </div>
+                    <!-- Tombol Aksi Master Data: Tambah Gedung, Tambah Kamar, Tambah Kasur -->
                     <div class="flex flex-wrap items-center gap-2">
                         <button onclick="openAddBuildingModal()" class="px-3.5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-bold shadow-xs transition whitespace-nowrap flex items-center gap-1.5">
                             <span>🏢</span> + Tambah Gedung
@@ -608,6 +617,7 @@
                     </div>
                 </div>
 
+                <!-- Building Drop-Down Filter & Legends -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xs">
                     <div class="flex items-center gap-2.5 w-full md:w-auto">
                         <label for="master-building-dropdown" class="text-xs font-bold text-slate-700 uppercase whitespace-nowrap">🏢 Lokasi Gedung:</label>
@@ -655,6 +665,7 @@
 
             <!-- ADMIN VIEW 7: LAPORAN & EXPORT EXCEL -->
             <section id="a-pane-laporan" class="hidden space-y-6">
+                <!-- Header Laporan & Tombol Download -->
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
                         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Pusat Laporan & Download Excel</h2>
@@ -666,6 +677,7 @@
                     </button>
                 </div>
 
+                <!-- Filter Periode (Tahun & Bulan) -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-4 flex flex-wrap items-center gap-4 shadow-xs">
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-bold text-slate-700 uppercase">Filter Periode:</span>
@@ -699,6 +711,7 @@
                     </div>
                 </div>
 
+                <!-- Sub-Tab Pill Buttons -->
                 <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                     <button onclick="switchReportTab('master-mess')" id="rep-sub-master-mess" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap">
                         Master Mess & Bed
@@ -714,7 +727,9 @@
                     </button>
                 </div>
 
+                <!-- Card Container Tabel Laporan -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+                    <!-- 1. MASTER MESS & BED -->
                     <div id="rep-pane-master-mess" class="hidden p-5 space-y-4">
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold text-slate-900 text-sm">Tabel Master Mess & Bed</h3>
@@ -736,6 +751,7 @@
                         </div>
                     </div>
 
+                    <!-- 2. MASTER KAMAR -->
                     <div id="rep-pane-master-kamar" class="hidden p-5 space-y-4">
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold text-slate-900 text-sm">Tabel Master Kamar</h3>
@@ -757,6 +773,7 @@
                         </div>
                     </div>
 
+                    <!-- 3. DATA CHECK-IN -->
                     <div id="rep-pane-checkin" class="p-5 space-y-4">
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold text-slate-900 text-sm">Tabel Riwayat Data Check-In Penghuni</h3>
@@ -785,6 +802,7 @@
                         </div>
                     </div>
 
+                    <!-- 4. LAPORAN KERUSAKAN -->
                     <div id="rep-pane-kerusakan" class="hidden p-5 space-y-4">
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold text-slate-900 text-sm">Tabel Laporan Kerusakan & Pemeliharaan</h3>
@@ -889,7 +907,7 @@
         </div>
     </div>
 
-    <!-- MODAL 1: TAMBAH GEDUNG -->
+    <!-- MODAL 1: TAMBAH GEDUNG & DAFTAR GEDUNG (DROPDOWN LIST) -->
     <div id="add-building-modal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div class="flex justify-between items-center border-b border-slate-100 pb-3">
@@ -909,6 +927,7 @@
                 <label for="building-manage-dropdown" class="block text-[11px] font-bold text-slate-600 uppercase">Daftar Gedung Terdaftar (Drop-Down):</label>
                 <div class="flex gap-2">
                     <select id="building-manage-dropdown" class="flex-1 px-3 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold text-slate-800 bg-slate-50 focus:ring-2 focus:ring-rei-gold outline-none">
+                        <!-- Options Gedung Dinamis -->
                     </select>
                     <button type="button" onclick="deleteSelectedBuildingFromDropdown()" class="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 text-xs font-bold transition shrink-0" title="Hapus Gedung Terpilih">
                         Hapus
@@ -932,6 +951,7 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Pilih Lokasi Gedung <span class="text-rose-500">*</span></label>
                     <select id="new-kamar-building" required class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm bg-white focus:ring-2 focus:ring-rei-gold outline-none">
+                        <!-- Dinamis dari list gedung -->
                     </select>
                 </div>
                 <div>
@@ -947,7 +967,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3: TAMBAH KASUR (BED) -->
+    <!-- MODAL 3: TAMBAH KASUR (BED) OTOMATIS BERURUTAN -->
     <div id="add-kasur-modal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div class="flex justify-between items-center border-b border-slate-100 pb-3">
@@ -958,14 +978,17 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Pilih Gedung <span class="text-rose-500">*</span></label>
                     <select id="kasur-building-select" onchange="updateKasurKamarOptions()" required class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm bg-white focus:ring-2 focus:ring-rei-gold outline-none">
+                        <!-- Dinamis dari list gedung -->
                     </select>
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Pilih Kamar <span class="text-rose-500">*</span></label>
                     <select id="kasur-kamar-select" onchange="calculateNextBedPreview()" required class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm bg-white focus:ring-2 focus:ring-rei-gold outline-none">
+                        <!-- Dinamis dari kamar di gedung terpilih -->
                     </select>
                 </div>
 
+                <!-- Preview Otomatis Urutan Kasur -->
                 <div class="p-4 rounded-xl bg-amber-50/90 border border-amber-200 space-y-2">
                     <div class="flex justify-between items-center text-[11px] text-slate-600">
                         <span>Kasur Terakhir di Kamar Ini:</span>
@@ -1010,6 +1033,7 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nama / Nomor Kamar Baru <span class="text-rose-500">*</span></label>
                     <input type="text" id="edit-kamar-new-name" required placeholder="Contoh: Petojo 2 L.101 VIP" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                    <p class="text-[11px] text-slate-500 mt-1">Seluruh kode kasur (<strong>1.A</strong>, <strong>1.B</strong>, dst.) dan riwayat penghuni di kamar ini akan otomatis disesuaikan.</p>
                 </div>
                 <div class="flex justify-end gap-2 pt-2">
                     <button type="button" onclick="closeEditKamarModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">Batal</button>
@@ -1019,7 +1043,7 @@
         </div>
     </div>
 
-    <!-- MODAL 5: EDIT NAMA KASUR -->
+    <!-- MODAL 5: EDIT NAMA / KODE KASUR (BED) -->
     <div id="edit-kasur-modal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div class="flex justify-between items-center border-b border-slate-100 pb-3">
@@ -1036,6 +1060,7 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Kode / Nomor Kasur Baru <span class="text-rose-500">*</span></label>
                     <input type="text" id="edit-kasur-new-suffix" required placeholder="Contoh: 1.A, 1.B, 2.A, atau 1.X" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                    <p class="text-[11px] text-slate-500 mt-1">Gunakan akhiran <strong>.A</strong> (Bed Bawah), <strong>.B</strong> (Bed Atas), atau <strong>.X</strong> (Extra Bed). Riwayat penghuni pada kasur ini akan ikut diperbarui.</p>
                 </div>
                 <div class="flex justify-end gap-2 pt-2">
                     <button type="button" onclick="closeEditKasurModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">Batal</button>
@@ -1054,7 +1079,7 @@
                 <input type="hidden" id="feedback-damage-id">
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Catatan Penanganan / Feedback</label>
-                    <textarea id="feedback-text-input" rows="4" required placeholder="Contoh: Teknisi sudah menjadwalkan perbaikan AC..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm"></textarea>
+                    <textarea id="feedback-text-input" rows="4" required placeholder="Contoh: Teknisi sudah menjadwalkan perbaikan AC pada hari Rabu..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm"></textarea>
                 </div>
                 <div class="flex justify-end gap-2 pt-2">
                     <button type="button" onclick="closeDamageFeedbackModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-sm font-medium">Batal</button>
@@ -1094,7 +1119,7 @@
         </div>
     </div>
 
-    <!-- MODAL LOGIN HR ADMIN (MANDATORY SETIAP KALI KLIK ADMIN) -->
+    <!-- MODAL LOGIN HR ADMIN -->
     <div id="admin-login-modal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl space-y-4">
             <div class="text-center space-y-1">
@@ -1137,8 +1162,14 @@
     </div>
 
     <script>
+        // ==========================================
+        // GOOGLE APPS SCRIPT REAL-TIME ENDPOINT
+        // ==========================================
         const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyHJxwHADtjDKbG_HJEts5z59Eo6kFLU0-vz9-kOQ9Z60VzW8H91J1Yfu6Bnn47TWqY/exec";
 
+        // ==========================================
+        // APP STATE & DEFAULT MASTER DATA
+        // ==========================================
         let appState = {
             currentRole: 'karyawan',
             currentKaryawanTab: 'checkin',
@@ -1156,19 +1187,82 @@
         let confirmActionCallback = null;
         let syncTimer = null;
         let isPushing = false;
-        let lastMutationTime = 0;
+        let lastMutationTime = 0; // Mencegah polling menimpa perubahan lokal yang baru saja dikirim
 
         const defaultRoomsTemplate = [
+            // --- PETOJO 2 ---
             { id: 'p2-l101-1a', building: 'Petojo 2', code: 'Petojo 2 L.101 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
             { id: 'p2-l101-1b', building: 'Petojo 2', code: 'Petojo 2 L.101 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
             { id: 'p2-l101-2a', building: 'Petojo 2', code: 'Petojo 2 L.101 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
             { id: 'p2-l101-2b', building: 'Petojo 2', code: 'Petojo 2 L.101 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-3a', building: 'Petojo 2', code: 'Petojo 2 L.101 3.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-3b', building: 'Petojo 2', code: 'Petojo 2 L.101 3.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-4a', building: 'Petojo 2', code: 'Petojo 2 L.101 4.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-4b', building: 'Petojo 2', code: 'Petojo 2 L.101 4.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-5a', building: 'Petojo 2', code: 'Petojo 2 L.101 5.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-5b', building: 'Petojo 2', code: 'Petojo 2 L.101 5.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-6a', building: 'Petojo 2', code: 'Petojo 2 L.101 6.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l101-6b', building: 'Petojo 2', code: 'Petojo 2 L.101 6.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            
             { id: 'p2-l102-1a', building: 'Petojo 2', code: 'Petojo 2 L.102 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
             { id: 'p2-l102-1b', building: 'Petojo 2', code: 'Petojo 2 L.102 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-2a', building: 'Petojo 2', code: 'Petojo 2 L.102 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-2b', building: 'Petojo 2', code: 'Petojo 2 L.102 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-3a', building: 'Petojo 2', code: 'Petojo 2 L.102 3.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-3b', building: 'Petojo 2', code: 'Petojo 2 L.102 3.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-4a', building: 'Petojo 2', code: 'Petojo 2 L.102 4.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-4b', building: 'Petojo 2', code: 'Petojo 2 L.102 4.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-1x', building: 'Petojo 2', code: 'Petojo 2 L.102 1.X', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l102-2x', building: 'Petojo 2', code: 'Petojo 2 L.102 2.X', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p2-l103-1a', building: 'Petojo 2', code: 'Petojo 2 L.103 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l104-1a', building: 'Petojo 2', code: 'Petojo 2 L.104 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p2-l201-1a', building: 'Petojo 2', code: 'Petojo 2 L.201 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l201-1b', building: 'Petojo 2', code: 'Petojo 2 L.201 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l201-2a', building: 'Petojo 2', code: 'Petojo 2 L.201 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l201-2b', building: 'Petojo 2', code: 'Petojo 2 L.201 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p2-l202-1a', building: 'Petojo 2', code: 'Petojo 2 L.202 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l202-1b', building: 'Petojo 2', code: 'Petojo 2 L.202 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l202-2a', building: 'Petojo 2', code: 'Petojo 2 L.202 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p2-l202-2b', building: 'Petojo 2', code: 'Petojo 2 L.202 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            // --- PETOJO 1 ---
             { id: 'p1-l101-1a', building: 'Petojo 1', code: 'Petojo 1 L.101 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
-            { id: 'p1-l101-1b', building: 'Petojo 1', code: 'Petojo 1 L.101 1.B', status: 'VACANT', occupantNik: '', occupantName: '' }
+            { id: 'p1-l101-1b', building: 'Petojo 1', code: 'Petojo 1 L.101 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l101-2a', building: 'Petojo 1', code: 'Petojo 1 L.101 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l101-2b', building: 'Petojo 1', code: 'Petojo 1 L.101 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p1-l401-1a', building: 'Petojo 1', code: 'Petojo 1 L.401 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l401-1b', building: 'Petojo 1', code: 'Petojo 1 L.401 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l401-2a', building: 'Petojo 1', code: 'Petojo 1 L.401 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l401-2b', building: 'Petojo 1', code: 'Petojo 1 L.401 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p1-l402-1a', building: 'Petojo 1', code: 'Petojo 1 L.402 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l402-1b', building: 'Petojo 1', code: 'Petojo 1 L.402 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l402-2a', building: 'Petojo 1', code: 'Petojo 1 L.402 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l402-2b', building: 'Petojo 1', code: 'Petojo 1 L.402 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p1-l403-1a', building: 'Petojo 1', code: 'Petojo 1 L.403 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l403-1b', building: 'Petojo 1', code: 'Petojo 1 L.403 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l403-2a', building: 'Petojo 1', code: 'Petojo 1 L.403 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l403-2b', building: 'Petojo 1', code: 'Petojo 1 L.403 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p1-l404-1a', building: 'Petojo 1', code: 'Petojo 1 L.404 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l404-1b', building: 'Petojo 1', code: 'Petojo 1 L.404 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l404-2a', building: 'Petojo 1', code: 'Petojo 1 L.404 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l404-2b', building: 'Petojo 1', code: 'Petojo 1 L.404 2.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+
+            { id: 'p1-l405-1a', building: 'Petojo 1', code: 'Petojo 1 L.405 1.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l405-1b', building: 'Petojo 1', code: 'Petojo 1 L.405 1.B', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l405-2a', building: 'Petojo 1', code: 'Petojo 1 L.405 2.A', status: 'VACANT', occupantNik: '', occupantName: '' },
+            { id: 'p1-l405-2b', building: 'Petojo 1', code: 'Petojo 1 L.405 2.B', status: 'VACANT', occupantNik: '', occupantName: '' }
         ];
 
+        // ==========================================
+        // HELPER PEMFORMATAN TANGGAL & JAM RINGKAS
+        // ==========================================
         function autoFormatDateInput(input) {
             let v = input.value.replace(/\D/g, '');
             if (v.length > 8) v = v.slice(0, 8);
@@ -1184,28 +1278,69 @@
         function formatShortDate(val) {
             if (!val || val === '-') return '-';
             const str = String(val).trim();
-            if (/^\d{4}-\d{2}-\d{2}$/.test(str)) return str;
+            if (!str || str === '-') return '-';
+
+            // Jika sudah format YYYY-MM-DD
+            if (/^\d{4}-\d{2}-\d{2}$/.test(str)) {
+                return str;
+            }
+
+            // Jika format DD/MM/YYYY -> konversi ke YYYY-MM-DD untuk penyimpanan
             const dmyMatch = str.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-            if (dmyMatch) return `${dmyMatch[3]}-${dmyMatch[2]}-${dmyMatch[1]}`;
-            if (/^\d{4}-\d{2}-\d{2}T/.test(str)) return str.substring(0, 10);
+            if (dmyMatch) {
+                return `${dmyMatch[3]}-${dmyMatch[2]}-${dmyMatch[1]}`;
+            }
+
+            // Jika format ISO string (2026-11-18T00:00:00.000Z)
+            if (/^\d{4}-\d{2}-\d{2}T/.test(str)) {
+                return str.substring(0, 10);
+            }
+
+            const parsed = new Date(str);
+            if (!isNaN(parsed.getTime())) {
+                const y = parsed.getFullYear();
+                const m = String(parsed.getMonth() + 1).padStart(2, '0');
+                const day = String(parsed.getDate()).padStart(2, '0');
+                return `${y}-${m}-${day}`;
+            }
+
             return str;
         }
 
+        // Format tampilan ke user/input: DD/MM/YYYY
         function formatDateDDMMYYYY(val) {
             if (!val || val === '-') return '-';
             const str = String(val).trim();
+            // Jika sudah DD/MM/YYYY
             if (/^\d{2}\/\d{2}\/\d{4}$/.test(str)) return str;
+
             const iso = formatShortDate(str);
             if (!iso || iso === '-') return str;
             const parts = iso.split('-');
-            if (parts.length === 3 && parts[0].length === 4) return `${parts[2]}/${parts[1]}/${parts[0]}`;
+            if (parts.length === 3 && parts[0].length === 4) {
+                return `${parts[2]}/${parts[1]}/${parts[0]}`;
+            }
             return iso;
         }
 
         function formatShortTime(val) {
             if (!val || val === '-') return '-';
             const str = String(val).trim();
-            if (/^\d{1,2}:\d{2}(:\d{2})?$/.test(str)) return str.substring(0, 5);
+            if (!str || str === '-') return '-';
+
+            // Jika sudah format HH:mm
+            if (/^\d{1,2}:\d{2}(:\d{2})?$/.test(str)) {
+                return str.substring(0, 5);
+            }
+
+            // Jika format Date string dari Google Sheet (Sat Dec 30 1899 14:30:00 GMT+0700)
+            const parsed = new Date(str);
+            if (!isNaN(parsed.getTime())) {
+                const hh = String(parsed.getHours()).padStart(2, '0');
+                const mm = String(parsed.getMinutes()).padStart(2, '0');
+                return `${hh}:${mm}`;
+            }
+
             return str;
         }
 
@@ -1222,31 +1357,62 @@
                 kategori: String(b.kategori || ''),
                 roomCode: String(b.roomCode || ''),
                 building: String(b.building || ''),
-                roomStatus: String(b.roomStatus || ''),
+                roomStatus: normalizeStatus(b.roomStatus || ''),
                 tglIn: formatShortDate(b.tglIn),
                 estimatedOut: formatShortDate(b.estimatedOut || b.tglOut),
                 tglOut: formatShortDate(b.tglOut),
                 actualOut: formatShortDate(b.actualOut),
                 actualOutTime: formatShortTime(b.actualOutTime),
-                approvalStatus: String(b.approvalStatus || 'PENDING')
+                approvalStatus: normalizeStatus(b.approvalStatus || 'PENDING')
             };
         }
 
         function normalizeCheckoutItem(c) {
             if (!c) return c;
-            return { ...c, id: String(c.id || ''), nik: String(c.nik || ''), nama: String(c.nama || ''), roomCode: String(c.roomCode || ''), tglOut: formatShortDate(c.tglOut), jamOut: formatShortTime(c.jamOut), alasan: String(c.alasan || '-') };
+            return {
+                ...c,
+                id: String(c.id || ''),
+                nik: String(c.nik || ''),
+                nama: String(c.nama || ''),
+                roomCode: String(c.roomCode || ''),
+                tglOut: formatShortDate(c.tglOut),
+                jamOut: formatShortTime(c.jamOut),
+                alasan: String(c.alasan || '-')
+            };
         }
 
         function normalizeDamageItem(d) {
             if (!d) return d;
-            return { ...d, id: String(d.id || ''), tanggal: formatShortDate(d.tanggal), pelapor: String(d.pelapor || ''), wa: String(d.wa || ''), lokasi: String(d.lokasi || ''), kategori: String(d.kategori || ''), deskripsi: String(d.deskripsi || ''), feedback: String(d.feedback || '-'), status: String(d.status || 'PENDING') };
+            return {
+                ...d,
+                id: String(d.id || ''),
+                tanggal: formatShortDate(d.tanggal),
+                pelapor: String(d.pelapor || ''),
+                wa: String(d.wa || ''),
+                lokasi: String(d.lokasi || ''),
+                kategori: String(d.kategori || ''),
+                deskripsi: String(d.deskripsi || ''),
+                feedback: String(d.feedback || '-'),
+                status: normalizeStatus(d.status || 'PENDING')
+            };
         }
 
         function normalizeRoomItem(r) {
             if (!r) return r;
-            return { ...r, id: String(r.id || ''), building: String(r.building || ''), code: String(r.code || ''), status: String(r.status || 'VACANT'), occupantNik: String(r.occupantNik || ''), occupantName: String(r.occupantName || '') };
+            return {
+                ...r,
+                id: String(r.id || ''),
+                building: String(r.building || ''),
+                code: String(r.code || ''),
+                status: normalizeStatus(r.status || 'VACANT'),
+                occupantNik: String(r.occupantNik || ''),
+                occupantName: String(r.occupantName || '')
+            };
         }
 
+        // ==========================================
+        // HELPER PARSING NAMA KAMAR & BED AGAR UTUH
+        // ==========================================
         function getRoomPrefixFromCode(code) {
             if (!code) return '';
             const trimmed = String(code).trim();
@@ -1268,21 +1434,28 @@
             return [...new Set([...(appState.buildings || []), ...roomBuildings])];
         }
 
+        // ==========================================
+        // REAL-TIME SYNC GOOGLE APPS SCRIPT (GAS)
+        // ==========================================
         function setSyncIndicator(state, text) {
             const dot = document.getElementById('cloud-sync-dot');
             const label = document.getElementById('cloud-sync-text');
             if (!dot || !label) return;
             label.textContent = text;
-            if (state === 'syncing') dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
-            else if (state === 'error') dot.className = 'w-2 h-2 rounded-full bg-rose-500';
-            else dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+            if (state === 'syncing') {
+                dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
+            } else if (state === 'error') {
+                dot.className = 'w-2 h-2 rounded-full bg-rose-500';
+            } else {
+                dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+            }
         }
 
         async function pushToGoogleSheet() {
             if (!GAS_WEBAPP_URL) return;
             isPushing = true;
             lastMutationTime = Date.now();
-            setSyncIndicator('syncing', 'Menyimpan...');
+            setSyncIndicator('syncing', 'Menyimpan ke Cloud...');
             try {
                 const payload = {
                     action: 'sync_all',
@@ -1293,43 +1466,112 @@
                     checkouts: appState.checkouts,
                     damages: appState.damages
                 };
+
                 await fetch(GAS_WEBAPP_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
                     body: JSON.stringify(payload)
                 });
+
                 setSyncIndicator('ok', 'Tersimpan Real-Time');
             } catch (err) {
-                setSyncIndicator('error', 'Offline');
+                console.error('GAS Push Error:', err);
+                setSyncIndicator('error', 'Offline (Lokal Aktif)');
             } finally {
                 setTimeout(() => { isPushing = false; }, 1500);
             }
         }
 
+        function mergeById(localArr, remoteArr, normalizer) {
+            const map = new Map();
+            (remoteArr || []).forEach(item => {
+                const norm = normalizer(item);
+                if (norm && norm.id) map.set(norm.id, norm);
+            });
+            // Jika baru saja ada perubahan lokal (< 12 detik), pertahankan data lokal agar tidak hilang saat sheet belum selesai menulis
+            if (Date.now() - lastMutationTime < 12000) {
+                (localArr || []).forEach(item => {
+                    const norm = normalizer(item);
+                    if (norm && norm.id) map.set(norm.id, norm);
+                });
+            }
+            return Array.from(map.values());
+        }
+
         async function syncFromGoogleSheet(showNotification = false) {
             if (!GAS_WEBAPP_URL) return;
             if (isPushing && !showNotification) return;
+
             setSyncIndicator('syncing', 'Sinkronisasi...');
             try {
                 const response = await fetch(`${GAS_WEBAPP_URL}?action=get_all&t=${Date.now()}`);
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
+
                 if (data && typeof data === 'object') {
+                    // 1. Rooms: Jangan pernah biarkan array kosong dari sheet menghapus kamar lokal
                     if (Array.isArray(data.rooms) && data.rooms.length > 0) {
-                        appState.rooms = data.rooms.map(normalizeRoomItem);
+                        if (Date.now() - lastMutationTime < 12000 && appState.rooms.length > 0) {
+                            appState.rooms = mergeById(appState.rooms, data.rooms, normalizeRoomItem);
+                        } else {
+                            appState.rooms = data.rooms.map(normalizeRoomItem);
+                        }
                     } else if (appState.rooms.length === 0) {
                         appState.rooms = JSON.parse(JSON.stringify(defaultRoomsTemplate));
                     }
-                    if (Array.isArray(data.bookings)) appState.bookings = data.bookings.map(normalizeBookingItem);
-                    if (Array.isArray(data.checkouts)) appState.checkouts = data.checkouts.map(normalizeCheckoutItem);
-                    if (Array.isArray(data.damages)) appState.damages = data.damages.map(normalizeDamageItem);
+
+                    // 2. Buildings: Gabungkan dengan gedung dari rooms agar tidak pernah hilang
+                    const remoteBuildings = Array.isArray(data.buildings) ? data.buildings.filter(Boolean) : [];
+                    const roomBuildings = appState.rooms.map(r => r.building).filter(Boolean);
+                    appState.buildings = [...new Set([...(appState.buildings || []), ...remoteBuildings, ...roomBuildings])];
+
+                    // 3. Bookings, Checkouts, Damages: Normalisasi format tanggal & gabungkan secara aman
+                    if (Array.isArray(data.bookings)) {
+                        appState.bookings = mergeById(appState.bookings, data.bookings, normalizeBookingItem);
+                    }
+                    if (Array.isArray(data.checkouts)) {
+                        appState.checkouts = mergeById(appState.checkouts, data.checkouts, normalizeCheckoutItem);
+                    }
+                    if (Array.isArray(data.damages)) {
+                        appState.damages = mergeById(appState.damages, data.damages, normalizeDamageItem);
+                    }
+
+                    // Sinkronkan status kamar dengan booking yang berstatus CEK IN
+                    appState.bookings.forEach(b => {
+                        if (b.approvalStatus === 'CEK IN') {
+                            const r = appState.rooms.find(room => room.code === b.roomCode);
+                            if (r && r.status === 'VACANT') {
+                                r.status = 'CEK IN';
+                                r.occupantNik = b.nik;
+                                r.occupantName = b.nama;
+                            }
+                        }
+                    });
+
+                    // Simpan ke localStorage
+                    localStorage.setItem('rei_mess_buildings', JSON.stringify(getAllBuildings()));
+                    localStorage.setItem('rei_mess_rooms', JSON.stringify(appState.rooms));
+                    localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
+                    localStorage.setItem('rei_mess_checkouts', JSON.stringify(appState.checkouts));
+                    localStorage.setItem('rei_mess_damages', JSON.stringify(appState.damages));
+
+                    // Jika di Google Sheet belum ada data kamar sama sekali, kirim data awal ke Cloud
+                    if (!Array.isArray(data.rooms) || data.rooms.length === 0) {
+                        await pushToGoogleSheet();
+                    }
+
                     refreshAllUI();
                 }
+
                 setSyncIndicator('ok', 'Cloud Terhubung');
-                if (showNotification) showToast('Data disinkronkan dari Google Sheet!', 'success');
+                if (showNotification) showToast('Data berhasil disinkronkan dari Google Sheet!', 'success');
             } catch (err) {
+                console.warn('GAS Pull Info:', err);
                 setSyncIndicator('ok', 'Cloud Siap');
-                if (showNotification) showToast('Menggunakan data lokal.', 'success');
+                if (showNotification) showToast('Sinkronisasi selesai (menggunakan data lokal).', 'success');
             }
         }
 
@@ -1340,6 +1582,8 @@
             localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
             localStorage.setItem('rei_mess_checkouts', JSON.stringify(appState.checkouts));
             localStorage.setItem('rei_mess_damages', JSON.stringify(appState.damages));
+
+            // Push secara real-time ke Google Apps Script
             pushToGoogleSheet();
         }
 
@@ -1357,6 +1601,14 @@
             }
         }
 
+        function normalizeStatus(status) {
+            if (!status) return status;
+            const upper = String(status).toUpperCase().trim();
+            if (upper === 'CHECKED_IN' || upper === 'CHECKED-IN' || upper === 'APPROVED') return 'CEK IN';
+            if (upper === 'CHECKED_OUT' || upper === 'CHECKED-OUT') return 'CEK OUT';
+            return upper;
+        }
+
         function formatBedDisplay(code) {
             const bedPart = getBedSuffixFromCode(code);
             if (bedPart.endsWith('.A')) return `${code} (Bed A - Kasur Bawah)`;
@@ -1370,127 +1622,341 @@
             const roomSel = document.getElementById('booking-room');
             if (!roomSel) return;
 
-            const pendingOrActive = appState.bookings.filter(b => b.approvalStatus === 'PENDING' || b.approvalStatus === 'CEK IN').map(b => b.roomCode);
-            const availableRooms = appState.rooms.filter(r => r.status === 'VACANT' && !pendingOrActive.includes(r.code) && (bldgFilter === 'Semua Lokasi Gedung' || r.building === bldgFilter));
+            const pendingOrActiveRoomCodes = appState.bookings
+                .filter(b => b.approvalStatus === 'PENDING' || b.approvalStatus === 'CEK IN')
+                .map(b => b.roomCode);
 
-            roomSel.innerHTML = availableRooms.length > 0 ? availableRooms.map(r => `<option value="${r.code}">${formatBedDisplay(r.code)} — [VACANT]</option>`).join('') : '<option value="">Tidak ada kasur VACANT tersedia</option>';
+            const availableRooms = appState.rooms.filter(r => 
+                r.status === 'VACANT' && 
+                !pendingOrActiveRoomCodes.includes(r.code) &&
+                (bldgFilter === 'Semua Lokasi Gedung' || r.building === bldgFilter)
+            );
+
+            roomSel.innerHTML = availableRooms.length > 0
+                ? availableRooms.map(r => `<option value="${r.code}">${formatBedDisplay(r.code)} — [VACANT]</option>`).join('')
+                : '<option value="">Tidak ada kasur VACANT yang tersedia</option>';
+
+            if (appState.placementMode === 'auto' && availableRooms.length > 0) {
+                roomSel.value = availableRooms[0].code;
+            }
         }
+
+        // ==========================================
+        // MODAL & LOGIC: TAMBAH GEDUNG, KAMAR, KASUR
+        // ==========================================
 
         function openAddBuildingModal() {
             renderBuildingListModal();
-            document.getElementById('add-building-modal').classList.remove('hidden');
-            document.getElementById('add-building-modal').classList.add('flex');
+            const modal = document.getElementById('add-building-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
+
         function closeAddBuildingModal() {
-            document.getElementById('add-building-modal').classList.add('hidden');
-            document.getElementById('add-building-modal').classList.remove('flex');
+            const modal = document.getElementById('add-building-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
         }
+
         function renderBuildingListModal() {
             const dropdownEl = document.getElementById('building-manage-dropdown');
             if (!dropdownEl) return;
-            dropdownEl.innerHTML = getAllBuildings().map(b => `<option value="${b}">🏢 ${b}</option>`).join('');
+            const buildings = getAllBuildings();
+
+            dropdownEl.innerHTML = buildings.length > 0 ? buildings.map(b => {
+                const countBeds = appState.rooms.filter(r => r.building === b).length;
+                const uniqueRooms = [...new Set(appState.rooms.filter(r => r.building === b).map(r => getRoomPrefixFromCode(r.code)))].length;
+                return `<option value="${b}">🏢 ${b} (${uniqueRooms} Kamar • ${countBeds} Kasur)</option>`;
+            }).join('') : '<option value="">-- Belum ada data gedung --</option>';
         }
+
         function handleAddNewBuilding(e) {
             e.preventDefault();
-            const name = document.getElementById('new-building-name').value.trim();
+            const input = document.getElementById('new-building-name');
+            const name = input.value.trim();
             if (!name) return;
+
+            const existing = getAllBuildings().find(b => b.toLowerCase() === name.toLowerCase());
+            if (existing) {
+                showToast(`Gedung "${existing}" sudah terdaftar.`, 'error');
+                return;
+            }
+
             if (!appState.buildings) appState.buildings = [];
             appState.buildings.push(name);
-            document.getElementById('new-building-name').value = '';
+            input.value = '';
             saveAppData();
             renderBuildingListModal();
             refreshAllUI();
             showToast(`Gedung "${name}" berhasil ditambahkan!`, 'success');
         }
+
         function deleteSelectedBuildingFromDropdown() {
-            const bldg = document.getElementById('building-manage-dropdown').value;
-            if (!bldg) return;
-            appState.buildings = getAllBuildings().filter(b => b !== bldg);
-            appState.rooms = appState.rooms.filter(r => r.building !== bldg);
-            saveAppData();
-            renderBuildingListModal();
-            refreshAllUI();
-            showToast(`Gedung berhasil dihapus.`, 'success');
+            const dropdownEl = document.getElementById('building-manage-dropdown');
+            if (!dropdownEl || !dropdownEl.value) {
+                showToast('Pilih gedung terlebih dahulu dari drop-down.', 'error');
+                return;
+            }
+            deleteBuilding(dropdownEl.value);
+        }
+
+        function deleteBuilding(bldgName) {
+            const roomsInBldg = appState.rooms.filter(r => r.building === bldgName);
+            const hasActive = roomsInBldg.some(r => r.status !== 'VACANT');
+            if (hasActive) {
+                showToast(`Gedung "${bldgName}" masih memiliki penghuni aktif (CEK IN).`, 'error');
+                return;
+            }
+
+            openConfirmModal(
+                `Hapus Gedung ${bldgName}?`,
+                `Gedung "${bldgName}" beserta ${roomsInBldg.length} kasur kosong di dalamnya akan dihapus.`,
+                function() {
+                    appState.buildings = getAllBuildings().filter(b => b !== bldgName);
+                    appState.rooms = appState.rooms.filter(r => r.building !== bldgName);
+                    if (appState.selectedBuildingFilter === bldgName) {
+                        appState.selectedBuildingFilter = 'Semua';
+                    }
+                    saveAppData();
+                    renderBuildingListModal();
+                    refreshAllUI();
+                    showToast(`Gedung "${bldgName}" berhasil dihapus.`, 'success');
+                }
+            );
         }
 
         function openAddKamarModal() {
-            document.getElementById('new-kamar-building').innerHTML = getAllBuildings().map(b => `<option value="${b}">${b}</option>`).join('');
-            document.getElementById('add-kamar-modal').classList.remove('hidden');
-            document.getElementById('add-kamar-modal').classList.add('flex');
+            const bldgSel = document.getElementById('new-kamar-building');
+            const buildings = getAllBuildings();
+            bldgSel.innerHTML = buildings.map(b => `<option value="${b}">${b}</option>`).join('');
+            document.getElementById('new-kamar-number').value = '';
+
+            const modal = document.getElementById('add-kamar-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
+
         function closeAddKamarModal() {
-            document.getElementById('add-kamar-modal').classList.add('hidden');
-            document.getElementById('add-kamar-modal').classList.remove('flex');
+            const modal = document.getElementById('add-kamar-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
         }
+
         function handleAddNewKamar(e) {
             e.preventDefault();
             const bldg = document.getElementById('new-kamar-building').value;
             let roomNum = document.getElementById('new-kamar-number').value.trim();
-            const prefix = roomNum.toLowerCase().startsWith(bldg.toLowerCase()) ? roomNum : `${bldg} ${roomNum}`;
+            if (!bldg || !roomNum) return;
+
+            const roomPrefix = roomNum.toLowerCase().startsWith(bldg.toLowerCase())
+                ? roomNum
+                : `${bldg} ${roomNum}`;
+
+            const exists = appState.rooms.some(r => getRoomPrefixFromCode(r.code).toLowerCase() === roomPrefix.toLowerCase());
+            if (exists) {
+                showToast(`Kamar "${roomPrefix}" sudah ada! Gunakan tombol + Tambah Kasur untuk menambah bed.`, 'error');
+                return;
+            }
+
             const ts = Date.now();
             appState.rooms.push(
-                { id: `bed-${ts}-1a`, building: bldg, code: `${prefix} 1.A`, status: 'VACANT', occupantNik: '', occupantName: '' },
-                { id: `bed-${ts}-1b`, building: bldg, code: `${prefix} 1.B`, status: 'VACANT', occupantNik: '', occupantName: '' }
+                { id: `bed-${ts}-1a`, building: bldg, code: `${roomPrefix} 1.A`, status: 'VACANT', occupantNik: '', occupantName: '' },
+                { id: `bed-${ts}-1b`, building: bldg, code: `${roomPrefix} 1.B`, status: 'VACANT', occupantNik: '', occupantName: '' }
             );
+
             closeAddKamarModal();
             saveAppData();
             refreshAllUI();
-            showToast(`Kamar "${prefix}" berhasil ditambahkan!`, 'success');
+            showToast(`Kamar "${roomPrefix}" berhasil ditambahkan dengan 1.A (Bed Bawah) & 1.B (Bed Atas)!`, 'success');
         }
 
         function openAddKasurModal() {
-            document.getElementById('kasur-building-select').innerHTML = getAllBuildings().map(b => `<option value="${b}">${b}</option>`).join('');
+            const bldgSel = document.getElementById('kasur-building-select');
+            const buildings = getAllBuildings();
+            bldgSel.innerHTML = buildings.map(b => `<option value="${b}">${b}</option>`).join('');
+            
             updateKasurKamarOptions();
-            document.getElementById('add-kasur-modal').classList.remove('hidden');
-            document.getElementById('add-kasur-modal').classList.add('flex');
+
+            const modal = document.getElementById('add-kasur-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
         }
+
         function closeAddKasurModal() {
-            document.getElementById('add-kasur-modal').classList.add('hidden');
-            document.getElementById('add-kasur-modal').classList.remove('flex');
+            const modal = document.getElementById('add-kasur-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
         }
+
         function updateKasurKamarOptions() {
             const bldg = document.getElementById('kasur-building-select').value;
-            const uniqueKamars = [...new Set(appState.rooms.filter(r => r.building === bldg).map(r => getRoomPrefixFromCode(r.code)))];
-            document.getElementById('kasur-kamar-select').innerHTML = uniqueKamars.map(k => `<option value="${k}">${k}</option>`).join('');
+            const kamarSel = document.getElementById('kasur-kamar-select');
+            const roomsInBldg = appState.rooms.filter(r => r.building === bldg);
+
+            const uniqueKamars = [...new Set(roomsInBldg.map(r => getRoomPrefixFromCode(r.code)))];
+
+            kamarSel.innerHTML = uniqueKamars.length > 0
+                ? uniqueKamars.map(k => `<option value="${k}">${k}</option>`).join('')
+                : '<option value="">-- Belum ada kamar di gedung ini --</option>';
+
             calculateNextBedPreview();
         }
+
+        function getNextSequentialBed(roomKey, mode = 'STANDARD') {
+            const bedsInRoom = appState.rooms.filter(r => getRoomPrefixFromCode(r.code) === roomKey);
+
+            if (mode === 'EXTRA') {
+                let maxX = 0;
+                let lastXLabel = 'Belum ada Extra Bed';
+                bedsInRoom.forEach(b => {
+                    const suffix = getBedSuffixFromCode(b.code).toUpperCase();
+                    const matchX = suffix.match(/^(\d+)\.X$/);
+                    if (matchX) {
+                        const num = parseInt(matchX[1], 10);
+                        if (num > maxX) {
+                            maxX = num;
+                            lastXLabel = `${suffix} (Extra Bed)`;
+                        }
+                    }
+                });
+                const nextNum = maxX + 1;
+                return {
+                    lastLabel: lastXLabel,
+                    nextSuffix: `${nextNum}.X`,
+                    nextFullCode: `${roomKey} ${nextNum}.X`,
+                    nextDesc: `${nextNum}.X (Extra Bed)`
+                };
+            }
+
+            let maxNum = 0;
+            let lastSub = null;
+            let lastBedCode = 'Belum ada kasur';
+
+            bedsInRoom.forEach(b => {
+                const suffix = getBedSuffixFromCode(b.code).toUpperCase();
+                const matchStd = suffix.match(/^(\d+)(?:\.([AB]))?$/);
+                if (matchStd) {
+                    const num = parseInt(matchStd[1], 10);
+                    const sub = matchStd[2] || 'A';
+                    if (num > maxNum || (num === maxNum && sub === 'B')) {
+                        maxNum = num;
+                        lastSub = sub;
+                        const subText = sub === 'A' ? 'Bed Bawah' : 'Bed Atas';
+                        lastBedCode = `${suffix} (${subText})`;
+                    }
+                }
+            });
+
+            let nextNum = 1;
+            let nextSub = 'A';
+
+            if (maxNum === 0) {
+                nextNum = 1;
+                nextSub = 'A';
+            } else if (lastSub === 'A') {
+                nextNum = maxNum;
+                nextSub = 'B';
+            } else {
+                nextNum = maxNum + 1;
+                nextSub = 'A';
+            }
+
+            const nextSubDesc = nextSub === 'A' ? 'Bed Bawah' : 'Bed Atas';
+            return {
+                lastLabel: lastBedCode,
+                nextSuffix: `${nextNum}.${nextSub}`,
+                nextFullCode: `${roomKey} ${nextNum}.${nextSub}`,
+                nextDesc: `${nextNum}.${nextSub} (${nextSubDesc})`
+            };
+        }
+
         function calculateNextBedPreview() {
             const roomKey = document.getElementById('kasur-kamar-select').value;
             const mode = document.getElementById('kasur-type-mode').value;
-            if (!roomKey) return;
-            const beds = appState.rooms.filter(r => getRoomPrefixFromCode(r.code) === roomKey);
-            let nextCode = `${roomKey} 2.A`;
-            if (mode === 'EXTRA') nextCode = `${roomKey} 1.X`;
-            document.getElementById('kasur-next-preview').textContent = nextCode;
-        }
-        function handleAddNewKasur(e) {
-            e.preventDefault();
-            const roomKey = document.getElementById('kasur-kamar-select').value;
-            const bldg = document.getElementById('kasur-building-select').value;
-            const nextCode = document.getElementById('kasur-next-preview').textContent;
-            appState.rooms.push({ id: 'bed-' + Date.now(), building: bldg, code: nextCode, status: 'VACANT', occupantNik: '', occupantName: '' });
-            closeAddKasurModal();
-            saveAppData();
-            refreshAllUI();
-            showToast('Kasur baru berhasil ditambahkan!', 'success');
-        }
-        function deleteBed(bedId) {
-            appState.rooms = appState.rooms.filter(r => r.id !== bedId);
-            saveAppData();
-            refreshAllUI();
-            showToast('Kasur berhasil dihapus.', 'success');
+            const lastInfoEl = document.getElementById('kasur-last-info');
+            const nextPreviewEl = document.getElementById('kasur-next-preview');
+
+            if (!roomKey) {
+                lastInfoEl.textContent = '-';
+                nextPreviewEl.textContent = 'Pilih / buat kamar terlebih dahulu';
+                return;
+            }
+
+            const result = getNextSequentialBed(roomKey, mode);
+            lastInfoEl.textContent = result.lastLabel;
+            nextPreviewEl.textContent = `${roomKey} ${result.nextDesc}`;
         }
 
+        function handleAddNewKasur(e) {
+            e.preventDefault();
+            const bldg = document.getElementById('kasur-building-select').value;
+            const roomKey = document.getElementById('kasur-kamar-select').value;
+            const mode = document.getElementById('kasur-type-mode').value;
+
+            if (!bldg || !roomKey) {
+                showToast('Pilih gedung dan kamar terlebih dahulu.', 'error');
+                return;
+            }
+
+            const result = getNextSequentialBed(roomKey, mode);
+
+            if (appState.rooms.some(r => r.code.toLowerCase() === result.nextFullCode.toLowerCase())) {
+                showToast(`Kode kasur ${result.nextFullCode} sudah ada.`, 'error');
+                return;
+            }
+
+            appState.rooms.push({
+                id: 'bed-' + Date.now(),
+                building: bldg,
+                code: result.nextFullCode,
+                status: 'VACANT',
+                occupantNik: '',
+                occupantName: ''
+            });
+
+            saveAppData();
+            refreshAllUI();
+            calculateNextBedPreview();
+            showToast(`Berhasil menambah ${roomKey} ${result.nextDesc}!`, 'success');
+        }
+
+        function deleteBed(bedId) {
+            const bed = appState.rooms.find(r => r.id === bedId);
+            if (!bed) return;
+            if (bed.status !== 'VACANT') {
+                showToast(`Kasur ${bed.code} sedang terisi (${bed.occupantName}). Lakukan Check-Out terlebih dahulu.`, 'error');
+                return;
+            }
+
+            openConfirmModal(
+                'Hapus Kasur / Bed?',
+                `Apakah Anda yakin ingin menghapus kasur "${bed.code}" dari denah?`,
+                function() {
+                    appState.rooms = appState.rooms.filter(r => r.id !== bedId);
+                    saveAppData();
+                    refreshAllUI();
+                    showToast(`Kasur ${bed.code} berhasil dihapus.`, 'success');
+                }
+            );
+        }
+
+        // NAVIGATION SWITCHERS
         function switchKaryawanTab(tabId) {
             appState.currentKaryawanTab = tabId;
             ['checkin', 'checkout', 'kerusakan'].forEach(t => {
                 const pane = document.getElementById(`k-pane-${t}`);
                 const btn = document.getElementById(`k-nav-${t}`);
                 if (pane) pane.classList.add('hidden');
-                if (btn) btn.className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all";
+                if (btn) {
+                    btn.className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-all";
+                }
             });
-            document.getElementById(`k-pane-${tabId}`).classList.remove('hidden');
-            document.getElementById(`k-nav-${tabId}`).className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all bg-rei-gold-light text-amber-800 border border-amber-200/80 shadow-xs";
+            const activePane = document.getElementById(`k-pane-${tabId}`);
+            const activeBtn = document.getElementById(`k-nav-${tabId}`);
+            if (activePane) activePane.classList.remove('hidden');
+            if (activeBtn) {
+                activeBtn.className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all bg-rei-gold-light text-amber-800 border border-amber-200/80 shadow-xs";
+            }
         }
 
         function switchAdminTab(tabId) {
@@ -1499,54 +1965,117 @@
                 const pane = document.getElementById(`a-pane-${t}`);
                 const btn = document.getElementById(`a-nav-${t}`);
                 if (pane) pane.classList.add('hidden');
-                if (btn) btn.className = "w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-zinc-300 hover:bg-zinc-800/70 transition-all text-left";
+                if (btn) {
+                    btn.className = "w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-zinc-300 hover:bg-zinc-800/70 transition-all text-left";
+                }
             });
-            document.getElementById(`a-pane-${tabId}`).classList.remove('hidden');
-            document.getElementById(`a-nav-${tabId}`).className = "w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all text-left bg-rei-gold text-rei-black shadow";
+            const activePane = document.getElementById(`a-pane-${tabId}`);
+            const activeBtn = document.getElementById(`a-nav-${tabId}`);
+            if (activePane) activePane.classList.remove('hidden');
+            if (activeBtn) {
+                activeBtn.className = "w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all text-left bg-rei-gold text-rei-black shadow";
+            }
             refreshAllUI();
         }
 
         function switchReportTab(tabId) {
             appState.currentReportTab = tabId;
             ['master-mess', 'master-kamar', 'checkin', 'kerusakan'].forEach(t => {
-                document.getElementById(`rep-pane-${t}`).classList.add('hidden');
-                document.getElementById(`rep-sub-${t}`).className = "px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap";
+                const pane = document.getElementById(`rep-pane-${t}`);
+                const btn = document.getElementById(`rep-sub-${t}`);
+                if (pane) pane.classList.add('hidden');
+                if (btn) {
+                    btn.className = "px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap";
+                }
             });
-            document.getElementById(`rep-pane-${tabId}`).classList.remove('hidden');
-            document.getElementById(`rep-sub-${tabId}`).className = "px-4 py-2 rounded-xl text-xs font-bold bg-rei-gold text-rei-black shadow-xs transition whitespace-nowrap";
+            const activePane = document.getElementById(`rep-pane-${tabId}`);
+            const activeBtn = document.getElementById(`rep-sub-${tabId}`);
+            if (activePane) activePane.classList.remove('hidden');
+            if (activeBtn) {
+                activeBtn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-rei-gold text-rei-black shadow-xs transition whitespace-nowrap";
+            }
+
+            const exportLabel = document.getElementById('btn-export-label');
+            if (exportLabel) {
+                if (tabId === 'master-mess') exportLabel.textContent = 'Download Master Mess & Bed (.xlsx)';
+                else if (tabId === 'master-kamar') exportLabel.textContent = 'Download Master Kamar (.xlsx)';
+                else if (tabId === 'checkin') exportLabel.textContent = 'Download Data Check-In (.xlsx)';
+                else if (tabId === 'kerusakan') exportLabel.textContent = 'Download Laporan Kerusakan (.xlsx)';
+            }
             renderReportTables();
         }
 
         function setPlacementMode(mode) {
             appState.placementMode = mode;
+            const btnAuto = document.getElementById('btn-mode-auto');
+            const btnManual = document.getElementById('btn-mode-manual');
+            const roomSel = document.getElementById('booking-room');
+            const bldgSel = document.getElementById('booking-building-filter');
+
             if (mode === 'auto') {
-                document.getElementById('btn-mode-auto').className = "px-3 py-1 rounded-lg text-[11px] font-bold bg-rei-gold text-rei-black transition";
-                document.getElementById('btn-mode-manual').className = "px-3 py-1 rounded-lg text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition";
+                if (btnAuto) btnAuto.className = "px-3 py-1 rounded-lg text-[11px] font-bold bg-rei-gold text-rei-black transition";
+                if (btnManual) btnManual.className = "px-3 py-1 rounded-lg text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition";
+                if (bldgSel) bldgSel.disabled = false;
+                if (roomSel) {
+                    roomSel.disabled = true;
+                    updateAvailableBedsDropdown();
+                }
             } else {
-                document.getElementById('btn-mode-manual').className = "px-3 py-1 rounded-lg text-[11px] font-bold bg-rei-gold text-rei-black transition";
-                document.getElementById('btn-mode-auto').className = "px-3 py-1 rounded-lg text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition";
+                if (btnManual) btnManual.className = "px-3 py-1 rounded-lg text-[11px] font-bold bg-rei-gold text-rei-black transition";
+                if (btnAuto) btnAuto.className = "px-3 py-1 rounded-lg text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition";
+                if (bldgSel) bldgSel.disabled = false;
+                if (roomSel) {
+                    roomSel.disabled = false;
+                    updateAvailableBedsDropdown();
+                }
             }
         }
 
         function initAppData() {
-            const savedRooms = localStorage.getItem('rei_mess_rooms');
             const savedBuildings = localStorage.getItem('rei_mess_buildings');
+            const savedRooms = localStorage.getItem('rei_mess_rooms');
             const savedBookings = localStorage.getItem('rei_mess_bookings');
             const savedCheckouts = localStorage.getItem('rei_mess_checkouts');
             const savedDamages = localStorage.getItem('rei_mess_damages');
+            const savedAdminAuth = localStorage.getItem('rei_mess_admin_auth');
 
-            appState.rooms = savedRooms ? JSON.parse(savedRooms).map(normalizeRoomItem) : JSON.parse(JSON.stringify(defaultRoomsTemplate));
-            appState.buildings = savedBuildings ? JSON.parse(savedBuildings) : [...new Set(appState.rooms.map(r => r.building))];
-            appState.bookings = savedBookings ? JSON.parse(savedBookings).map(normalizeBookingItem) : [];
-            appState.checkouts = savedCheckouts ? JSON.parse(savedCheckouts).map(normalizeCheckoutItem) : [];
-            appState.damages = savedDamages ? JSON.parse(savedDamages).map(normalizeDamageItem) : [];
+            let parsedRooms = [];
+            try { parsedRooms = savedRooms ? JSON.parse(savedRooms) : []; } catch (e) { parsedRooms = []; }
+            appState.rooms = (Array.isArray(parsedRooms) && parsedRooms.length > 0)
+                ? parsedRooms.map(normalizeRoomItem)
+                : JSON.parse(JSON.stringify(defaultRoomsTemplate));
+
+            let parsedBuildings = [];
+            try { parsedBuildings = savedBuildings ? JSON.parse(savedBuildings) : []; } catch (e) { parsedBuildings = []; }
+            appState.buildings = [...new Set([...parsedBuildings, ...appState.rooms.map(r => r.building)])];
+
+            try { appState.bookings = savedBookings ? JSON.parse(savedBookings).map(normalizeBookingItem) : []; } catch (e) { appState.bookings = []; }
+            try { appState.checkouts = savedCheckouts ? JSON.parse(savedCheckouts).map(normalizeCheckoutItem) : []; } catch (e) { appState.checkouts = []; }
+            try { appState.damages = savedDamages ? JSON.parse(savedDamages).map(normalizeDamageItem) : []; } catch (e) { appState.damages = []; }
 
             const now = new Date();
-            const todayStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
-            if (document.getElementById('booking-tglin')) document.getElementById('booking-tglin').value = todayStr;
-            if (document.getElementById('self-co-date')) document.getElementById('self-co-date').value = todayStr;
+            const todayDDMMYYYY = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+            const tglInEl = document.getElementById('booking-tglin');
+            if (tglInEl && !tglInEl.value) tglInEl.value = todayDDMMYYYY;
 
+            const selfCoDateEl = document.getElementById('self-co-date');
+            if (selfCoDateEl && !selfCoDateEl.value) selfCoDateEl.value = todayDDMMYYYY;
+
+            setPlacementMode('auto');
             refreshAllUI();
+
+            if (savedAdminAuth === 'true') {
+                switchRole('admin');
+            }
+
+            // Tarik data terbaru dari Google Apps Script saat pertama kali dimuat
+            syncFromGoogleSheet(false);
+
+            // Auto-polling real-time setiap 20 detik agar selalu sinkron antar perangkat
+            if (syncTimer) clearInterval(syncTimer);
+            syncTimer = setInterval(() => {
+                syncFromGoogleSheet(false);
+            }, 20000);
         }
 
         function refreshAllUI() {
@@ -1558,198 +2087,1278 @@
             renderReportTables();
         }
 
+        // ==========================================
+        // RENDER FUNCTIONS
+        // ==========================================
         function renderSidebarActiveOccupants() {
-            const active = appState.rooms.filter(r => r.status === 'CEK IN');
-            document.getElementById('sidebar-active-count').textContent = active.length;
-            document.getElementById('sidebar-active-list').innerHTML = active.length > 0 ? active.map(r => `<div class="p-2 rounded-lg bg-slate-50 border"><p class="font-bold">${r.occupantName}</p><p class="text-[10px] text-amber-700">${r.code}</p></div>`).join('') : '<p class="text-[11px] italic text-slate-400">Belum ada penghuni aktif.</p>';
+            const activeRooms = appState.rooms.filter(r => r.status === 'CEK IN');
+            const badge = document.getElementById('sidebar-active-count');
+            const list = document.getElementById('sidebar-active-list');
 
-            const datalist = document.getElementById('active-occupants-list');
-            if (datalist) datalist.innerHTML = active.map(r => `<option value="${r.occupantName} (${r.occupantNik}) — ${r.code}"></option>`).join('');
+            if (badge) badge.textContent = activeRooms.length;
+            if (list) {
+                list.innerHTML = activeRooms.length > 0
+                    ? activeRooms.map(r => `
+                        <div class="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                            <p class="font-bold text-slate-800 text-[11px] truncate">${r.occupantName}</p>
+                            <p class="text-[10px] text-amber-700 font-semibold">${r.code}</p>
+                        </div>
+                    `).join('')
+                    : '<p class="text-[11px] italic text-slate-400">Belum ada penghuni aktif.</p>';
+            }
+
+            const datalistEl = document.getElementById('active-occupants-list');
+            const searchInput = document.getElementById('self-co-search');
+            if (datalistEl) {
+                datalistEl.innerHTML = activeRooms.length > 0
+                    ? activeRooms.map(r => `<option value="${r.occupantName} (${r.occupantNik}) — ${r.code}" data-code="${r.code}"></option>`).join('')
+                    : '';
+            }
+
+            if (searchInput && !searchInput.oninput) {
+                searchInput.addEventListener('input', function() {
+                    const val = this.value;
+                    const currentActive = appState.rooms.filter(r => r.status === 'CEK IN');
+                    const matchedRoom = currentActive.find(r => `${r.occupantName} (${r.occupantNik}) — ${r.code}` === val);
+                    const hiddenCodeInput = document.getElementById('self-co-occupant-code');
+                    if (matchedRoom && hiddenCodeInput) {
+                        hiddenCodeInput.value = matchedRoom.code;
+                    } else if (hiddenCodeInput) {
+                        const partialMatch = currentActive.find(r => val.includes(r.code) || val.includes(r.occupantNik) || val.toLowerCase().includes(r.occupantName.toLowerCase()));
+                        hiddenCodeInput.value = partialMatch ? partialMatch.code : '';
+                    }
+                });
+            }
         }
 
         function renderDashboard() {
-            const total = appState.rooms.length;
-            const vacant = appState.rooms.filter(r => r.status === 'VACANT').length;
-            const cekin = appState.rooms.filter(r => r.status === 'CEK IN').length;
-            const pending = appState.bookings.filter(b => b.approvalStatus === 'PENDING').length;
+            const totalBed = appState.rooms.length;
+            const vacantBed = appState.rooms.filter(r => r.status === 'VACANT').length;
+            const cekInBed = appState.rooms.filter(r => r.status === 'CEK IN').length;
+            const pendingReq = appState.bookings.filter(b => b.approvalStatus === 'PENDING').length;
 
-            document.getElementById('kpi-total-bed').textContent = total;
-            document.getElementById('kpi-vacant-bed').textContent = vacant;
-            document.getElementById('kpi-cekin-bed').textContent = cekin;
-            document.getElementById('kpi-pending-req').textContent = pending;
-            document.getElementById('admin-pending-badge').textContent = pending;
+            const totalBedEl = document.getElementById('kpi-total-bed');
+            const vacantBedEl = document.getElementById('kpi-vacant-bed');
+            const cekInBedEl = document.getElementById('kpi-cekin-bed');
+            const pendingReqEl = document.getElementById('kpi-pending-req');
+            const pendingBadgeEl = document.getElementById('admin-pending-badge');
+
+            if (totalBedEl) totalBedEl.textContent = totalBed;
+            if (vacantBedEl) vacantBedEl.textContent = vacantBed;
+            if (cekInBedEl) cekInBedEl.textContent = cekInBed;
+            if (pendingReqEl) pendingReqEl.textContent = pendingReq;
+            if (pendingBadgeEl) pendingBadgeEl.textContent = pendingReq;
+
+            const bldgStatsEl = document.getElementById('dashboard-building-stats');
+            if (bldgStatsEl) {
+                const buildings = getAllBuildings();
+                bldgStatsEl.innerHTML = buildings.map(b => {
+                    const bRooms = appState.rooms.filter(r => r.building === b);
+                    const bVacant = bRooms.filter(r => r.status === 'VACANT').length;
+                    const bUsed = bRooms.length - bVacant;
+                    const pct = bRooms.length ? Math.round((bUsed / bRooms.length) * 100) : 0;
+                    return `
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-slate-900 text-xs">🏢 Gedung ${b}</span>
+                                <span class="text-[11px] font-bold text-slate-600">${bUsed} / ${bRooms.length} Terisi (${pct}%)</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-rei-gold rounded-full" style="width: ${pct}%"></div>
+                            </div>
+                            <p class="text-[11px] text-emerald-700 font-semibold">Tersedia: ${bVacant} Bed Kosong</p>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            const dateBadge = document.getElementById('activity-date-badge');
+            if (dateBadge) {
+                const now = new Date();
+                const dd = String(now.getDate()).padStart(2, '0');
+                const mm = String(now.getMonth() + 1).padStart(2, '0');
+                const yyyy = now.getFullYear();
+                dateBadge.textContent = `Tanggal: ${dd}/${mm}/${yyyy}`;
+            }
+
+            const actCheckinList = document.getElementById('activity-checkin-list');
+            const countActCi = document.getElementById('count-act-checkin');
+            const validCiBookings = appState.bookings.filter(b => b.approvalStatus === 'CEK IN' || b.approvalStatus === 'CEK OUT');
+            if (countActCi) countActCi.textContent = validCiBookings.length;
+            if (actCheckinList) {
+                actCheckinList.innerHTML = validCiBookings.length > 0 ? validCiBookings.slice().reverse().map(b => `
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex justify-between items-center">
+                        <div>
+                            <p class="font-bold text-slate-900">${b.nama} <span class="text-[10px] text-slate-500 font-normal">(${b.nik})</span></p>
+                            <p class="text-[11px] text-amber-700 font-semibold">Bed: ${b.roomCode} — Tgl In: ${formatDateDDMMYYYY(b.tglIn)}</p>
+                        </div>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${b.approvalStatus === 'CEK IN' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-200 text-slate-700'}">${b.approvalStatus}</span>
+                    </div>
+                `).join('') : '<p class="text-slate-400 italic">Belum ada aktivitas check-in.</p>';
+            }
+
+            const actCheckoutList = document.getElementById('activity-checkout-list');
+            const countActCo = document.getElementById('count-act-checkout');
+            const checkoutsList = appState.checkouts;
+            if (countActCo) countActCo.textContent = checkoutsList.length;
+            if (actCheckoutList) {
+                actCheckoutList.innerHTML = checkoutsList.length > 0 ? checkoutsList.slice().reverse().map(c => `
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex justify-between items-center">
+                        <div>
+                            <p class="font-bold text-slate-900">${c.nama} <span class="text-[10px] text-slate-500 font-normal">(${c.nik})</span></p>
+                            <p class="text-[11px] text-rose-600 font-semibold">Bed: ${c.roomCode} — Keluar: ${formatDateDDMMYYYY(c.tglOut)} ${formatShortTime(c.jamOut)}</p>
+                        </div>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-700">CEK OUT</span>
+                    </div>
+                `).join('') : '<p class="text-slate-400 italic">Belum ada aktivitas check-out hari ini.</p>';
+            }
+
+            const actDamageList = document.getElementById('activity-damage-list');
+            const countActDmg = document.getElementById('count-act-damage');
+            const damagesList = appState.damages;
+            if (countActDmg) countActDmg.textContent = damagesList.length;
+            if (actDamageList) {
+                actDamageList.innerHTML = damagesList.length > 0 ? damagesList.slice().reverse().map(d => `
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-slate-900">${d.pelapor}</span>
+                            <span class="px-2 py-0.5 rounded text-[9px] font-bold ${d.status === 'SELESAI' ? 'bg-emerald-100 text-emerald-700' : 'bg-orange-100 text-orange-700'}">${d.status}</span>
+                        </div>
+                        <p class="text-[11px] text-orange-700 font-medium">${d.lokasi} — ${d.kategori}</p>
+                        <p class="text-[11px] text-slate-600 truncate">${d.deskripsi}</p>
+                    </div>
+                `).join('') : '<p class="text-slate-400 italic">Belum ada laporan kerusakan.</p>';
+            }
         }
 
         function renderRooms() {
             const container = document.getElementById('buildings-container');
+            const bldgDropdown = document.getElementById('master-building-dropdown');
             if (!container) return;
+
             const buildings = getAllBuildings();
-            let html = '';
+
+            if (bldgDropdown) {
+                const currentVal = appState.selectedBuildingFilter || 'Semua';
+                bldgDropdown.innerHTML = [
+                    `<option value="Semua">Semua Gedung (${buildings.length})</option>`,
+                    ...buildings.map(b => {
+                        const totalBeds = appState.rooms.filter(r => r.building === b).length;
+                        return `<option value="${b}">🏢 Gedung ${b} (${totalBeds} Bed)</option>`;
+                    })
+                ].join('');
+                bldgDropdown.value = ['Semua', ...buildings].includes(currentVal) ? currentVal : 'Semua';
+            }
+
+            const buildingsMap = {};
             buildings.forEach(b => {
-                const rooms = appState.rooms.filter(r => r.building === b);
-                html += `<div class="bg-white rounded-2xl border p-5 space-y-4"><h3 class="font-bold text-sm">Gedung ${b}</h3><div class="grid grid-cols-2 sm:grid-cols-4 gap-3">`;
-                rooms.forEach(r => {
-                    html += `<div class="p-2.5 rounded-lg border bg-slate-50 flex justify-between items-center text-xs"><span>${r.code}</span><span class="font-bold ${r.status==='VACANT'?'text-emerald-600':'text-purple-600'}">${r.status}</span></div>`;
-                });
-                html += `</div></div>`;
+                if (!appState.selectedBuildingFilter || appState.selectedBuildingFilter === 'Semua' || b === appState.selectedBuildingFilter) {
+                    buildingsMap[b] = appState.rooms.filter(r => r.building === b);
+                }
             });
+
+            let html = '';
+            if (Object.keys(buildingsMap).length === 0) {
+                html = `<div class="bg-white p-8 rounded-2xl text-center text-slate-400 text-xs font-medium">Belum ada data gedung atau kamar.</div>`;
+            }
+
+            for (const [bldg, rooms] of Object.entries(buildingsMap)) {
+                const roomGroups = {};
+                rooms.forEach(r => {
+                    let roomKey = getRoomPrefixFromCode(r.code);
+                    if (!roomGroups[roomKey]) roomGroups[roomKey] = [];
+                    roomGroups[roomKey].push(r);
+                });
+
+                html += `
+                    <div class="bg-white rounded-2xl shadow-xs border border-slate-200 p-5 space-y-4">
+                        <div class="flex items-center justify-between border-b pb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-base">🏢</span>
+                                <h3 class="font-bold text-slate-900 text-sm">Gedung ${bldg}</h3>
+                            </div>
+                            <span class="text-[11px] font-semibold text-slate-500">${Object.keys(roomGroups).length} Kamar • ${rooms.length} Bed</span>
+                        </div>
+                `;
+
+                if (Object.keys(roomGroups).length === 0) {
+                    html += `<div class="p-6 text-center bg-slate-50 rounded-xl border border-dashed border-slate-200 text-xs text-slate-500">Belum ada kamar di gedung ini. Klik <strong>+ Tambah Kamar</strong> untuk menambahkan kamar pertama.</div>`;
+                } else {
+                    html += `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">`;
+
+                    for (const [roomNo, roomBeds] of Object.entries(roomGroups)) {
+                        const safeRoomNo = roomNo.replace(/'/g, "\\'");
+                        const safeBldg = bldg.replace(/'/g, "\\'");
+                        html += `
+                            <div class="bg-slate-50/70 border border-slate-200/80 rounded-xl p-3.5 space-y-2.5 shadow-2xs">
+                                <div class="flex justify-between items-start border-b border-slate-200/60 pb-2 gap-2">
+                                    <div class="flex items-start gap-1.5 flex-1">
+                                        <span class="font-bold text-slate-800 text-xs leading-snug break-words">Kamar: ${roomNo}</span>
+                                        <button type="button" onclick="openEditKamarModal('${safeRoomNo}', '${safeBldg}')" class="text-slate-400 hover:text-amber-600 transition p-0.5 rounded shrink-0" title="Edit Nama Kamar">✏️</button>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded-md shrink-0">${roomBeds.length} Bed</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                        `;
+
+                        roomBeds.forEach(bed => {
+                            let isVacant = bed.status === 'VACANT';
+                            let bk = !isVacant ? appState.bookings.find(b => b.nik === bed.occupantNik && b.roomCode === bed.code && b.approvalStatus === 'CEK IN') : null;
+                            let kat = bk ? bk.kategori : '';
+
+                            let badgeBg = 'bg-emerald-500 text-white';
+                            let cardBg = 'bg-white border-emerald-200 hover:border-emerald-400';
+                            let statusText = 'Kosong';
+
+                            if (!isVacant) {
+                                if (kat.includes('Permanent')) {
+                                    badgeBg = 'bg-purple-600 text-white';
+                                    cardBg = 'bg-white border-purple-200 hover:border-purple-400';
+                                    statusText = bed.occupantName;
+                                } else if (kat.includes('Training') || kat.includes('Percobaan')) {
+                                    badgeBg = 'bg-blue-600 text-white';
+                                    cardBg = 'bg-white border-blue-200 hover:border-blue-400';
+                                    statusText = bed.occupantName;
+                                } else if (kat.includes('Transit')) {
+                                    badgeBg = 'bg-amber-500 text-white';
+                                    cardBg = 'bg-white border-amber-200 hover:border-amber-400';
+                                    statusText = bed.occupantName;
+                                } else {
+                                    badgeBg = 'bg-purple-600 text-white';
+                                    cardBg = 'bg-white border-purple-200 hover:border-purple-400';
+                                    statusText = bed.occupantName;
+                                }
+                            }
+
+                            let bedCodeLabel = getBedSuffixFromCode(bed.code);
+                            let bedTypeNote = '';
+                            if (bedCodeLabel.endsWith('.A')) bedTypeNote = ' (Bed Bawah)';
+                            else if (bedCodeLabel.endsWith('.B')) bedTypeNote = ' (Bed Atas)';
+                            else if (bedCodeLabel.endsWith('.X')) bedTypeNote = ' (Extra Bed)';
+
+                            let displayStatusLabel = isVacant ? 'VACANT' : (kat.includes('Permanent') ? 'PERMANENT' : (kat.includes('Training') ? 'TRAINING' : (kat.includes('Transit') ? 'TRANSIT' : 'CEK IN')));
+
+                            html += `
+                                <div onclick="toggleBedStatusModal('${bed.id}')" class="p-2 rounded-lg border ${cardBg} flex flex-col justify-between cursor-pointer shadow-2xs hover:shadow-xs transition relative min-h-[60px]">
+                                    <div class="flex justify-between items-start gap-1">
+                                        <span class="font-extrabold text-[10px] text-slate-800 leading-tight">${bedCodeLabel}<span class="text-[9px] font-normal text-slate-500">${bedTypeNote}</span></span>
+                                        <span class="px-1.5 py-0.5 rounded text-[8px] font-extrabold ${badgeBg} shrink-0">${displayStatusLabel}</span>
+                                    </div>
+                                    <div class="text-[10px] text-slate-600 truncate font-medium mt-1.5 pr-10">
+                                        ${isVacant ? '<span class="text-emerald-600">Kosong</span>' : statusText}
+                                    </div>
+                                    <div class="absolute bottom-1 right-1 flex items-center gap-0.5">
+                                        <button type="button" onclick="event.stopPropagation(); openEditKasurModal('${bed.id}')" class="text-slate-400 hover:text-amber-600 text-[10px] p-0.5 rounded" title="Edit Nama/Kode Kasur">✏️</button>
+                                        <button type="button" onclick="event.stopPropagation(); deleteBed('${bed.id}')" class="text-slate-300 hover:text-rose-600 text-[10px] p-0.5 rounded" title="Hapus Bed">🗑️</button>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        html += `</div></div>`;
+                    }
+
+                    html += `</div>`;
+                }
+
+                html += `</div>`;
+            }
+
             container.innerHTML = html;
         }
 
-        function renderAdminTables() {
-            document.getElementById('table-admin-pending').innerHTML = appState.bookings.filter(b => b.approvalStatus === 'PENDING').map(b => `
-                <tr><td class="p-3">${b.id}</td><td class="p-3 font-bold">${b.nama}</td><td class="p-3">${b.divisi}</td><td class="p-3 font-bold">${b.roomCode}</td><td class="p-3 text-center"><button onclick="approveBooking('${b.id}')" class="px-3 py-1 bg-emerald-600 text-white rounded font-bold">Setujui</button></td></tr>
-            `).join('') || `<tr><td colspan="5" class="p-4 text-center text-slate-400">Tidak ada pengajuan pending.</td></tr>`;
-
-            document.getElementById('table-admin-occupants').innerHTML = appState.rooms.filter(r => r.status === 'CEK IN').map(r => `
-                <tr><td class="p-3 font-bold">${r.occupantName}</td><td class="p-3">${r.code}</td><td class="p-3 text-center"><button onclick="openCheckoutModal('${r.code}', '${r.occupantNik}')" class="px-3 py-1 bg-rose-600 text-white rounded font-bold">Check-Out</button></td></tr>
-            `).join('') || `<tr><td colspan="3" class="p-4 text-center text-slate-400">Tidak ada penghuni aktif.</td></tr>`;
+        function setBuildingFilter(bldg) {
+            appState.selectedBuildingFilter = bldg;
+            renderRooms();
         }
 
-        function renderReportTables() {
-            document.getElementById('table-report-master-mess').innerHTML = appState.rooms.map(r => `<tr><td class="p-3">${r.building}</td><td class="p-3 font-bold">${r.code}</td><td class="p-3">${r.status}</td><td class="p-3">${r.occupantName||'-'}</td></tr>`).join('');
-            document.getElementById('table-report-checkin').innerHTML = appState.bookings.map(b => `<tr><td class="p-3">${b.id}</td><td class="p-3 font-bold">${b.nama}</td><td class="p-3">${b.divisi}</td><td class="p-3">${b.roomCode}</td><td class="p-3">${b.approvalStatus}</td></tr>`).join('');
-        }
-
-        function switchRole(role) {
-            appState.currentRole = role;
-            const sbK = document.getElementById('sidebar-karyawan');
-            const sbA = document.getElementById('sidebar-admin');
-            if (role === 'admin') {
-                sbK.classList.add('hidden');
-                sbA.classList.remove('hidden');
-                switchAdminTab('master');
+        function toggleBedStatusModal(bedId) {
+            const bed = appState.rooms.find(r => r.id === bedId);
+            if (!bed) return;
+            if (bed.status !== 'VACANT') {
+                openCheckoutModal(bed.code, bed.occupantNik);
             } else {
-                sbA.classList.add('hidden');
-                sbK.classList.remove('hidden');
-                switchKaryawanTab('checkin');
+                switchAdminTab('approval');
+                showToast(`Pilih pengajuan reservasi untuk bed ${bed.code}`, 'success');
             }
         }
 
-        // KUNCI UTAMA: Wajib login setiap kali tombol HR Admin diklik
-        function attemptSwitchAdmin() {
-            document.getElementById('admin-user-input').value = '';
-            document.getElementById('admin-pass-input').value = '';
-            const modal = document.getElementById('admin-login-modal');
+        function renderAdminTables() {
+            const tbPending = document.getElementById('table-admin-pending');
+            if (tbPending) {
+                const pendings = appState.bookings.filter(b => b.approvalStatus === 'PENDING');
+                tbPending.innerHTML = pendings.map(b => `
+                    <tr>
+                        <td class="p-3 font-mono text-slate-500">${b.id}</td>
+                        <td class="p-3"><p class="font-bold text-slate-900">${b.nama}</p><p class="text-[10px] text-slate-500">${b.nik}</p></td>
+                        <td class="p-3"><p class="text-slate-700">${b.divisi}</p><p class="text-[10px] text-slate-500">${b.wa}</p></td>
+                        <td class="p-3 font-bold text-amber-700">${b.roomCode}</td>
+                        <td class="p-3 text-slate-600">${formatDateDDMMYYYY(b.tglIn)} s/d ${formatDateDDMMYYYY(b.estimatedOut || b.tglOut)}</td>
+                        <td class="p-3 text-slate-600">${b.kategori}</td>
+                        <td class="p-3 text-center flex justify-center gap-1.5">
+                            <button onclick="approveBooking('${b.id}')" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] shadow hover:bg-emerald-700">Setujui (Cek In)</button>
+                            <button onclick="rejectBooking('${b.id}')" class="px-3 py-1.5 rounded-lg bg-rose-100 text-rose-700 font-bold text-[11px] hover:bg-rose-200">Tolak</button>
+                        </td>
+                    </tr>
+                `).join('') || `<tr><td colspan="7" class="p-4 text-center text-slate-400">Tidak ada pengajuan reservasi pending.</td></tr>`;
+            }
+
+            const tbOccupants = document.getElementById('table-admin-occupants');
+            if (tbOccupants) {
+                const occupants = appState.rooms.filter(r => r.status === 'CEK IN');
+                tbOccupants.innerHTML = occupants.map(r => {
+                    const bk = appState.bookings.find(b => b.nik === r.occupantNik && b.roomCode === r.code && b.approvalStatus === 'CEK IN');
+                    return `
+                        <tr>
+                            <td class="p-3"><p class="font-bold text-slate-900">${r.occupantName}</p><p class="text-[10px] text-slate-500">${r.occupantNik}</p></td>
+                            <td class="p-3 text-slate-700">${bk ? bk.divisi : '-'}</td>
+                            <td class="p-3 font-bold text-purple-700">${r.code}</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">CEK IN</span></td>
+                            <td class="p-3 text-slate-600">${bk ? formatDateDDMMYYYY(bk.tglIn) : '-'}</td>
+                            <td class="p-3 text-slate-600 font-medium">${bk ? formatDateDDMMYYYY(bk.estimatedOut || bk.tglOut) : '-'}</td>
+                            <td class="p-3 text-center">
+                                <button onclick="openCheckoutModal('${r.code}', '${r.occupantNik}')" class="px-3 py-1.5 rounded-lg bg-rose-600 text-white font-bold text-[11px] shadow hover:bg-rose-700">Check-Out</button>
+                            </td>
+                        </tr>
+                    `;
+                }).join('') || `<tr><td colspan="7" class="p-4 text-center text-slate-400">Tidak ada penghuni aktif di mess saat ini.</td></tr>`;
+            }
+
+            const damagesHtml = appState.damages.map(d => `
+                <tr>
+                    <td class="p-3 font-mono text-slate-500">${d.id}</td>
+                    <td class="p-3 text-slate-600">${formatDateDDMMYYYY(d.tanggal)}</td>
+                    <td class="p-3"><p class="font-bold text-slate-900">${d.pelapor}</p><p class="text-[10px] text-slate-500">${d.wa}</p></td>
+                    <td class="p-3 font-semibold text-slate-700">${d.lokasi}</td>
+                    <td class="p-3"><p class="font-medium text-orange-700">${d.kategori}</p><p class="text-[11px] text-slate-600">${d.deskripsi}</p></td>
+                    <td class="p-3 text-slate-700 italic">${d.feedback || '-'}</td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${d.status==='SELESAI'?'bg-emerald-100 text-emerald-700':'bg-orange-100 text-orange-700'}">${d.status}</span></td>
+                    <td class="p-3 text-center">
+                        <button onclick="resolveDamage('${d.id}')" class="px-3 py-1.5 rounded-lg bg-zinc-900 text-white font-bold text-[11px] shadow hover:bg-zinc-800">Beri Feedback</button>
+                    </td>
+                </tr>
+            `).join('') || `<tr><td colspan="8" class="p-4 text-center text-slate-400">Belum ada laporan kerusakan.</td></tr>`;
+
+            const tbDamagesPage = document.getElementById('table-admin-kerusakan-page');
+            if (tbDamagesPage) tbDamagesPage.innerHTML = damagesHtml;
+
+            const tbKalender = document.getElementById('table-admin-kalender');
+            if (tbKalender) {
+                const activeBookings = appState.bookings.filter(b => b.approvalStatus === 'CEK IN');
+                tbKalender.innerHTML = activeBookings.map(b => `
+                    <tr>
+                        <td class="p-3 font-bold text-amber-700">${b.roomCode}</td>
+                        <td class="p-3"><p class="font-bold text-slate-900">${b.nama}</p><p class="text-[10px] text-slate-500">${b.nik} — ${b.divisi}</p></td>
+                        <td class="p-3 text-slate-600">${formatDateDDMMYYYY(b.tglIn)}</td>
+                        <td class="p-3 text-slate-700 font-semibold">${formatDateDDMMYYYY(b.estimatedOut)}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">CEK IN</span></td>
+                    </tr>
+                `).join('') || `<tr><td colspan="5" class="p-4 text-center text-slate-400">Tidak ada jadwal okupansi aktif.</td></tr>`;
+            }
+        }
+
+        function resolveDamage(dmgId) {
+            const d = appState.damages.find(item => item.id === dmgId);
+            if (!d) return;
+            document.getElementById('feedback-damage-id').value = d.id;
+            document.getElementById('feedback-text-input').value = d.feedback && d.feedback !== '-' ? d.feedback : '';
+            const modal = document.getElementById('damage-feedback-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
         }
 
-        function closeAdminLoginModal() {
-            document.getElementById('admin-login-modal').classList.add('hidden');
-            document.getElementById('admin-login-modal').classList.remove('flex');
+        function closeDamageFeedbackModal() {
+            const modal = document.getElementById('damage-feedback-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSaveDamageFeedback(e) {
+            e.preventDefault();
+            const id = document.getElementById('feedback-damage-id').value;
+            const feedback = document.getElementById('feedback-text-input').value.trim();
+            const d = appState.damages.find(item => item.id === id);
+            if (!d) return;
+            d.feedback = feedback;
+            d.status = 'SELESAI';
+            closeDamageFeedbackModal();
+            saveAppData();
+            refreshAllUI();
+            showToast(`Feedback penanganan kerusakan berhasil disimpan.`, 'success');
+        }
+
+        // ==========================================
+        // EDIT NAMA KAMAR HANDLERS
+        // ==========================================
+        function openEditKamarModal(oldRoomKey, buildingName) {
+            document.getElementById('edit-kamar-old-key').value = oldRoomKey;
+            document.getElementById('edit-kamar-building').value = buildingName;
+            document.getElementById('edit-kamar-current-display').value = oldRoomKey;
+            document.getElementById('edit-kamar-new-name').value = oldRoomKey;
+
+            const modal = document.getElementById('edit-kamar-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEditKamarModal() {
+            const modal = document.getElementById('edit-kamar-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSaveEditKamar(e) {
+            e.preventDefault();
+            const oldKey = document.getElementById('edit-kamar-old-key').value;
+            const bldg = document.getElementById('edit-kamar-building').value;
+            let rawNewName = document.getElementById('edit-kamar-new-name').value.trim();
+
+            if (!rawNewName) return;
+
+            const newKey = rawNewName.toLowerCase().startsWith(bldg.toLowerCase())
+                ? rawNewName
+                : `${bldg} ${rawNewName}`;
+
+            if (newKey === oldKey) {
+                closeEditKamarModal();
+                return;
+            }
+
+            const isDuplicate = appState.rooms.some(r => {
+                const k = getRoomPrefixFromCode(r.code);
+                return k.toLowerCase() === newKey.toLowerCase();
+            });
+
+            if (isDuplicate) {
+                showToast(`Nama kamar "${newKey}" sudah digunakan!`, 'error');
+                return;
+            }
+
+            appState.rooms.forEach(r => {
+                const currentKey = getRoomPrefixFromCode(r.code);
+                const bedSuffix = getBedSuffixFromCode(r.code);
+                if (currentKey === oldKey) {
+                    r.code = `${newKey} ${bedSuffix}`;
+                }
+            });
+
+            appState.bookings.forEach(b => {
+                const currentKey = getRoomPrefixFromCode(b.roomCode);
+                const bedSuffix = getBedSuffixFromCode(b.roomCode);
+                if (currentKey === oldKey) {
+                    b.roomCode = `${newKey} ${bedSuffix}`;
+                }
+            });
+
+            appState.checkouts.forEach(c => {
+                const currentKey = getRoomPrefixFromCode(c.roomCode);
+                const bedSuffix = getBedSuffixFromCode(c.roomCode);
+                if (currentKey === oldKey) {
+                    c.roomCode = `${newKey} ${bedSuffix}`;
+                }
+            });
+
+            closeEditKamarModal();
+            saveAppData();
+            refreshAllUI();
+            showToast(`Nama kamar berhasil diubah menjadi "${newKey}"!`, 'success');
+        }
+
+        // ==========================================
+        // EDIT NAMA / KODE KASUR (BED) HANDLERS
+        // ==========================================
+        function openEditKasurModal(bedId) {
+            const bed = appState.rooms.find(r => r.id === bedId);
+            if (!bed) return;
+
+            const bedSuffix = getBedSuffixFromCode(bed.code);
+            const roomPrefix = getRoomPrefixFromCode(bed.code);
+
+            document.getElementById('edit-kasur-id').value = bed.id;
+            document.getElementById('edit-kasur-room-prefix').value = roomPrefix;
+            document.getElementById('edit-kasur-current-display').value = bed.code;
+            document.getElementById('edit-kasur-new-suffix').value = bedSuffix;
+
+            const modal = document.getElementById('edit-kasur-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEditKasurModal() {
+            const modal = document.getElementById('edit-kasur-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSaveEditKasur(e) {
+            e.preventDefault();
+            const bedId = document.getElementById('edit-kasur-id').value;
+            const roomPrefix = document.getElementById('edit-kasur-room-prefix').value;
+            const rawInput = document.getElementById('edit-kasur-new-suffix').value.trim();
+
+            if (!rawInput) return;
+
+            const bed = appState.rooms.find(r => r.id === bedId);
+            if (!bed) return;
+
+            const oldFullCode = bed.code;
+            const newFullCode = rawInput.toLowerCase().startsWith(roomPrefix.toLowerCase() + ' ')
+                ? rawInput
+                : `${roomPrefix} ${rawInput}`;
+
+            if (newFullCode === oldFullCode) {
+                closeEditKasurModal();
+                return;
+            }
+
+            const isDuplicate = appState.rooms.some(r => r.id !== bedId && r.code.toLowerCase() === newFullCode.toLowerCase());
+            if (isDuplicate) {
+                showToast(`Kode kasur "${newFullCode}" sudah digunakan!`, 'error');
+                return;
+            }
+
+            bed.code = newFullCode;
+
+            appState.bookings.forEach(b => {
+                if (b.roomCode === oldFullCode) {
+                    b.roomCode = newFullCode;
+                }
+            });
+
+            appState.checkouts.forEach(c => {
+                if (c.roomCode === oldFullCode) {
+                    c.roomCode = newFullCode;
+                }
+            });
+
+            closeEditKasurModal();
+            saveAppData();
+            refreshAllUI();
+            showToast(`Kode kasur berhasil diubah menjadi "${newFullCode}"!`, 'success');
+        }
+
+        function renderReportTables() {
+            const selectedYear = document.getElementById('filter-report-year')?.value || 'ALL';
+            const selectedMonth = document.getElementById('filter-report-month')?.value || 'ALL';
+
+            function matchDateFilter(rawDateStr) {
+                const normalized = formatShortDate(rawDateStr);
+                if (!normalized || normalized === '-') return false;
+                const parts = normalized.split('-');
+                if (parts.length < 2) return false;
+                const y = parts[0];
+                const m = parts[1];
+                if (selectedYear !== 'ALL' && y !== selectedYear) return false;
+                if (selectedMonth !== 'ALL' && m !== selectedMonth) return false;
+                return true;
+            }
+
+            const tbMess = document.getElementById('table-report-master-mess');
+            const cntMess = document.getElementById('count-master-mess');
+            if (tbMess) {
+                if (cntMess) cntMess.textContent = `${appState.rooms.length} Bed`;
+                tbMess.innerHTML = appState.rooms.map(r => `
+                    <tr>
+                        <td class="p-3 font-semibold text-slate-700">${r.building}</td>
+                        <td class="p-3 font-bold text-slate-900">${r.code}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${r.status==='VACANT'?'bg-emerald-100 text-emerald-700':'bg-purple-100 text-purple-700'}">${r.status}</span></td>
+                        <td class="p-3 text-slate-600">${r.occupantNik || '-'}</td>
+                        <td class="p-3 font-medium text-slate-800">${r.occupantName || '-'}</td>
+                    </tr>
+                `).join('') || `<tr><td colspan="5" class="p-6 text-center text-slate-400">Belum ada data bed.</td></tr>`;
+            }
+
+            const tbKamar = document.getElementById('table-report-master-kamar');
+            const cntKamar = document.getElementById('count-master-kamar');
+            if (tbKamar) {
+                const roomGroups = {};
+                appState.rooms.forEach(r => {
+                    let roomKey = getRoomPrefixFromCode(r.code);
+                    if (!roomGroups[roomKey]) roomGroups[roomKey] = { building: r.building, total: 0, vacant: 0 };
+                    roomGroups[roomKey].total++;
+                    if (r.status === 'VACANT') roomGroups[roomKey].vacant++;
+                });
+                const kamars = Object.keys(roomGroups).map(k => ({ roomNo: k, ...roomGroups[k] }));
+                if (cntKamar) cntKamar.textContent = `${kamars.length} Kamar`;
+                tbKamar.innerHTML = kamars.map(k => `
+                    <tr>
+                        <td class="p-3 font-semibold text-slate-700">${k.building}</td>
+                        <td class="p-3 font-bold text-slate-900">${k.roomNo}</td>
+                        <td class="p-3 text-slate-700 font-medium">${k.total} Bed</td>
+                        <td class="p-3 text-purple-600 font-bold">${k.total - k.vacant} Bed</td>
+                        <td class="p-3 text-emerald-600 font-bold">${k.vacant} Bed</td>
+                    </tr>
+                `).join('') || `<tr><td colspan="5" class="p-6 text-center text-slate-400">Belum ada data kamar.</td></tr>`;
+            }
+
+            const filteredBookings = appState.bookings.filter(b => {
+                if (selectedYear === 'ALL' && selectedMonth === 'ALL') return true;
+                return matchDateFilter(b.tglIn);
+            });
+
+            const tbCi = document.getElementById('table-report-checkin');
+            const cntCi = document.getElementById('count-checkin');
+            if (tbCi) {
+                if (cntCi) cntCi.textContent = `${filteredBookings.length} Data`;
+                tbCi.innerHTML = filteredBookings.map(b => {
+                    const coRecord = appState.checkouts.find(c => c.nik === b.nik && c.roomCode === b.roomCode);
+                    const actualOutDate = coRecord ? formatDateDDMMYYYY(coRecord.tglOut) : (b.approvalStatus === 'CEK OUT' ? formatDateDDMMYYYY(b.actualOut) : '-');
+                    const actualOutTime = coRecord ? formatShortTime(coRecord.jamOut) : (b.approvalStatus === 'CEK OUT' ? formatShortTime(b.actualOutTime) : '-');
+                    const coReason = coRecord ? (coRecord.alasan || '-') : '-';
+                    const estimatedOutDisplay = formatDateDDMMYYYY(b.estimatedOut);
+
+                    let statusBadgeClass = 'bg-amber-100 text-amber-700';
+                    if (b.approvalStatus === 'CEK IN') statusBadgeClass = 'bg-emerald-100 text-emerald-700';
+                    else if (b.approvalStatus === 'CEK OUT') statusBadgeClass = 'bg-slate-200 text-slate-700';
+                    else if (b.approvalStatus === 'REJECTED') statusBadgeClass = 'bg-rose-100 text-rose-700';
+
+                    return `
+                        <tr>
+                            <td class="p-3 font-mono text-slate-500">${b.id}</td>
+                            <td class="p-3"><p class="font-bold text-slate-900">${b.nama}</p><p class="text-[10px] text-slate-500">${b.nik}</p></td>
+                            <td class="p-3 text-slate-700">${b.divisi}</td>
+                            <td class="p-3 font-bold text-amber-700">${b.roomCode}</td>
+                            <td class="p-3 text-slate-600">${b.kategori}</td>
+                            <td class="p-3 text-slate-600">${formatDateDDMMYYYY(b.tglIn)}</td>
+                            <td class="p-3 text-slate-700 font-semibold">${estimatedOutDisplay}</td>
+                            <td class="p-3 text-rose-600 font-semibold">${actualOutDate}</td>
+                            <td class="p-3 text-rose-600 font-semibold">${actualOutTime}</td>
+                            <td class="p-3 text-slate-600">${coReason}</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${statusBadgeClass}">${b.approvalStatus}</span></td>
+                            <td class="p-3 text-center flex justify-center gap-1">
+                                <button onclick="openEditCheckinModal('${b.id}')" class="px-2 py-1 rounded bg-amber-100 text-amber-800 text-[10px] font-bold">Edit</button>
+                                <button onclick="deleteCheckinRecord('${b.id}')" class="px-2 py-1 rounded bg-rose-100 text-rose-700 text-[10px] font-bold">Hapus</button>
+                            </td>
+                        </tr>
+                    `;
+                }).join('') || `<tr><td colspan="12" class="p-6 text-center text-slate-400">Tidak ada data check-in pada periode ini.</td></tr>`;
+            }
+
+            const filteredDamages = appState.damages.filter(d => {
+                if (selectedYear === 'ALL' && selectedMonth === 'ALL') return true;
+                return matchDateFilter(d.tanggal);
+            });
+
+            const tbDmg = document.getElementById('table-report-kerusakan');
+            const cntDmg = document.getElementById('count-kerusakan');
+            if (tbDmg) {
+                if (cntDmg) cntDmg.textContent = `${filteredDamages.length} Data`;
+                tbDmg.innerHTML = filteredDamages.map(d => `
+                    <tr>
+                        <td class="p-3 font-mono text-slate-500">${d.id}</td>
+                        <td class="p-3 text-slate-600">${formatDateDDMMYYYY(d.tanggal)}</td>
+                        <td class="p-3 font-bold text-slate-800">${d.pelapor}</td>
+                        <td class="p-3 font-semibold text-slate-700">${d.lokasi}</td>
+                        <td class="p-3 text-orange-700 font-medium">${d.kategori}</td>
+                        <td class="p-3 text-slate-600">${d.deskripsi}</td>
+                        <td class="p-3 text-slate-700 italic">${d.feedback || '-'}</td>
+                        <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${d.status==='SELESAI'?'bg-emerald-100 text-emerald-700':'bg-orange-100 text-orange-700'}">${d.status}</span></td>
+                        <td class="p-3 text-center flex justify-center gap-1">
+                            <button onclick="openEditDamageModal('${d.id}')" class="px-2 py-1 rounded bg-amber-100 text-amber-800 text-[10px] font-bold">Edit</button>
+                            <button onclick="deleteDamageRecord('${d.id}')" class="px-2 py-1 rounded bg-rose-100 text-rose-700 text-[10px] font-bold">Hapus</button>
+                        </td>
+                    </tr>
+                `).join('') || `<tr><td colspan="9" class="p-6 text-center text-slate-400">Tidak ada laporan kerusakan pada periode ini.</td></tr>`;
+            }
+        }
+
+        function exportCurrentReportExcel() {
+            if (typeof XLSX === 'undefined') {
+                showToast('Library SheetJS belum termuat.', 'error');
+                return;
+            }
+
+            const selectedYear = document.getElementById('filter-report-year')?.value || 'ALL';
+            const selectedMonth = document.getElementById('filter-report-month')?.value || 'ALL';
+            const periodSuffix = selectedYear !== 'ALL' ? `_${selectedYear}${selectedMonth !== 'ALL' ? '-' + selectedMonth : ''}` : '';
+
+            function matchDateFilter(rawDateStr) {
+                const normalized = formatShortDate(rawDateStr);
+                if (!normalized || normalized === '-') return false;
+                const parts = normalized.split('-');
+                if (parts.length < 2) return false;
+                const y = parts[0];
+                const m = parts[1];
+                if (selectedYear !== 'ALL' && y !== selectedYear) return false;
+                if (selectedMonth !== 'ALL' && m !== selectedMonth) return false;
+                return true;
+            }
+
+            const wb = XLSX.utils.book_new();
+            const tab = appState.currentReportTab;
+
+            if (tab === 'master-mess') {
+                const wsRoomsData = [["ID Bed", "Kode Bed", "Gedung", "Status", "NIK Penghuni", "Nama Penghuni"]];
+                appState.rooms.forEach(r => wsRoomsData.push([r.id, r.code, r.building, r.status, r.occupantNik || "", r.occupantName || ""]));
+                XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(wsRoomsData), "Master_Mess_Bed");
+                XLSX.writeFile(wb, `Laporan_Master_Mess_Bed${periodSuffix}.xlsx`);
+                showToast('Laporan Master Mess & Bed berhasil diunduh.', 'success');
+            } else if (tab === 'master-kamar') {
+                const roomGroups = {};
+                appState.rooms.forEach(r => {
+                    let roomKey = getRoomPrefixFromCode(r.code);
+                    if (!roomGroups[roomKey]) roomGroups[roomKey] = { building: r.building, total: 0, vacant: 0 };
+                    roomGroups[roomKey].total++;
+                    if (r.status === 'VACANT') roomGroups[roomKey].vacant++;
+                });
+                const wsKamarData = [["Gedung", "Nomor Kamar", "Total Kapasitas Bed", "Bed Terisi", "Bed Kosong"]];
+                Object.keys(roomGroups).forEach(k => {
+                    wsKamarData.push([roomGroups[k].building, k, roomGroups[k].total, roomGroups[k].total - roomGroups[k].vacant, roomGroups[k].vacant]);
+                });
+                XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(wsKamarData), "Master_Kamar");
+                XLSX.writeFile(wb, `Laporan_Master_Kamar${periodSuffix}.xlsx`);
+                showToast('Laporan Master Kamar berhasil diunduh.', 'success');
+            } else if (tab === 'checkin') {
+                const filteredBookings = appState.bookings.filter(b => {
+                    if (selectedYear === 'ALL' && selectedMonth === 'ALL') return true;
+                    return matchDateFilter(b.tglIn);
+                });
+                const wsCheckinData = [["ID", "NIK", "Nama", "Posisi", "Divisi", "No WA", "Kategori", "Kode Bed", "Gedung", "Tgl Check-In", "Estimasi Tgl Check-Out", "Tgl Check-Out Aktual", "Jam Check-Out Aktual", "Alasan Cek Out", "Status"]];
+                filteredBookings.forEach(b => {
+                    const coRecord = appState.checkouts.find(c => c.nik === b.nik && c.roomCode === b.roomCode);
+                    const actualOutDate = coRecord ? formatDateDDMMYYYY(coRecord.tglOut) : (b.approvalStatus === 'CEK OUT' ? formatDateDDMMYYYY(b.actualOut) : '-');
+                    const actualOutTime = coRecord ? formatShortTime(coRecord.jamOut) : (b.approvalStatus === 'CEK OUT' ? formatShortTime(b.actualOutTime) : '-');
+                    const coReason = coRecord ? (coRecord.alasan || '-') : '-';
+                    wsCheckinData.push([b.id, b.nik, b.nama, b.posisi, b.divisi, b.wa, b.kategori, b.roomCode, b.building, formatDateDDMMYYYY(b.tglIn), formatDateDDMMYYYY(b.estimatedOut), actualOutDate, actualOutTime, coReason, b.approvalStatus]);
+                });
+                XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(wsCheckinData), "Data_Check_In");
+                XLSX.writeFile(wb, `Laporan_Data_CheckIn${periodSuffix}.xlsx`);
+                showToast('Laporan Data Check-In berhasil diunduh.', 'success');
+            } else if (tab === 'kerusakan') {
+                const filteredDamages = appState.damages.filter(d => {
+                    if (selectedYear === 'ALL' && selectedMonth === 'ALL') return true;
+                    return matchDateFilter(d.tanggal);
+                });
+                const wsDamageData = [["ID Tiket", "Tanggal", "Pelapor", "No WA", "Lokasi", "Kategori", "Deskripsi", "Feedback Admin", "Status"]];
+                filteredDamages.forEach(d => wsDamageData.push([d.id, formatDateDDMMYYYY(d.tanggal), d.pelapor, d.wa, d.lokasi, d.kategori, d.deskripsi, d.feedback || "-", d.status]));
+                XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(wsDamageData), "Laporan_Kerusakan");
+                XLSX.writeFile(wb, `Laporan_Kerusakan${periodSuffix}.xlsx`);
+                showToast('Laporan Kerusakan berhasil diunduh.', 'success');
+            }
+        }
+
+        // ==========================================
+        // EDIT & DELETE HANDLERS
+        // ==========================================
+        function openEditCheckinModal(bookingId) {
+            const b = appState.bookings.find(item => item.id === bookingId);
+            if (!b) return;
+            document.getElementById('edit-ci-id').value = b.id;
+            document.getElementById('edit-ci-nik').value = b.nik;
+            document.getElementById('edit-ci-nama').value = b.nama;
+            document.getElementById('edit-ci-divisi').value = b.divisi;
+            document.getElementById('edit-ci-kategori').value = b.kategori;
+            document.getElementById('edit-ci-tglin').value = formatShortDate(b.tglIn);
+            const estOut = formatShortDate(b.estimatedOut);
+            document.getElementById('edit-ci-estout').value = estOut !== '-' ? estOut : '';
+
+            const modal = document.getElementById('edit-checkin-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEditCheckinModal() {
+            const modal = document.getElementById('edit-checkin-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSaveEditCheckin(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-ci-id').value;
+            const b = appState.bookings.find(item => item.id === id);
+            if (!b) return;
+
+            b.nik = document.getElementById('edit-ci-nik').value.trim();
+            b.nama = document.getElementById('edit-ci-nama').value.trim();
+            b.divisi = document.getElementById('edit-ci-divisi').value.trim();
+            b.kategori = document.getElementById('edit-ci-kategori').value;
+            b.tglIn = formatShortDate(document.getElementById('edit-ci-tglin').value);
+            b.estimatedOut = formatShortDate(document.getElementById('edit-ci-estout').value);
+
+            closeEditCheckinModal();
+            saveAppData();
+            refreshAllUI();
+            showToast(`Check-Out berhasil (${formatDateDDMMYYYY(tglOut)} ${jamOut}). Bed kembali VACANT.`, 'success');
+        }
+
+        function deleteCheckinRecord(bookingId) {
+            openConfirmModal(
+                'Hapus Data Check-In?',
+                'Data reservasi ini akan dihapus dari daftar riwayat check-in.',
+                function() {
+                    const b = appState.bookings.find(item => item.id === bookingId);
+                    if (b && b.approvalStatus === 'CEK IN') {
+                        const room = appState.rooms.find(r => r.code === b.roomCode);
+                        if (room) {
+                            room.status = 'VACANT';
+                            room.occupantNik = '';
+                            room.occupantName = '';
+                        }
+                    }
+                    appState.bookings = appState.bookings.filter(item => item.id !== bookingId);
+                    saveAppData();
+                    refreshAllUI();
+                    showToast('Data check-in berhasil dihapus.', 'success');
+                }
+            );
+        }
+
+        function openEditDamageModal(dmgId) {
+            const d = appState.damages.find(item => item.id === dmgId);
+            if (!d) return;
+            document.getElementById('edit-dmg-id').value = d.id;
+            document.getElementById('edit-dmg-pelapor').value = d.pelapor;
+            document.getElementById('edit-dmg-lokasi').value = d.lokasi;
+            document.getElementById('edit-dmg-desc').value = d.deskripsi;
+
+            const modal = document.getElementById('edit-damage-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEditDamageModal() {
+            const modal = document.getElementById('edit-damage-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSaveEditDamage(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-dmg-id').value;
+            const d = appState.damages.find(item => item.id === id);
+            if (!d) return;
+
+            d.pelapor = document.getElementById('edit-dmg-pelapor').value.trim();
+            d.lokasi = document.getElementById('edit-dmg-lokasi').value.trim();
+            d.deskripsi = document.getElementById('edit-dmg-desc').value.trim();
+
+            closeEditDamageModal();
+            saveAppData();
+            refreshAllUI();
+            showToast('Laporan kerusakan berhasil diperbarui.', 'success');
+        }
+
+        function deleteDamageRecord(dmgId) {
+            openConfirmModal(
+                'Hapus Laporan Kerusakan?',
+                'Tiket laporan kerusakan ini akan dihapus permanen.',
+                function() {
+                    appState.damages = appState.damages.filter(item => item.id !== dmgId);
+                    saveAppData();
+                    refreshAllUI();
+                    showToast('Laporan kerusakan berhasil dihapus.', 'success');
+                }
+            );
+        }
+
+        // ==========================================
+        // OTHER ACTIONS & AUTH
+        // ==========================================
+        function logoutAdmin() {
+            localStorage.setItem('rei_mess_admin_auth', 'false');
+            switchRole('karyawan');
+            showToast('Admin berhasil logout.', 'success');
         }
 
         function handleAdminLogin(e) {
             e.preventDefault();
             const u = document.getElementById('admin-user-input').value.trim();
             const p = document.getElementById('admin-pass-input').value.trim();
+
             if (u === 'HR ADMIN' && p === 'HRDREI01') {
+                localStorage.setItem('rei_mess_admin_auth', 'true');
                 closeAdminLoginModal();
                 switchRole('admin');
                 showToast('Login HR Admin Berhasil!', 'success');
             } else {
-                showToast('Username / Password salah (Gunakan: HR ADMIN / HRDREI01)', 'error');
+                showToast('Username atau Password Admin salah! (Gunakan HR ADMIN / HRDREI01)', 'error');
             }
         }
 
-        function logoutAdmin() {
-            switchRole('karyawan');
-            showToast('Admin berhasil logout.', 'success');
+        function attemptSwitchAdmin() {
+            if (appState.currentRole === 'admin') return;
+            const savedAdminAuth = localStorage.getItem('rei_mess_admin_auth');
+            if (savedAdminAuth === 'true') {
+                switchRole('admin');
+                return;
+            }
+            const modal = document.getElementById('admin-login-modal');
+            document.getElementById('admin-user-input').value = '';
+            document.getElementById('admin-pass-input').value = '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeAdminLoginModal() {
+            const modal = document.getElementById('admin-login-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function toggleMobileSidebar() {
+            const sbK = document.getElementById('sidebar-karyawan');
+            const sbA = document.getElementById('sidebar-admin');
+            const backdrop = document.getElementById('mobile-backdrop');
+            const activeSb = appState.currentRole === 'karyawan' ? sbK : sbA;
+
+            const isClosed = activeSb.classList.contains('-translate-x-full');
+            if (isClosed) {
+                activeSb.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+            } else {
+                activeSb.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+        }
+
+        function closeMobileSidebarIfOpen() {
+            const sbK = document.getElementById('sidebar-karyawan');
+            const sbA = document.getElementById('sidebar-admin');
+            const backdrop = document.getElementById('mobile-backdrop');
+            sbK.classList.add('-translate-x-full');
+            sbA.classList.add('-translate-x-full');
+            backdrop.classList.add('hidden');
+        }
+
+        function switchRole(role) {
+            appState.currentRole = role;
+            const btnKaryawan = document.getElementById('btn-role-karyawan');
+            const btnAdmin = document.getElementById('btn-role-admin');
+            const sbKaryawan = document.getElementById('sidebar-karyawan');
+            const sbAdmin = document.getElementById('sidebar-admin');
+
+            ['checkin', 'checkout', 'kerusakan'].forEach(id => {
+                const p = document.getElementById(`k-pane-${id}`);
+                if (p) p.classList.add('hidden');
+            });
+            ['dashboard', 'aktivitas', 'pemesanan', 'approval', 'kalender', 'master', 'kerusakan-admin', 'laporan'].forEach(id => {
+                const p = document.getElementById(`a-pane-${id}`);
+                if (p) p.classList.add('hidden');
+            });
+
+            if (role === 'admin') {
+                btnAdmin.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-rei-gold text-rei-black shadow";
+                btnKaryawan.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-zinc-400 hover:text-white";
+                sbKaryawan.classList.add('hidden');
+                sbKaryawan.classList.remove('flex');
+                sbAdmin.classList.remove('hidden');
+                sbAdmin.classList.add('flex');
+                switchAdminTab('master');
+            } else {
+                btnKaryawan.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-rei-gold text-rei-black shadow";
+                btnAdmin.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-zinc-400 hover:text-white";
+                sbAdmin.classList.add('hidden');
+                sbAdmin.classList.remove('flex');
+                sbKaryawan.classList.remove('hidden');
+                sbKaryawan.classList.add('flex');
+                switchKaryawanTab('checkin');
+            }
+            closeMobileSidebarIfOpen();
         }
 
         function handleBookingSubmit(e) {
             e.preventDefault();
-            const roomCode = document.getElementById('booking-room').value;
-            const roomObj = appState.rooms.find(r => r.code === roomCode);
-            if (!roomObj) return;
-
-            appState.bookings.push({
-                id: 'BK-' + Date.now().toString().slice(-6),
-                nik: document.getElementById('booking-nik').value,
-                nama: document.getElementById('booking-nama').value,
-                divisi: document.getElementById('booking-divisi').value,
-                wa: document.getElementById('booking-wa').value,
-                kategori: document.getElementById('booking-kategori').value,
-                roomCode, building: roomObj.building,
-                tglIn: formatShortDate(document.getElementById('booking-tglin').value),
-                estimatedOut: formatShortDate(document.getElementById('booking-tglout').value),
-                approvalStatus: 'PENDING'
-            });
-            saveAppData();
-            refreshAllUI();
-            showToast('Pengajuan berhasil dikirim ke antrean approval!', 'success');
-            e.target.reset();
-        }
-
-        function approveBooking(id) {
-            const b = appState.bookings.find(item => item.id === id);
-            if (!b) return;
-            const r = appState.rooms.find(room => room.code === b.roomCode);
-            if (r) {
-                r.status = 'CEK IN';
-                r.occupantNik = b.nik;
-                r.occupantName = b.nama;
+            const nik = document.getElementById('booking-nik').value.trim();
+            const nama = document.getElementById('booking-nama').value.trim();
+            const posisi = document.getElementById('booking-posisi').value.trim();
+            let divisi = document.getElementById('booking-divisi').value;
+            if (divisi === 'Other') {
+                divisi = document.getElementById('booking-divisi-other').value.trim();
             }
-            b.approvalStatus = 'CEK IN';
+            const wa = document.getElementById('booking-wa').value.trim();
+            const kategori = document.getElementById('booking-kategori').value;
+            const roomSel = document.getElementById('booking-room');
+            let roomCode = roomSel ? roomSel.value : '';
+
+            // Fallback jika mode otomatis dan select belum terisi
+            if (!roomCode && roomSel && roomSel.options.length > 0) {
+                roomCode = roomSel.options[0].value;
+            }
+
+            const tglIn = formatShortDate(document.getElementById('booking-tglin').value);
+            const tglOut = formatShortDate(document.getElementById('booking-tglout').value);
+
+            if (!roomCode) {
+                showToast('Tidak ada kasur kosong yang dipilih.', 'error');
+                return;
+            }
+
+            const roomObj = appState.rooms.find(r => r.code === roomCode);
+            if (!roomObj || roomObj.status !== 'VACANT') {
+                showToast('Kasur yang dipilih sudah terisi atau tidak valid.', 'error');
+                return;
+            }
+
+            const newBooking = {
+                id: 'BK-' + Date.now().toString().slice(-6),
+                nik, nama, posisi, divisi, wa, kategori,
+                roomCode, building: roomObj.building,
+                roomStatus: roomObj.status,
+                tglIn,
+                estimatedOut: tglOut || '-',
+                tglOut: tglOut || '-',
+                approvalStatus: 'PENDING'
+            };
+
+            appState.bookings.push(newBooking);
             saveAppData();
             refreshAllUI();
-            showToast('Reservasi disetujui (Status: CEK IN).', 'success');
+            showToast('Pengajuan Check-In berhasil dikirim ke antrean Approval!', 'success');
+            e.target.reset();
+            document.getElementById('booking-tglin').value = new Date().toISOString().split('T')[0];
+            setPlacementMode(appState.placementMode);
         }
 
-        function openCheckoutModal(code, nik) {
-            processCheckoutExecution(code, new Date().toISOString().split('T')[0], '12:00', 'Selesai tugas');
-        }
+        function handleSelfCheckoutSubmit(e) {
+            e.preventDefault();
+            let roomCode = document.getElementById('self-co-occupant-code')?.value;
+            const searchText = document.getElementById('self-co-search')?.value || '';
 
-        function processCheckoutExecution(code, date, time, reason) {
-            const r = appState.rooms.find(room => room.code === code);
-            if (!r) return;
-            appState.checkouts.push({ id: 'CO-' + Date.now().toString().slice(-6), nik: r.occupantNik, nama: r.occupantName, roomCode: code, tglOut: date, jamOut: time, alasan: reason });
-            r.status = 'VACANT';
-            r.occupantNik = '';
-            r.occupantName = '';
-            saveAppData();
-            refreshAllUI();
-            showToast('Check-out berhasil dilakukan.', 'success');
+            if (!roomCode) {
+                const activeRooms = appState.rooms.filter(r => r.status === 'CEK IN');
+                const matched = activeRooms.find(r => searchText.includes(r.code) || searchText.includes(r.occupantNik) || searchText.toLowerCase().includes(r.occupantName.toLowerCase()));
+                if (matched) {
+                    roomCode = matched.code;
+                }
+            }
+
+            const tglOut = formatShortDate(document.getElementById('self-co-date').value);
+            const jamOut = formatShortTime(document.getElementById('self-co-time').value);
+            const alasan = document.getElementById('self-co-reason').value.trim();
+
+            if (!roomCode) {
+                showToast('Pilih penghuni aktif yang valid dari daftar pencarian.', 'error');
+                return;
+            }
+
+            processCheckoutExecution(roomCode, tglOut, jamOut, alasan);
+            e.target.reset();
+            const hiddenCode = document.getElementById('self-co-occupant-code');
+            if (hiddenCode) hiddenCode.value = '';
         }
 
         function handleDamageSubmit(e) {
             e.preventDefault();
-            appState.damages.push({
+            const pelapor = document.getElementById('dmg-nama').value.trim();
+            const wa = document.getElementById('dmg-wa').value.trim();
+            const bldg = document.getElementById('dmg-building').value;
+            const roomLoc = document.getElementById('dmg-lokasi').value;
+            const lokasi = `${bldg} - ${roomLoc}`;
+            const kategori = document.getElementById('dmg-kategori').value;
+            const deskripsi = document.getElementById('dmg-desc').value.trim();
+
+            const newDmg = {
                 id: 'DMG-' + Date.now().toString().slice(-6),
                 tanggal: new Date().toISOString().split('T')[0],
-                pelapor: document.getElementById('dmg-nama').value,
-                wa: document.getElementById('dmg-wa').value,
-                lokasi: document.getElementById('dmg-lokasi').value,
-                kategori: document.getElementById('dmg-kategori').value,
-                deskripsi: document.getElementById('dmg-desc').value,
+                pelapor, wa, lokasi, kategori, deskripsi,
+                feedback: '-',
                 status: 'PENDING'
-            });
+            };
+
+            appState.damages.push(newDmg);
             saveAppData();
             refreshAllUI();
-            showToast('Laporan kerusakan terkirim!', 'success');
+            showToast('Laporan kerusakan berhasil dikirim & tersimpan ke Cloud.', 'success');
             e.target.reset();
+        }
+
+        function approveBooking(bookingId) {
+            const booking = appState.bookings.find(b => b.id === bookingId);
+            if (!booking) return;
+
+            const room = appState.rooms.find(r => r.code === booking.roomCode);
+            if (!room || room.status !== 'VACANT') {
+                showToast('Bed sudah terisi oleh penghuni lain.', 'error');
+                return;
+            }
+
+            room.status = 'CEK IN';
+            room.occupantNik = booking.nik;
+            room.occupantName = booking.nama;
+
+            booking.approvalStatus = 'CEK IN';
+            booking.roomStatus = 'CEK IN';
+
+            saveAppData();
+            refreshAllUI();
+            showToast(`Approval berhasil! Status ${booking.nama} sekarang: CEK IN.`, 'success');
+        }
+
+        function rejectBooking(bookingId) {
+            const booking = appState.bookings.find(b => b.id === bookingId);
+            if (!booking) return;
+            booking.approvalStatus = 'REJECTED';
+            saveAppData();
+            refreshAllUI();
+            showToast('Pengajuan reservasi ditolak.', 'success');
+        }
+
+        function openCheckoutModal(roomCode, nik) {
+            const now = new Date();
+            const todayDDMMYYYY = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+            document.getElementById('co-room-code').value = roomCode;
+            document.getElementById('co-nik').value = nik;
+            document.getElementById('co-date').value = todayDDMMYYYY;
+            document.getElementById('co-time').value = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+            document.getElementById('co-reason').value = 'Selesai penugasan';
+            
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleConfirmCheckout(e) {
+            e.preventDefault();
+            const roomCode = document.getElementById('co-room-code').value;
+            const tglOut = formatShortDate(document.getElementById('co-date').value);
+            const jamOut = formatShortTime(document.getElementById('co-time').value);
+            const alasan = document.getElementById('co-reason').value.trim();
+
+            processCheckoutExecution(roomCode, tglOut, jamOut, alasan);
+            closeCheckoutModal();
+        }
+
+        function processCheckoutExecution(roomCode, tglOut, jamOut, alasan) {
+            const room = appState.rooms.find(r => r.code === roomCode);
+            if (!room || room.status !== 'CEK IN') {
+                showToast('Data penghuni aktif tidak ditemukan.', 'error');
+                return;
+            }
+
+            const nik = room.occupantNik;
+            const booking = appState.bookings.find(b => b.nik === nik && b.roomCode === roomCode && b.approvalStatus === 'CEK IN');
+
+            const coRecord = {
+                id: 'CO-' + Date.now().toString().slice(-6),
+                nik: room.occupantNik,
+                nama: room.occupantName,
+                roomCode: room.code,
+                tglOut,
+                jamOut,
+                alasan
+            };
+
+            appState.checkouts.push(coRecord);
+
+            if (booking) {
+                booking.approvalStatus = 'CEK OUT';
+                booking.actualOut = tglOut;
+                booking.actualOutTime = jamOut;
+            }
+
+            room.status = 'VACANT';
+            room.occupantNik = '';
+            room.occupantName = '';
+
+            saveAppData();
+            refreshAllUI();
+            showToast(`Check-Out berhasil (${tglOut} ${jamOut}). Bed kembali VACANT.`, 'success');
+        }
+
+        function updateDamageRoomsDropdown() {
+            const bldg = document.getElementById('dmg-building')?.value;
+            const roomSel = document.getElementById('dmg-lokasi');
+            if (!roomSel) return;
+
+            if (!bldg) {
+                roomSel.innerHTML = '<option value="">-- Pilih Gedung Terlebih Dahulu --</option>';
+                return;
+            }
+
+            const roomsInBldg = appState.rooms.filter(r => r.building === bldg);
+            const uniqueRoomNumbers = [...new Set(roomsInBldg.map(r => getRoomPrefixFromCode(r.code)))];
+
+            let optionsHtml = `<option value="">-- Pilih Kamar / Nomor Bed --</option>`;
+            optionsHtml += `<option value="Area Umum Gedung">Area Umum / Koridor Gedung</option>`;
+            
+            uniqueRoomNumbers.forEach(roomNo => {
+                optionsHtml += `<option value="Kamar ${roomNo} (Seluruh Kamar)">Kamar ${roomNo} (Seluruh Kamar)</option>`;
+            });
+
+            roomsInBldg.forEach(r => {
+                optionsHtml += `<option value="${r.code}">${formatBedDisplay(r.code)}</option>`;
+            });
+
+            roomSel.innerHTML = optionsHtml;
         }
 
         function populateSelectDropdowns() {
             const buildings = getAllBuildings();
-            if (document.getElementById('booking-building-filter')) {
-                document.getElementById('booking-building-filter').innerHTML = ['Semua Lokasi Gedung', ...buildings].map(b => `<option value="${b}">${b}</option>`).join('');
-            }
-            if (document.getElementById('dmg-building')) {
-                document.getElementById('dmg-building').innerHTML = '<option value="">-- Pilih Gedung --</option>' + buildings.map(b => `<option value="${b}">${b}</option>`).join('');
+
+            const bldgBookingSel = document.getElementById('booking-building-filter');
+            if (bldgBookingSel) {
+                const cur = bldgBookingSel.value;
+                bldgBookingSel.innerHTML = ['Semua Lokasi Gedung', ...buildings].map(b => `<option value="${b}">${b}</option>`).join('');
+                if (cur && ['Semua Lokasi Gedung', ...buildings].includes(cur)) bldgBookingSel.value = cur;
             }
             updateAvailableBedsDropdown();
+
+            const dmgBldgSel = document.getElementById('dmg-building');
+            if (dmgBldgSel) {
+                const curDmgBldg = dmgBldgSel.value;
+                dmgBldgSel.innerHTML = '<option value="">-- Pilih Gedung --</option>' + buildings.map(b => `<option value="${b}">${b}</option>`).join('');
+                if (curDmgBldg && buildings.includes(curDmgBldg)) dmgBldgSel.value = curDmgBldg;
+            }
+            updateDamageRoomsDropdown();
+        }
+
+        function openConfirmModal(title, message, callback) {
+            document.getElementById('confirm-modal-title').textContent = title;
+            document.getElementById('confirm-modal-message').textContent = message;
+            confirmActionCallback = callback;
+            const modal = document.getElementById('custom-confirm-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeConfirmModal() {
+            const modal = document.getElementById('custom-confirm-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            confirmActionCallback = null;
+        }
+
+        document.getElementById('confirm-modal-yes-btn').addEventListener('click', function() {
+            if (typeof confirmActionCallback === 'function') confirmActionCallback();
+            closeConfirmModal();
+        });
+
+        function promptResetData() {
+            openConfirmModal(
+                'Reset Seluruh Data?',
+                'Seluruh data reservasi, penghuni, check-out, dan laporan kerusakan akan dikembalikan ke pengaturan awal.',
+                function() {
+                    appState.rooms = JSON.parse(JSON.stringify(defaultRoomsTemplate));
+                    appState.buildings = [...new Set(appState.rooms.map(r => r.building))];
+                    appState.bookings = [];
+                    appState.checkouts = [];
+                    appState.damages = [];
+                    saveAppData();
+                    refreshAllUI();
+                    showToast('Data berhasil di-reset ke pengaturan awal.', 'success');
+                }
+            );
         }
 
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             if (!container) return;
             const toast = document.createElement('div');
-            toast.className = `flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white transition-all ${type === 'error' ? 'bg-rose-600' : 'bg-zinc-900'}`;
-            toast.innerHTML = `<span>${type === 'error' ? '⚠️' : '✅'}</span><span>${message}</span>`;
+            toast.className = `flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white transition-all transform translate-y-2 opacity-0 ${type === 'error' ? 'bg-rose-600' : 'bg-zinc-900 border border-zinc-700'}`;
+            toast.innerHTML = `<span class="text-base">${type === 'error' ? '⚠️' : '✅'}</span><span>${message}</span>`;
             container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
+            setTimeout(() => { toast.classList.remove('translate-y-2', 'opacity-0'); }, 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
         }
 
         window.onload = function() {
