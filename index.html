@@ -188,7 +188,7 @@
 
             <div class="p-4 border-t border-zinc-800/80 text-[11px] text-zinc-500 flex justify-between items-center">
                 <button onclick="logoutAdmin()" class="text-rose-400 hover:text-rose-300 font-bold transition">Logout Admin</button>
-                <span class="text-[10px] text-zinc-500">GAS Sync v2</span>
+                <span class="text-[10px] text-zinc-500">GAS Sync v2.1</span>
             </div>
         </aside>
 
@@ -276,11 +276,13 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1.5">Tanggal Check-In <span class="text-rose-500">*</span></label>
-                                <input type="date" id="booking-tglin" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                                <input type="text" id="booking-tglin" required placeholder="DD/MM/YYYY" maxlength="10" oninput="autoFormatDateInput(this)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                                <p class="text-[10px] text-slate-400 mt-1">Format: DD/MM/YYYY (Contoh: 18/11/2026)</p>
                             </div>
                             <div>
                                 <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1.5">Estimasi Tanggal Check-Out</label>
-                                <input type="date" id="booking-tglout" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                                <input type="text" id="booking-tglout" placeholder="DD/MM/YYYY" maxlength="10" oninput="autoFormatDateInput(this)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                                <p class="text-[10px] text-slate-400 mt-1">Format: DD/MM/YYYY (Contoh: 25/11/2026)</p>
                             </div>
                         </div>
 
@@ -346,7 +348,8 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1.5">Tanggal Check-Out <span class="text-rose-500">*</span></label>
-                                <input type="date" id="self-co-date" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                                <input type="text" id="self-co-date" required placeholder="DD/MM/YYYY" maxlength="10" oninput="autoFormatDateInput(this)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-rei-gold outline-none">
+                                <p class="text-[10px] text-slate-400 mt-1">Format: DD/MM/YYYY</p>
                             </div>
                             <div>
                                 <label class="block text-[11px] font-bold text-slate-700 uppercase mb-1.5">Jam Check-Out <span class="text-rose-500">*</span></label>
@@ -682,8 +685,8 @@
                     <div class="flex items-center gap-2">
                         <label class="text-xs text-slate-500 font-medium">Tahun:</label>
                         <select id="filter-report-year" onchange="renderReportTables()" class="px-3 py-1.5 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-rei-gold outline-none">
-                            <option value="ALL">Semua Tahun</option>
-                            <option value="2026" selected>2026</option>
+                            <option value="ALL" selected>Semua Tahun</option>
+                            <option value="2026">2026</option>
                             <option value="2025">2025</option>
                             <option value="2024">2024</option>
                         </select>
@@ -691,7 +694,7 @@
                     <div class="flex items-center gap-2">
                         <label class="text-xs text-slate-500 font-medium">Bulan:</label>
                         <select id="filter-report-month" onchange="renderReportTables()" class="px-3 py-1.5 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-rei-gold outline-none">
-                            <option value="ALL">Semua Bulan</option>
+                            <option value="ALL" selected>Semua Bulan</option>
                             <option value="01">Januari</option>
                             <option value="02">Februari</option>
                             <option value="03">Maret</option>
@@ -862,12 +865,12 @@
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tanggal Check-In</label>
-                        <input type="date" id="edit-ci-tglin" required class="w-full px-3 py-2 rounded-xl border text-xs sm:text-sm">
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tanggal Check-In (DD/MM/YYYY)</label>
+                        <input type="text" id="edit-ci-tglin" required placeholder="DD/MM/YYYY" maxlength="10" oninput="autoFormatDateInput(this)" class="w-full px-3 py-2 rounded-xl border text-xs sm:text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Estimasi Tanggal Keluar</label>
-                        <input type="date" id="edit-ci-estout" class="w-full px-3 py-2 rounded-xl border text-xs sm:text-sm">
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Estimasi Tanggal Keluar (DD/MM/YYYY)</label>
+                        <input type="text" id="edit-ci-estout" placeholder="DD/MM/YYYY" maxlength="10" oninput="autoFormatDateInput(this)" class="w-full px-3 py-2 rounded-xl border text-xs sm:text-sm">
                     </div>
                 </div>
                 <div class="flex justify-end gap-2 pt-2">
@@ -1097,7 +1100,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tanggal Check-Out *</label>
-                        <input type="date" id="co-date" required class="w-full px-3.5 py-2.5 rounded-xl border text-sm">
+                        <input type="text" id="co-date" required placeholder="DD/MM/YYYY" maxlength="10" oninput="autoFormatDateInput(this)" class="w-full px-3.5 py-2.5 rounded-xl border text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Jam Check-Out *</label>
@@ -1183,6 +1186,8 @@
 
         let confirmActionCallback = null;
         let syncTimer = null;
+        let isPushing = false;
+        let lastMutationTime = 0; // Mencegah polling menimpa perubahan lokal yang baru saja dikirim
 
         const defaultRoomsTemplate = [
             // --- PETOJO 2 ---
@@ -1256,11 +1261,161 @@
         ];
 
         // ==========================================
+        // HELPER PEMFORMATAN TANGGAL & JAM RINGKAS
+        // ==========================================
+        function autoFormatDateInput(input) {
+            let v = input.value.replace(/\D/g, '');
+            if (v.length > 8) v = v.slice(0, 8);
+            if (v.length >= 5) {
+                input.value = `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4)}`;
+            } else if (v.length >= 3) {
+                input.value = `${v.slice(0, 2)}/${v.slice(2)}`;
+            } else {
+                input.value = v;
+            }
+        }
+
+        function formatShortDate(val) {
+            if (!val || val === '-') return '-';
+            const str = String(val).trim();
+            if (!str || str === '-') return '-';
+
+            // Jika sudah format YYYY-MM-DD
+            if (/^\d{4}-\d{2}-\d{2}$/.test(str)) {
+                return str;
+            }
+
+            // Jika format DD/MM/YYYY -> konversi ke YYYY-MM-DD untuk penyimpanan
+            const dmyMatch = str.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+            if (dmyMatch) {
+                return `${dmyMatch[3]}-${dmyMatch[2]}-${dmyMatch[1]}`;
+            }
+
+            // Jika format ISO string (2026-11-18T00:00:00.000Z)
+            if (/^\d{4}-\d{2}-\d{2}T/.test(str)) {
+                return str.substring(0, 10);
+            }
+
+            const parsed = new Date(str);
+            if (!isNaN(parsed.getTime())) {
+                const y = parsed.getFullYear();
+                const m = String(parsed.getMonth() + 1).padStart(2, '0');
+                const day = String(parsed.getDate()).padStart(2, '0');
+                return `${y}-${m}-${day}`;
+            }
+
+            return str;
+        }
+
+        // Format tampilan ke user/input: DD/MM/YYYY
+        function formatDateDDMMYYYY(val) {
+            if (!val || val === '-') return '-';
+            const str = String(val).trim();
+            // Jika sudah DD/MM/YYYY
+            if (/^\d{2}\/\d{2}\/\d{4}$/.test(str)) return str;
+
+            const iso = formatShortDate(str);
+            if (!iso || iso === '-') return str;
+            const parts = iso.split('-');
+            if (parts.length === 3 && parts[0].length === 4) {
+                return `${parts[2]}/${parts[1]}/${parts[0]}`;
+            }
+            return iso;
+        }
+
+        function formatShortTime(val) {
+            if (!val || val === '-') return '-';
+            const str = String(val).trim();
+            if (!str || str === '-') return '-';
+
+            // Jika sudah format HH:mm
+            if (/^\d{1,2}:\d{2}(:\d{2})?$/.test(str)) {
+                return str.substring(0, 5);
+            }
+
+            // Jika format Date string dari Google Sheet (Sat Dec 30 1899 14:30:00 GMT+0700)
+            const parsed = new Date(str);
+            if (!isNaN(parsed.getTime())) {
+                const hh = String(parsed.getHours()).padStart(2, '0');
+                const mm = String(parsed.getMinutes()).padStart(2, '0');
+                return `${hh}:${mm}`;
+            }
+
+            return str;
+        }
+
+        function normalizeBookingItem(b) {
+            if (!b) return b;
+            return {
+                ...b,
+                id: String(b.id || ''),
+                nik: String(b.nik || ''),
+                nama: String(b.nama || ''),
+                posisi: String(b.posisi || ''),
+                divisi: String(b.divisi || ''),
+                wa: String(b.wa || ''),
+                kategori: String(b.kategori || ''),
+                roomCode: String(b.roomCode || ''),
+                building: String(b.building || ''),
+                roomStatus: normalizeStatus(b.roomStatus || ''),
+                tglIn: formatShortDate(b.tglIn),
+                estimatedOut: formatShortDate(b.estimatedOut || b.tglOut),
+                tglOut: formatShortDate(b.tglOut),
+                actualOut: formatShortDate(b.actualOut),
+                actualOutTime: formatShortTime(b.actualOutTime),
+                approvalStatus: normalizeStatus(b.approvalStatus || 'PENDING')
+            };
+        }
+
+        function normalizeCheckoutItem(c) {
+            if (!c) return c;
+            return {
+                ...c,
+                id: String(c.id || ''),
+                nik: String(c.nik || ''),
+                nama: String(c.nama || ''),
+                roomCode: String(c.roomCode || ''),
+                tglOut: formatShortDate(c.tglOut),
+                jamOut: formatShortTime(c.jamOut),
+                alasan: String(c.alasan || '-')
+            };
+        }
+
+        function normalizeDamageItem(d) {
+            if (!d) return d;
+            return {
+                ...d,
+                id: String(d.id || ''),
+                tanggal: formatShortDate(d.tanggal),
+                pelapor: String(d.pelapor || ''),
+                wa: String(d.wa || ''),
+                lokasi: String(d.lokasi || ''),
+                kategori: String(d.kategori || ''),
+                deskripsi: String(d.deskripsi || ''),
+                feedback: String(d.feedback || '-'),
+                status: normalizeStatus(d.status || 'PENDING')
+            };
+        }
+
+        function normalizeRoomItem(r) {
+            if (!r) return r;
+            return {
+                ...r,
+                id: String(r.id || ''),
+                building: String(r.building || ''),
+                code: String(r.code || ''),
+                status: normalizeStatus(r.status || 'VACANT'),
+                occupantNik: String(r.occupantNik || ''),
+                occupantName: String(r.occupantName || '')
+            };
+        }
+
+        // ==========================================
         // HELPER PARSING NAMA KAMAR & BED AGAR UTUH
         // ==========================================
         function getRoomPrefixFromCode(code) {
             if (!code) return '';
-            const trimmed = code.trim();
+            const trimmed = String(code).trim();
             const lastSpaceIdx = trimmed.lastIndexOf(' ');
             if (lastSpaceIdx === -1) return trimmed;
             return trimmed.substring(0, lastSpaceIdx).trim();
@@ -1268,7 +1423,7 @@
 
         function getBedSuffixFromCode(code) {
             if (!code) return '';
-            const trimmed = code.trim();
+            const trimmed = String(code).trim();
             const lastSpaceIdx = trimmed.lastIndexOf(' ');
             if (lastSpaceIdx === -1) return trimmed;
             return trimmed.substring(lastSpaceIdx + 1).trim();
@@ -1298,6 +1453,8 @@
 
         async function pushToGoogleSheet() {
             if (!GAS_WEBAPP_URL) return;
+            isPushing = true;
+            lastMutationTime = Date.now();
             setSyncIndicator('syncing', 'Menyimpan ke Cloud...');
             try {
                 const payload = {
@@ -1323,11 +1480,31 @@
             } catch (err) {
                 console.error('GAS Push Error:', err);
                 setSyncIndicator('error', 'Offline (Lokal Aktif)');
+            } finally {
+                setTimeout(() => { isPushing = false; }, 1500);
             }
+        }
+
+        function mergeById(localArr, remoteArr, normalizer) {
+            const map = new Map();
+            (remoteArr || []).forEach(item => {
+                const norm = normalizer(item);
+                if (norm && norm.id) map.set(norm.id, norm);
+            });
+            // Jika baru saja ada perubahan lokal (< 12 detik), pertahankan data lokal agar tidak hilang saat sheet belum selesai menulis
+            if (Date.now() - lastMutationTime < 12000) {
+                (localArr || []).forEach(item => {
+                    const norm = normalizer(item);
+                    if (norm && norm.id) map.set(norm.id, norm);
+                });
+            }
+            return Array.from(map.values());
         }
 
         async function syncFromGoogleSheet(showNotification = false) {
             if (!GAS_WEBAPP_URL) return;
+            if (isPushing && !showNotification) return;
+
             setSyncIndicator('syncing', 'Sinkronisasi...');
             try {
                 const response = await fetch(`${GAS_WEBAPP_URL}?action=get_all&t=${Date.now()}`);
@@ -1335,44 +1512,58 @@
                 const data = await response.json();
 
                 if (data && typeof data === 'object') {
-                    let hasRemoteData = false;
+                    // 1. Rooms: Jangan pernah biarkan array kosong dari sheet menghapus kamar lokal
                     if (Array.isArray(data.rooms) && data.rooms.length > 0) {
-                        appState.rooms = data.rooms;
-                        hasRemoteData = true;
-                    }
-                    if (Array.isArray(data.buildings) && data.buildings.length > 0) {
-                        appState.buildings = data.buildings;
-                        hasRemoteData = true;
-                    }
-                    if (Array.isArray(data.bookings)) {
-                        appState.bookings = data.bookings;
-                        hasRemoteData = true;
-                    }
-                    if (Array.isArray(data.checkouts)) {
-                        appState.checkouts = data.checkouts;
-                        hasRemoteData = true;
-                    }
-                    if (Array.isArray(data.damages)) {
-                        appState.damages = data.damages;
-                        hasRemoteData = true;
+                        if (Date.now() - lastMutationTime < 12000 && appState.rooms.length > 0) {
+                            appState.rooms = mergeById(appState.rooms, data.rooms, normalizeRoomItem);
+                        } else {
+                            appState.rooms = data.rooms.map(normalizeRoomItem);
+                        }
+                    } else if (appState.rooms.length === 0) {
+                        appState.rooms = JSON.parse(JSON.stringify(defaultRoomsTemplate));
                     }
 
-                    if (hasRemoteData) {
-                        appState.rooms.forEach(r => { r.status = normalizeStatus(r.status); });
-                        appState.bookings.forEach(b => {
-                            b.approvalStatus = normalizeStatus(b.approvalStatus);
-                            if (b.roomStatus) b.roomStatus = normalizeStatus(b.roomStatus);
-                        });
-                        localStorage.setItem('rei_mess_buildings', JSON.stringify(getAllBuildings()));
-                        localStorage.setItem('rei_mess_rooms', JSON.stringify(appState.rooms));
-                        localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
-                        localStorage.setItem('rei_mess_checkouts', JSON.stringify(appState.checkouts));
-                        localStorage.setItem('rei_mess_damages', JSON.stringify(appState.damages));
-                        refreshAllUI();
-                    } else {
-                        // Jika sheet masih kosong, kirim data master awal ke Google Sheet
+                    // 2. Buildings: Gabungkan dengan gedung dari rooms agar tidak pernah hilang
+                    const remoteBuildings = Array.isArray(data.buildings) ? data.buildings.filter(Boolean) : [];
+                    const roomBuildings = appState.rooms.map(r => r.building).filter(Boolean);
+                    appState.buildings = [...new Set([...(appState.buildings || []), ...remoteBuildings, ...roomBuildings])];
+
+                    // 3. Bookings, Checkouts, Damages: Normalisasi format tanggal & gabungkan secara aman
+                    if (Array.isArray(data.bookings)) {
+                        appState.bookings = mergeById(appState.bookings, data.bookings, normalizeBookingItem);
+                    }
+                    if (Array.isArray(data.checkouts)) {
+                        appState.checkouts = mergeById(appState.checkouts, data.checkouts, normalizeCheckoutItem);
+                    }
+                    if (Array.isArray(data.damages)) {
+                        appState.damages = mergeById(appState.damages, data.damages, normalizeDamageItem);
+                    }
+
+                    // Sinkronkan status kamar dengan booking yang berstatus CEK IN
+                    appState.bookings.forEach(b => {
+                        if (b.approvalStatus === 'CEK IN') {
+                            const r = appState.rooms.find(room => room.code === b.roomCode);
+                            if (r && r.status === 'VACANT') {
+                                r.status = 'CEK IN';
+                                r.occupantNik = b.nik;
+                                r.occupantName = b.nama;
+                            }
+                        }
+                    });
+
+                    // Simpan ke localStorage
+                    localStorage.setItem('rei_mess_buildings', JSON.stringify(getAllBuildings()));
+                    localStorage.setItem('rei_mess_rooms', JSON.stringify(appState.rooms));
+                    localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
+                    localStorage.setItem('rei_mess_checkouts', JSON.stringify(appState.checkouts));
+                    localStorage.setItem('rei_mess_damages', JSON.stringify(appState.damages));
+
+                    // Jika di Google Sheet belum ada data kamar sama sekali, kirim data awal ke Cloud
+                    if (!Array.isArray(data.rooms) || data.rooms.length === 0) {
                         await pushToGoogleSheet();
                     }
+
+                    refreshAllUI();
                 }
 
                 setSyncIndicator('ok', 'Cloud Terhubung');
@@ -1380,11 +1571,12 @@
             } catch (err) {
                 console.warn('GAS Pull Info:', err);
                 setSyncIndicator('ok', 'Cloud Siap');
-                if (showNotification) showToast('Sinkronisasi selesai (menggunakan cache lokal jika offline).', 'success');
+                if (showNotification) showToast('Sinkronisasi selesai (menggunakan data lokal).', 'success');
             }
         }
 
         function saveAppData() {
+            lastMutationTime = Date.now();
             localStorage.setItem('rei_mess_buildings', JSON.stringify(getAllBuildings()));
             localStorage.setItem('rei_mess_rooms', JSON.stringify(appState.rooms));
             localStorage.setItem('rei_mess_bookings', JSON.stringify(appState.bookings));
@@ -1411,8 +1603,8 @@
 
         function normalizeStatus(status) {
             if (!status) return status;
-            const upper = status.toUpperCase().trim();
-            if (upper === 'CHECKED_IN' || upper === 'CHECKED-IN') return 'CEK IN';
+            const upper = String(status).toUpperCase().trim();
+            if (upper === 'CHECKED_IN' || upper === 'CHECKED-IN' || upper === 'APPROVED') return 'CEK IN';
             if (upper === 'CHECKED_OUT' || upper === 'CHECKED-OUT') return 'CEK OUT';
             return upper;
         }
@@ -1453,7 +1645,6 @@
         // MODAL & LOGIC: TAMBAH GEDUNG, KAMAR, KASUR
         // ==========================================
 
-        // 1. TAMBAH & KELOLA GEDUNG (DROP-DOWN LIST)
         function openAddBuildingModal() {
             renderBuildingListModal();
             const modal = document.getElementById('add-building-modal');
@@ -1534,7 +1725,6 @@
             );
         }
 
-        // 2. TAMBAH KAMAR BARU
         function openAddKamarModal() {
             const bldgSel = document.getElementById('new-kamar-building');
             const buildings = getAllBuildings();
@@ -1580,7 +1770,6 @@
             showToast(`Kamar "${roomPrefix}" berhasil ditambahkan dengan 1.A (Bed Bawah) & 1.B (Bed Atas)!`, 'success');
         }
 
-        // 3. TAMBAH KASUR (BED) OTOMATIS BERURUTAN
         function openAddKasurModal() {
             const bldgSel = document.getElementById('kasur-building-select');
             const buildings = getAllBuildings();
@@ -1786,6 +1975,7 @@
             if (activeBtn) {
                 activeBtn.className = "w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all text-left bg-rei-gold text-rei-black shadow";
             }
+            refreshAllUI();
         }
 
         function switchReportTab(tabId) {
@@ -1812,6 +2002,7 @@
                 else if (tabId === 'checkin') exportLabel.textContent = 'Download Data Check-In (.xlsx)';
                 else if (tabId === 'kerusakan') exportLabel.textContent = 'Download Laporan Kerusakan (.xlsx)';
             }
+            renderReportTables();
         }
 
         function setPlacementMode(mode) {
@@ -1827,16 +2018,16 @@
                 if (bldgSel) bldgSel.disabled = false;
                 if (roomSel) {
                     roomSel.disabled = true;
-                    const vacant = appState.rooms.find(r => r.status === 'VACANT' && (bldgSel.value === 'Semua Lokasi Gedung' || r.building === bldgSel.value));
-                    if (vacant) {
-                        roomSel.value = vacant.code;
-                    }
+                    updateAvailableBedsDropdown();
                 }
             } else {
                 if (btnManual) btnManual.className = "px-3 py-1 rounded-lg text-[11px] font-bold bg-rei-gold text-rei-black transition";
                 if (btnAuto) btnAuto.className = "px-3 py-1 rounded-lg text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition";
                 if (bldgSel) bldgSel.disabled = false;
-                if (roomSel) roomSel.disabled = false;
+                if (roomSel) {
+                    roomSel.disabled = false;
+                    updateAvailableBedsDropdown();
+                }
             }
         }
 
@@ -1848,21 +2039,27 @@
             const savedDamages = localStorage.getItem('rei_mess_damages');
             const savedAdminAuth = localStorage.getItem('rei_mess_admin_auth');
 
-            appState.rooms = savedRooms ? JSON.parse(savedRooms) : JSON.parse(JSON.stringify(defaultRoomsTemplate));
-            appState.buildings = savedBuildings ? JSON.parse(savedBuildings) : [...new Set(appState.rooms.map(r => r.building))];
-            appState.bookings = savedBookings ? JSON.parse(savedBookings) : [];
-            appState.checkouts = savedCheckouts ? JSON.parse(savedCheckouts) : [];
-            appState.damages = savedDamages ? JSON.parse(savedDamages) : [];
+            let parsedRooms = [];
+            try { parsedRooms = savedRooms ? JSON.parse(savedRooms) : []; } catch (e) { parsedRooms = []; }
+            appState.rooms = (Array.isArray(parsedRooms) && parsedRooms.length > 0)
+                ? parsedRooms.map(normalizeRoomItem)
+                : JSON.parse(JSON.stringify(defaultRoomsTemplate));
 
-            appState.rooms.forEach(r => { r.status = normalizeStatus(r.status); });
-            appState.bookings.forEach(b => {
-                b.approvalStatus = normalizeStatus(b.approvalStatus);
-                if (b.roomStatus) b.roomStatus = normalizeStatus(b.roomStatus);
-            });
+            let parsedBuildings = [];
+            try { parsedBuildings = savedBuildings ? JSON.parse(savedBuildings) : []; } catch (e) { parsedBuildings = []; }
+            appState.buildings = [...new Set([...parsedBuildings, ...appState.rooms.map(r => r.building)])];
 
-            const today = new Date().toISOString().split('T')[0];
+            try { appState.bookings = savedBookings ? JSON.parse(savedBookings).map(normalizeBookingItem) : []; } catch (e) { appState.bookings = []; }
+            try { appState.checkouts = savedCheckouts ? JSON.parse(savedCheckouts).map(normalizeCheckoutItem) : []; } catch (e) { appState.checkouts = []; }
+            try { appState.damages = savedDamages ? JSON.parse(savedDamages).map(normalizeDamageItem) : []; } catch (e) { appState.damages = []; }
+
+            const now = new Date();
+            const todayDDMMYYYY = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
             const tglInEl = document.getElementById('booking-tglin');
-            if (tglInEl && !tglInEl.value) tglInEl.value = today;
+            if (tglInEl && !tglInEl.value) tglInEl.value = todayDDMMYYYY;
+
+            const selfCoDateEl = document.getElementById('self-co-date');
+            if (selfCoDateEl && !selfCoDateEl.value) selfCoDateEl.value = todayDDMMYYYY;
 
             setPlacementMode('auto');
             refreshAllUI();
@@ -1921,12 +2118,13 @@
             if (searchInput && !searchInput.oninput) {
                 searchInput.addEventListener('input', function() {
                     const val = this.value;
-                    const matchedRoom = activeRooms.find(r => `${r.occupantName} (${r.occupantNik}) — ${r.code}` === val);
+                    const currentActive = appState.rooms.filter(r => r.status === 'CEK IN');
+                    const matchedRoom = currentActive.find(r => `${r.occupantName} (${r.occupantNik}) — ${r.code}` === val);
                     const hiddenCodeInput = document.getElementById('self-co-occupant-code');
                     if (matchedRoom && hiddenCodeInput) {
                         hiddenCodeInput.value = matchedRoom.code;
                     } else if (hiddenCodeInput) {
-                        const partialMatch = activeRooms.find(r => val.includes(r.code) || val.includes(r.occupantNik) || val.toLowerCase().includes(r.occupantName.toLowerCase()));
+                        const partialMatch = currentActive.find(r => val.includes(r.code) || val.includes(r.occupantNik) || val.toLowerCase().includes(r.occupantName.toLowerCase()));
                         hiddenCodeInput.value = partialMatch ? partialMatch.code : '';
                     }
                 });
@@ -1975,7 +2173,13 @@
             }
 
             const dateBadge = document.getElementById('activity-date-badge');
-            if (dateBadge) dateBadge.textContent = `Tanggal: ${new Date().toLocaleDateString('id-ID', { dateStyle: 'full' })}`;
+            if (dateBadge) {
+                const now = new Date();
+                const dd = String(now.getDate()).padStart(2, '0');
+                const mm = String(now.getMonth() + 1).padStart(2, '0');
+                const yyyy = now.getFullYear();
+                dateBadge.textContent = `Tanggal: ${dd}/${mm}/${yyyy}`;
+            }
 
             const actCheckinList = document.getElementById('activity-checkin-list');
             const countActCi = document.getElementById('count-act-checkin');
@@ -1986,7 +2190,7 @@
                     <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex justify-between items-center">
                         <div>
                             <p class="font-bold text-slate-900">${b.nama} <span class="text-[10px] text-slate-500 font-normal">(${b.nik})</span></p>
-                            <p class="text-[11px] text-amber-700 font-semibold">Bed: ${b.roomCode} — Tgl In: ${b.tglIn}</p>
+                            <p class="text-[11px] text-amber-700 font-semibold">Bed: ${b.roomCode} — Tgl In: ${formatDateDDMMYYYY(b.tglIn)}</p>
                         </div>
                         <span class="px-2 py-0.5 rounded text-[10px] font-bold ${b.approvalStatus === 'CEK IN' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-200 text-slate-700'}">${b.approvalStatus}</span>
                     </div>
@@ -2002,7 +2206,7 @@
                     <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex justify-between items-center">
                         <div>
                             <p class="font-bold text-slate-900">${c.nama} <span class="text-[10px] text-slate-500 font-normal">(${c.nik})</span></p>
-                            <p class="text-[11px] text-rose-600 font-semibold">Bed: ${c.roomCode} — Keluar: ${c.tglOut} ${c.jamOut}</p>
+                            <p class="text-[11px] text-rose-600 font-semibold">Bed: ${c.roomCode} — Keluar: ${formatDateDDMMYYYY(c.tglOut)} ${formatShortTime(c.jamOut)}</p>
                         </div>
                         <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-700">CEK OUT</span>
                     </div>
@@ -2189,7 +2393,7 @@
                         <td class="p-3"><p class="font-bold text-slate-900">${b.nama}</p><p class="text-[10px] text-slate-500">${b.nik}</p></td>
                         <td class="p-3"><p class="text-slate-700">${b.divisi}</p><p class="text-[10px] text-slate-500">${b.wa}</p></td>
                         <td class="p-3 font-bold text-amber-700">${b.roomCode}</td>
-                        <td class="p-3 text-slate-600">${b.tglIn} s/d ${b.estimatedOut || b.tglOut}</td>
+                        <td class="p-3 text-slate-600">${formatDateDDMMYYYY(b.tglIn)} s/d ${formatDateDDMMYYYY(b.estimatedOut || b.tglOut)}</td>
                         <td class="p-3 text-slate-600">${b.kategori}</td>
                         <td class="p-3 text-center flex justify-center gap-1.5">
                             <button onclick="approveBooking('${b.id}')" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] shadow hover:bg-emerald-700">Setujui (Cek In)</button>
@@ -2210,8 +2414,8 @@
                             <td class="p-3 text-slate-700">${bk ? bk.divisi : '-'}</td>
                             <td class="p-3 font-bold text-purple-700">${r.code}</td>
                             <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">CEK IN</span></td>
-                            <td class="p-3 text-slate-600">${bk ? bk.tglIn : '-'}</td>
-                            <td class="p-3 text-slate-600 font-medium">${bk ? (bk.estimatedOut || bk.tglOut) : '-'}</td>
+                            <td class="p-3 text-slate-600">${bk ? formatDateDDMMYYYY(bk.tglIn) : '-'}</td>
+                            <td class="p-3 text-slate-600 font-medium">${bk ? formatDateDDMMYYYY(bk.estimatedOut || bk.tglOut) : '-'}</td>
                             <td class="p-3 text-center">
                                 <button onclick="openCheckoutModal('${r.code}', '${r.occupantNik}')" class="px-3 py-1.5 rounded-lg bg-rose-600 text-white font-bold text-[11px] shadow hover:bg-rose-700">Check-Out</button>
                             </td>
@@ -2223,7 +2427,7 @@
             const damagesHtml = appState.damages.map(d => `
                 <tr>
                     <td class="p-3 font-mono text-slate-500">${d.id}</td>
-                    <td class="p-3 text-slate-600">${d.tanggal}</td>
+                    <td class="p-3 text-slate-600">${formatDateDDMMYYYY(d.tanggal)}</td>
                     <td class="p-3"><p class="font-bold text-slate-900">${d.pelapor}</p><p class="text-[10px] text-slate-500">${d.wa}</p></td>
                     <td class="p-3 font-semibold text-slate-700">${d.lokasi}</td>
                     <td class="p-3"><p class="font-medium text-orange-700">${d.kategori}</p><p class="text-[11px] text-slate-600">${d.deskripsi}</p></td>
@@ -2245,8 +2449,8 @@
                     <tr>
                         <td class="p-3 font-bold text-amber-700">${b.roomCode}</td>
                         <td class="p-3"><p class="font-bold text-slate-900">${b.nama}</p><p class="text-[10px] text-slate-500">${b.nik} — ${b.divisi}</p></td>
-                        <td class="p-3 text-slate-600">${b.tglIn}</td>
-                        <td class="p-3 text-slate-700 font-semibold">${b.estimatedOut || '-'}</td>
+                        <td class="p-3 text-slate-600">${formatDateDDMMYYYY(b.tglIn)}</td>
+                        <td class="p-3 text-slate-700 font-semibold">${formatDateDDMMYYYY(b.estimatedOut)}</td>
                         <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">CEK IN</span></td>
                     </tr>
                 `).join('') || `<tr><td colspan="5" class="p-4 text-center text-slate-400">Tidak ada jadwal okupansi aktif.</td></tr>`;
@@ -2437,9 +2641,10 @@
             const selectedYear = document.getElementById('filter-report-year')?.value || 'ALL';
             const selectedMonth = document.getElementById('filter-report-month')?.value || 'ALL';
 
-            function matchDateFilter(dateStr) {
-                if (!dateStr || dateStr === '-') return false;
-                const parts = dateStr.split('-');
+            function matchDateFilter(rawDateStr) {
+                const normalized = formatShortDate(rawDateStr);
+                if (!normalized || normalized === '-') return false;
+                const parts = normalized.split('-');
                 if (parts.length < 2) return false;
                 const y = parts[0];
                 const m = parts[1];
@@ -2497,10 +2702,10 @@
                 if (cntCi) cntCi.textContent = `${filteredBookings.length} Data`;
                 tbCi.innerHTML = filteredBookings.map(b => {
                     const coRecord = appState.checkouts.find(c => c.nik === b.nik && c.roomCode === b.roomCode);
-                    const actualOutDate = coRecord ? coRecord.tglOut : (b.approvalStatus === 'CEK OUT' ? (b.actualOut || '-') : '-');
-                    const actualOutTime = coRecord ? (coRecord.jamOut || '-') : (b.approvalStatus === 'CEK OUT' ? (b.actualOutTime || '-') : '-');
+                    const actualOutDate = coRecord ? formatDateDDMMYYYY(coRecord.tglOut) : (b.approvalStatus === 'CEK OUT' ? formatDateDDMMYYYY(b.actualOut) : '-');
+                    const actualOutTime = coRecord ? formatShortTime(coRecord.jamOut) : (b.approvalStatus === 'CEK OUT' ? formatShortTime(b.actualOutTime) : '-');
                     const coReason = coRecord ? (coRecord.alasan || '-') : '-';
-                    const estimatedOutDisplay = b.estimatedOut !== undefined && b.estimatedOut !== '' ? b.estimatedOut : '-';
+                    const estimatedOutDisplay = formatDateDDMMYYYY(b.estimatedOut);
 
                     let statusBadgeClass = 'bg-amber-100 text-amber-700';
                     if (b.approvalStatus === 'CEK IN') statusBadgeClass = 'bg-emerald-100 text-emerald-700';
@@ -2514,7 +2719,7 @@
                             <td class="p-3 text-slate-700">${b.divisi}</td>
                             <td class="p-3 font-bold text-amber-700">${b.roomCode}</td>
                             <td class="p-3 text-slate-600">${b.kategori}</td>
-                            <td class="p-3 text-slate-600">${b.tglIn}</td>
+                            <td class="p-3 text-slate-600">${formatDateDDMMYYYY(b.tglIn)}</td>
                             <td class="p-3 text-slate-700 font-semibold">${estimatedOutDisplay}</td>
                             <td class="p-3 text-rose-600 font-semibold">${actualOutDate}</td>
                             <td class="p-3 text-rose-600 font-semibold">${actualOutTime}</td>
@@ -2541,7 +2746,7 @@
                 tbDmg.innerHTML = filteredDamages.map(d => `
                     <tr>
                         <td class="p-3 font-mono text-slate-500">${d.id}</td>
-                        <td class="p-3 text-slate-600">${d.tanggal}</td>
+                        <td class="p-3 text-slate-600">${formatDateDDMMYYYY(d.tanggal)}</td>
                         <td class="p-3 font-bold text-slate-800">${d.pelapor}</td>
                         <td class="p-3 font-semibold text-slate-700">${d.lokasi}</td>
                         <td class="p-3 text-orange-700 font-medium">${d.kategori}</td>
@@ -2567,9 +2772,10 @@
             const selectedMonth = document.getElementById('filter-report-month')?.value || 'ALL';
             const periodSuffix = selectedYear !== 'ALL' ? `_${selectedYear}${selectedMonth !== 'ALL' ? '-' + selectedMonth : ''}` : '';
 
-            function matchDateFilter(dateStr) {
-                if (!dateStr || dateStr === '-') return false;
-                const parts = dateStr.split('-');
+            function matchDateFilter(rawDateStr) {
+                const normalized = formatShortDate(rawDateStr);
+                if (!normalized || normalized === '-') return false;
+                const parts = normalized.split('-');
                 if (parts.length < 2) return false;
                 const y = parts[0];
                 const m = parts[1];
@@ -2610,10 +2816,10 @@
                 const wsCheckinData = [["ID", "NIK", "Nama", "Posisi", "Divisi", "No WA", "Kategori", "Kode Bed", "Gedung", "Tgl Check-In", "Estimasi Tgl Check-Out", "Tgl Check-Out Aktual", "Jam Check-Out Aktual", "Alasan Cek Out", "Status"]];
                 filteredBookings.forEach(b => {
                     const coRecord = appState.checkouts.find(c => c.nik === b.nik && c.roomCode === b.roomCode);
-                    const actualOutDate = coRecord ? coRecord.tglOut : (b.approvalStatus === 'CEK OUT' ? (b.actualOut || '-') : '-');
-                    const actualOutTime = coRecord ? (coRecord.jamOut || '-') : (b.approvalStatus === 'CEK OUT' ? (b.actualOutTime || '-') : '-');
+                    const actualOutDate = coRecord ? formatDateDDMMYYYY(coRecord.tglOut) : (b.approvalStatus === 'CEK OUT' ? formatDateDDMMYYYY(b.actualOut) : '-');
+                    const actualOutTime = coRecord ? formatShortTime(coRecord.jamOut) : (b.approvalStatus === 'CEK OUT' ? formatShortTime(b.actualOutTime) : '-');
                     const coReason = coRecord ? (coRecord.alasan || '-') : '-';
-                    wsCheckinData.push([b.id, b.nik, b.nama, b.posisi, b.divisi, b.wa, b.kategori, b.roomCode, b.building, b.tglIn, b.estimatedOut || '-', actualOutDate, actualOutTime, coReason, b.approvalStatus]);
+                    wsCheckinData.push([b.id, b.nik, b.nama, b.posisi, b.divisi, b.wa, b.kategori, b.roomCode, b.building, formatDateDDMMYYYY(b.tglIn), formatDateDDMMYYYY(b.estimatedOut), actualOutDate, actualOutTime, coReason, b.approvalStatus]);
                 });
                 XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(wsCheckinData), "Data_Check_In");
                 XLSX.writeFile(wb, `Laporan_Data_CheckIn${periodSuffix}.xlsx`);
@@ -2624,7 +2830,7 @@
                     return matchDateFilter(d.tanggal);
                 });
                 const wsDamageData = [["ID Tiket", "Tanggal", "Pelapor", "No WA", "Lokasi", "Kategori", "Deskripsi", "Feedback Admin", "Status"]];
-                filteredDamages.forEach(d => wsDamageData.push([d.id, d.tanggal, d.pelapor, d.wa, d.lokasi, d.kategori, d.deskripsi, d.feedback || "-", d.status]));
+                filteredDamages.forEach(d => wsDamageData.push([d.id, formatDateDDMMYYYY(d.tanggal), d.pelapor, d.wa, d.lokasi, d.kategori, d.deskripsi, d.feedback || "-", d.status]));
                 XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(wsDamageData), "Laporan_Kerusakan");
                 XLSX.writeFile(wb, `Laporan_Kerusakan${periodSuffix}.xlsx`);
                 showToast('Laporan Kerusakan berhasil diunduh.', 'success');
@@ -2642,8 +2848,9 @@
             document.getElementById('edit-ci-nama').value = b.nama;
             document.getElementById('edit-ci-divisi').value = b.divisi;
             document.getElementById('edit-ci-kategori').value = b.kategori;
-            document.getElementById('edit-ci-tglin').value = b.tglIn;
-            document.getElementById('edit-ci-estout').value = b.estimatedOut !== '-' ? b.estimatedOut : '';
+            document.getElementById('edit-ci-tglin').value = formatShortDate(b.tglIn);
+            const estOut = formatShortDate(b.estimatedOut);
+            document.getElementById('edit-ci-estout').value = estOut !== '-' ? estOut : '';
 
             const modal = document.getElementById('edit-checkin-modal');
             modal.classList.remove('hidden');
@@ -2666,13 +2873,13 @@
             b.nama = document.getElementById('edit-ci-nama').value.trim();
             b.divisi = document.getElementById('edit-ci-divisi').value.trim();
             b.kategori = document.getElementById('edit-ci-kategori').value;
-            b.tglIn = document.getElementById('edit-ci-tglin').value;
-            b.estimatedOut = document.getElementById('edit-ci-estout').value || '-';
+            b.tglIn = formatShortDate(document.getElementById('edit-ci-tglin').value);
+            b.estimatedOut = formatShortDate(document.getElementById('edit-ci-estout').value);
 
             closeEditCheckinModal();
             saveAppData();
             refreshAllUI();
-            showToast('Data check-in berhasil diperbarui.', 'success');
+            showToast(`Check-Out berhasil (${formatDateDDMMYYYY(tglOut)} ${jamOut}). Bed kembali VACANT.`, 'success');
         }
 
         function deleteCheckinRecord(bookingId) {
@@ -2861,9 +3068,16 @@
             }
             const wa = document.getElementById('booking-wa').value.trim();
             const kategori = document.getElementById('booking-kategori').value;
-            const roomCode = document.getElementById('booking-room').value;
-            const tglIn = document.getElementById('booking-tglin').value;
-            const tglOut = document.getElementById('booking-tglout').value;
+            const roomSel = document.getElementById('booking-room');
+            let roomCode = roomSel ? roomSel.value : '';
+
+            // Fallback jika mode otomatis dan select belum terisi
+            if (!roomCode && roomSel && roomSel.options.length > 0) {
+                roomCode = roomSel.options[0].value;
+            }
+
+            const tglIn = formatShortDate(document.getElementById('booking-tglin').value);
+            const tglOut = formatShortDate(document.getElementById('booking-tglout').value);
 
             if (!roomCode) {
                 showToast('Tidak ada kasur kosong yang dipilih.', 'error');
@@ -2877,7 +3091,7 @@
             }
 
             const newBooking = {
-                id: 'BK-' + Math.floor(1000 + Math.random() * 9000),
+                id: 'BK-' + Date.now().toString().slice(-6),
                 nik, nama, posisi, divisi, wa, kategori,
                 roomCode, building: roomObj.building,
                 roomStatus: roomObj.status,
@@ -2890,10 +3104,10 @@
             appState.bookings.push(newBooking);
             saveAppData();
             refreshAllUI();
-            showToast('Pengajuan Check-In berhasil dikirim & tersimpan ke Cloud!', 'success');
+            showToast('Pengajuan Check-In berhasil dikirim ke antrean Approval!', 'success');
             e.target.reset();
             document.getElementById('booking-tglin').value = new Date().toISOString().split('T')[0];
-            updateAvailableBedsDropdown();
+            setPlacementMode(appState.placementMode);
         }
 
         function handleSelfCheckoutSubmit(e) {
@@ -2909,8 +3123,8 @@
                 }
             }
 
-            const tglOut = document.getElementById('self-co-date').value;
-            const jamOut = document.getElementById('self-co-time').value;
+            const tglOut = formatShortDate(document.getElementById('self-co-date').value);
+            const jamOut = formatShortTime(document.getElementById('self-co-time').value);
             const alasan = document.getElementById('self-co-reason').value.trim();
 
             if (!roomCode) {
@@ -2935,7 +3149,7 @@
             const deskripsi = document.getElementById('dmg-desc').value.trim();
 
             const newDmg = {
-                id: 'DMG-' + Math.floor(1000 + Math.random() * 9000),
+                id: 'DMG-' + Date.now().toString().slice(-6),
                 tanggal: new Date().toISOString().split('T')[0],
                 pelapor, wa, lokasi, kategori, deskripsi,
                 feedback: '-',
@@ -2982,9 +3196,10 @@
 
         function openCheckoutModal(roomCode, nik) {
             const now = new Date();
+            const todayDDMMYYYY = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
             document.getElementById('co-room-code').value = roomCode;
             document.getElementById('co-nik').value = nik;
-            document.getElementById('co-date').value = now.toISOString().split('T')[0];
+            document.getElementById('co-date').value = todayDDMMYYYY;
             document.getElementById('co-time').value = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
             document.getElementById('co-reason').value = 'Selesai penugasan';
             
@@ -3002,8 +3217,8 @@
         function handleConfirmCheckout(e) {
             e.preventDefault();
             const roomCode = document.getElementById('co-room-code').value;
-            const tglOut = document.getElementById('co-date').value;
-            const jamOut = document.getElementById('co-time').value;
+            const tglOut = formatShortDate(document.getElementById('co-date').value);
+            const jamOut = formatShortTime(document.getElementById('co-time').value);
             const alasan = document.getElementById('co-reason').value.trim();
 
             processCheckoutExecution(roomCode, tglOut, jamOut, alasan);
@@ -3021,7 +3236,7 @@
             const booking = appState.bookings.find(b => b.nik === nik && b.roomCode === roomCode && b.approvalStatus === 'CEK IN');
 
             const coRecord = {
-                id: 'CO-' + Math.floor(1000 + Math.random() * 9000),
+                id: 'CO-' + Date.now().toString().slice(-6),
                 nik: room.occupantNik,
                 nama: room.occupantName,
                 roomCode: room.code,
