@@ -44,7 +44,7 @@
         <div class="px-4 sm:px-6 py-2.5 flex flex-wrap justify-between items-center gap-3">
             <!-- Brand Logo & Title -->
             <div class="flex items-center gap-3">
-                <button onclick="toggleMobileSidebar()" class="lg:hidden p-2 rounded-xl bg-stone-900/10 text-stone-900 hover:bg-stone-900/15 transition" aria-label="Toggle Menu">
+                <button type="button" onclick="toggleMobileSidebar()" class="lg:hidden p-2 rounded-xl bg-stone-900/10 text-stone-900 hover:bg-stone-900/15 transition" aria-label="Toggle Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
                 <!-- Emblem Logo REI (Mahkota + Berlian + Cincin + REI Emas) -->
@@ -91,7 +91,7 @@
                         <span id="header-admin-name">Mode HR ADMIN</span>
                     </div>
                     <span class="text-stone-300">|</span>
-                    <button onclick="logoutAdmin()" id="btn-header-logout" class="text-xs font-bold text-rose-600 hover:text-rose-700 transition">Kunci / Logout</button>
+                    <button type="button" onclick="logoutAdmin()" id="btn-header-logout" class="text-xs font-bold text-rose-600 hover:text-rose-700 transition">Kunci / Logout</button>
                 </div>
             </div>
         </div>
@@ -112,10 +112,10 @@
                         <span class="text-[11px] font-extrabold text-rei-gold-dark uppercase tracking-wider">HR ADMIN PORTAL</span>
                     </div>
                     <div class="flex items-center gap-1">
-                        <button onclick="syncFromGoogleSheet(true)" title="Tarik Data Terbaru dari Google Sheet" class="text-stone-500 hover:text-emerald-600 transition p-1.5 rounded-lg hover:bg-[#EFE6D5]">
+                        <button type="button" onclick="syncFromGoogleSheet(true)" title="Tarik Data Terbaru dari Google Sheet" class="text-stone-500 hover:text-emerald-600 transition p-1.5 rounded-lg hover:bg-[#EFE6D5]">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                         </button>
-                        <button onclick="promptResetData()" title="Reset Data Awal" class="text-stone-500 hover:text-rose-600 transition p-1.5 rounded-lg hover:bg-[#EFE6D5]">
+                        <button type="button" onclick="promptResetData()" title="Reset Data Awal" class="text-stone-500 hover:text-rose-600 transition p-1.5 rounded-lg hover:bg-[#EFE6D5]">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9"/></svg>
                         </button>
                     </div>
@@ -127,14 +127,14 @@
                     <div class="space-y-1">
                         <p class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-stone-400">Ringkasan & Operasional</p>
                         <nav class="space-y-1">
-                            <button onclick="switchAdminTab('dashboard')" id="a-nav-dashboard" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
+                            <button type="button" onclick="switchAdminTab('dashboard')" id="a-nav-dashboard" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
                                 <span class="w-6 h-6 rounded-lg bg-amber-100/80 text-rei-gold-dark flex items-center justify-center shrink-0">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
                                 </span>
                                 <span class="flex-1 truncate">Dashboard</span>
                             </button>
 
-                            <button onclick="switchAdminTab('aktivitas')" id="a-nav-aktivitas" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
+                            <button type="button" onclick="switchAdminTab('aktivitas')" id="a-nav-aktivitas" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
                                 <span class="w-6 h-6 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
                                     <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
                                 </span>
@@ -147,21 +147,21 @@
                     <div class="space-y-1">
                         <p class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-stone-400">Hunian & Denah Kamar</p>
                         <nav class="space-y-1">
-                            <button onclick="switchAdminTab('master')" id="a-nav-master" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all text-left bg-[#DFC89E] text-stone-900 shadow-2xs border border-[#CBB58B]/60">
+                            <button type="button" onclick="switchAdminTab('master')" id="a-nav-master" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold transition-all text-left bg-[#DFC89E] text-stone-900 shadow-2xs border border-[#CBB58B]/60">
                                 <span class="w-6 h-6 rounded-lg bg-stone-900/10 text-stone-900 flex items-center justify-center shrink-0">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                                 </span>
                                 <span class="flex-1 leading-snug">Master Data & Denah Bed</span>
                             </button>
 
-                            <button onclick="switchAdminTab('pemesanan')" id="a-nav-pemesanan" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
+                            <button type="button" onclick="switchAdminTab('pemesanan')" id="a-nav-pemesanan" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
                                 <span class="w-6 h-6 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
                                 </span>
                                 <span class="flex-1 truncate">Penghuni Aktif</span>
                             </button>
 
-                            <button onclick="switchAdminTab('kalender')" id="a-nav-kalender" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
+                            <button type="button" onclick="switchAdminTab('kalender')" id="a-nav-kalender" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
                                 <span class="w-6 h-6 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                                 </span>
@@ -174,14 +174,14 @@
                     <div class="space-y-1">
                         <p class="px-3 text-[10px] font-extrabold uppercase tracking-widest text-stone-400">Pemeliharaan & Laporan</p>
                         <nav class="space-y-1">
-                            <button onclick="switchAdminTab('kerusakan-admin')" id="a-nav-kerusakan-admin" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
+                            <button type="button" onclick="switchAdminTab('kerusakan-admin')" id="a-nav-kerusakan-admin" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
                                 <span class="w-6 h-6 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
                                 </span>
                                 <span class="flex-1 truncate">Catat & Kelola Kerusakan</span>
                             </button>
 
-                            <button onclick="switchAdminTab('laporan')" id="a-nav-laporan" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
+                            <button type="button" onclick="switchAdminTab('laporan')" id="a-nav-laporan" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:bg-[#EFE6D5] transition-all text-left">
                                 <span class="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                                 </span>
@@ -193,7 +193,7 @@
             </div>
 
             <div class="p-3.5 border-t border-[#E4D8C1] text-[11px] text-stone-600 flex justify-between items-center">
-                <button onclick="logoutAdmin()" class="text-rose-600 hover:text-rose-700 font-bold transition">Kunci Layar</button>
+                <button type="button" onclick="logoutAdmin()" class="text-rose-600 hover:text-rose-700 font-bold transition">Kunci Layar</button>
                 <span class="font-semibold text-rei-gold-dark">Admin Mode v3.1</span>
             </div>
         </aside>
@@ -376,7 +376,7 @@
                         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Daftar Penghuni Aktif Mess</h2>
                         <p class="text-xs text-slate-500">Kelola penghuni yang sedang menempati mess (<strong>CEK IN</strong>) atau proses check-out.</p>
                     </div>
-                    <button onclick="switchAdminTab('master')" class="px-4 py-2.5 rounded-xl bg-rei-gold hover:bg-rei-gold-hover text-rei-black text-xs font-bold shadow-xs transition self-start sm:self-center">
+                    <button type="button" onclick="switchAdminTab('master')" class="px-4 py-2.5 rounded-xl bg-rei-gold hover:bg-rei-gold-hover text-rei-black text-xs font-bold shadow-xs transition self-start sm:self-center">
                         + Tempatkan Penghuni di Denah
                     </button>
                 </div>
@@ -493,13 +493,13 @@
                         <p class="text-xs text-slate-500 mt-0.5">Klik <strong>+ Isi</strong> pada bed kosong (<strong>VACANT</strong>) untuk penempatan baru, atau klik <strong>Edit</strong> pada bed terisi untuk mengubah data karyawan.</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
-                        <button onclick="openAddBuildingModal()" class="px-3.5 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-[#EAD49B] text-xs font-bold shadow-2xs transition whitespace-nowrap flex items-center gap-1.5">
+                        <button type="button" onclick="openAddBuildingModal()" class="px-3.5 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-[#EAD49B] text-xs font-bold shadow-2xs transition whitespace-nowrap flex items-center gap-1.5">
                             <span>🏢</span> + Tambah Gedung
                         </button>
-                        <button onclick="openAddKamarModal()" class="px-3.5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold shadow-2xs transition whitespace-nowrap flex items-center gap-1.5">
+                        <button type="button" onclick="openAddKamarModal()" class="px-3.5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold shadow-2xs transition whitespace-nowrap flex items-center gap-1.5">
                             <span>🚪</span> + Tambah Kamar
                         </button>
-                        <button onclick="openAddKasurModal()" class="px-3.5 py-2.5 rounded-xl bg-[#DFC89E] hover:bg-[#D2B786] text-stone-900 border border-[#CBB58B]/60 text-xs font-bold shadow-2xs transition whitespace-nowrap flex items-center gap-1.5">
+                        <button type="button" onclick="openAddKasurModal()" class="px-3.5 py-2.5 rounded-xl bg-[#DFC89E] hover:bg-[#D2B786] text-stone-900 border border-[#CBB58B]/60 text-xs font-bold shadow-2xs transition whitespace-nowrap flex items-center gap-1.5">
                             <span>🛏️</span> + Tambah Kasur
                         </button>
                     </div>
@@ -531,7 +531,7 @@
                         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Catatan & Laporan Kerusakan Fasilitas</h2>
                         <p class="text-xs text-slate-500">Catat temuan kerusakan fasilitas mess oleh admin dan kelola status tindak lanjutnya.</p>
                     </div>
-                    <button onclick="openAddDamageModal()" class="px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold shadow-xs transition self-start sm:self-center">
+                    <button type="button" onclick="openAddDamageModal()" class="px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold shadow-xs transition self-start sm:self-center">
                         + Catat Kerusakan Baru
                     </button>
                 </div>
@@ -563,7 +563,7 @@
                         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Pusat Laporan & Download Excel</h2>
                         <p class="text-xs text-slate-500 mt-0.5">Unduh data rekapitulasi sesuai kategori laporan dan filter periode</p>
                     </div>
-                    <button onclick="exportCurrentReportExcel()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition flex items-center gap-2 shrink-0">
+                    <button type="button" onclick="exportCurrentReportExcel()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition flex items-center gap-2 shrink-0">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                         <span id="btn-export-label">Download Laporan Ini (.xlsx)</span>
                     </button>
@@ -604,16 +604,16 @@
 
                 <!-- Sub-Tab Pill Buttons -->
                 <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-                    <button onclick="switchReportTab('master-mess')" id="rep-sub-master-mess" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap">
+                    <button type="button" onclick="switchReportTab('master-mess')" id="rep-sub-master-mess" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap">
                         Master Mess & Bed
                     </button>
-                    <button onclick="switchReportTab('master-kamar')" id="rep-sub-master-kamar" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap">
+                    <button type="button" onclick="switchReportTab('master-kamar')" id="rep-sub-master-kamar" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap">
                         Master Kamar
                     </button>
-                    <button onclick="switchReportTab('checkin')" id="rep-sub-checkin" class="px-4 py-2 rounded-xl text-xs font-bold bg-rei-gold text-rei-black shadow-xs transition whitespace-nowrap">
+                    <button type="button" onclick="switchReportTab('checkin')" id="rep-sub-checkin" class="px-4 py-2 rounded-xl text-xs font-bold bg-rei-gold text-rei-black shadow-xs transition whitespace-nowrap">
                         Data Check-In
                     </button>
-                    <button onclick="switchReportTab('kerusakan')" id="rep-sub-kerusakan" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap">
+                    <button type="button" onclick="switchReportTab('kerusakan')" id="rep-sub-kerusakan" class="px-4 py-2 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition whitespace-nowrap">
                         Laporan Kerusakan
                     </button>
                 </div>
@@ -1274,7 +1274,7 @@
                             Akses Terbatas • HR Admin
                         </span>
                         <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Selamat Datang Kembali</h3>
-                        <p class="text-xs text-slate-500">Silakan masukkan kredensial akun HR Admin Anda untuk mengakses panel pengelolaan mess.</p>
+                        <p class="text-xs text-slate-500">Silakan masukkan username dan kata sandi untuk mengakses menu SIMK.</p>
                     </div>
 
                     <form onsubmit="handleAdminLogin(event)" class="space-y-4">
@@ -1381,7 +1381,7 @@
             { id: 'p2-l101-5b', building: 'Petojo 2', code: 'Petojo 2 L.101 5.B', status: 'VACANT', occupantNik: '', occupantName: '', occupantPosisi: '' },
             { id: 'p2-l101-6a', building: 'Petojo 2', code: 'Petojo 2 L.101 6.A', status: 'VACANT', occupantNik: '', occupantName: '', occupantPosisi: '' },
             { id: 'p2-l101-6b', building: 'Petojo 2', code: 'Petojo 2 L.101 6.B', status: 'VACANT', occupantNik: '', occupantName: '', occupantPosisi: '' },
-            
+
             { id: 'p2-l102-1a', building: 'Petojo 2', code: 'Petojo 2 L.102 1.A', status: 'VACANT', occupantNik: '', occupantName: '', occupantPosisi: '' },
             { id: 'p2-l102-1b', building: 'Petojo 2', code: 'Petojo 2 L.102 1.B', status: 'VACANT', occupantNik: '', occupantName: '', occupantPosisi: '' },
             { id: 'p2-l102-2a', building: 'Petojo 2', code: 'Petojo 2 L.102 2.A', status: 'VACANT', occupantNik: '', occupantName: '', occupantPosisi: '' },
@@ -2519,7 +2519,6 @@
                 refreshAllUI();
                 showToast(`Data penghuni ${nama} di ${bed.code} berhasil diperbarui!`, 'success');
             } else {
-                // Jika kasur sebelumnya terisi namun belum tercatat booking aktif, perbarui atau buat baru
                 const fallbackBk = getOccupantBooking(bed);
                 if (fallbackBk && bed.occupantName) {
                     fallbackBk.nik = nik;
@@ -3212,8 +3211,8 @@
                         <td class="p-3 font-semibold">${formatDateDDMMYYYY(b.estimatedOut)}</td>
                         <td class="p-3 text-center">
                             <div class="flex items-center justify-center gap-1.5">
-                                <button onclick="openEditCheckinModal('${b.id}')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px]">Edit</button>
-                                <button onclick="openCheckoutModal('${b.roomCode}', '${b.nik}')" class="px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px]">Check-Out</button>
+                                <button type="button" onclick="openEditCheckinModal('${b.id}')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px]">Edit</button>
+                                <button type="button" onclick="openCheckoutModal('${b.roomCode}', '${b.nik}')" class="px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px]">Check-Out</button>
                             </div>
                         </td>
                     </tr>
@@ -3236,9 +3235,9 @@
                         </td>
                         <td class="p-3 text-center">
                             <div class="flex items-center justify-center gap-1.5">
-                                <button onclick="openDamageFeedbackModal('${d.id}')" class="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px]">Tindak Lanjut</button>
-                                <button onclick="openEditDamageModal('${d.id}')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px]">Edit</button>
-                                <button onclick="deleteDamageReport('${d.id}')" class="px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-[11px]">Hapus</button>
+                                <button type="button" onclick="openDamageFeedbackModal('${d.id}')" class="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px]">Tindak Lanjut</button>
+                                <button type="button" onclick="openEditDamageModal('${d.id}')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px]">Edit</button>
+                                <button type="button" onclick="deleteDamageReport('${d.id}')" class="px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-[11px]">Hapus</button>
                             </div>
                         </td>
                     </tr>
@@ -3570,8 +3569,8 @@
                         <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${b.approvalStatus === 'CEK IN' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'}">${b.approvalStatus}</span></td>
                         <td class="p-3 text-center">
                             <div class="flex items-center justify-center gap-1">
-                                <button onclick="openEditCheckinModal('${b.id}')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[10px]">Edit</button>
-                                <button onclick="deleteBookingRecord('${b.id}')" class="px-2 py-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-[10px]">Hapus</button>
+                                <button type="button" onclick="openEditCheckinModal('${b.id}')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[10px]">Edit</button>
+                                <button type="button" onclick="deleteBookingRecord('${b.id}')" class="px-2 py-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-[10px]">Hapus</button>
                             </div>
                         </td>
                     </tr>
@@ -3595,7 +3594,7 @@
                         <td class="p-3">${d.feedback || '-'}</td>
                         <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${d.status === 'SELESAI' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${d.status}</span></td>
                         <td class="p-3 text-center">
-                            <button onclick="openDamageFeedbackModal('${d.id}')" class="px-2 py-1 rounded bg-emerald-600 text-white font-bold text-[10px]">Feedback</button>
+                            <button type="button" onclick="openDamageFeedbackModal('${d.id}')" class="px-2 py-1 rounded bg-emerald-600 text-white font-bold text-[10px]">Feedback</button>
                         </td>
                     </tr>
                 `).join('') : `<tr><td colspan="9" class="p-6 text-center text-slate-400">Tidak ada data kerusakan pada periode ini.</td></tr>`;
